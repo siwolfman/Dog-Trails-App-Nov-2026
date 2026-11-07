@@ -90,8 +90,8 @@ export const PlaceSchema = z
     shade_level: ShadeLevelSchema.nullable(),
     parking_notes: z.string().nullable(),
     typical_duration_minutes: z.number().int().min(10).max(600).nullable(),
-    created_at: z.iso.datetime(),
-    updated_at: z.iso.datetime(),
+    created_at: z.iso.datetime({ offset: true }),
+    updated_at: z.iso.datetime({ offset: true }),
   })
   .superRefine((p, ctx) => {
     if (p.verification_status === 'verified') {
@@ -140,7 +140,7 @@ export type NewReport = z.infer<typeof NewReportSchema>
 
 export const ReportSchema = NewReportSchema.extend({
   id: z.string().min(1),
-  created_at: z.iso.datetime(),
+  created_at: z.iso.datetime({ offset: true }),
   status: z.enum(['open', 'reviewed', 'resolved']),
 })
 export type Report = z.infer<typeof ReportSchema>
@@ -171,7 +171,7 @@ export const AppEventSchema = z.object({
   event_name: EventNameSchema,
   place_id: z.string().nullable(),
   properties: z.record(z.string(), z.union([z.string(), z.number(), z.boolean()])),
-  created_at: z.iso.datetime(),
+  created_at: z.iso.datetime({ offset: true }),
 })
 export type AppEvent = z.infer<typeof AppEventSchema>
 

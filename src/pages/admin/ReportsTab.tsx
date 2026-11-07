@@ -40,7 +40,12 @@ export default function ReportsTab({ places }: { places: Place[] }) {
                 value={r.status}
                 onChange={async (e) => {
                   const status = e.target.value as Report['status']
-                  await dataClient.updateReportStatus(r.id, status)
+                  try {
+                    await dataClient.updateReportStatus(r.id, status)
+                  } catch {
+                    window.alert('Could not update the report.')
+                    return
+                  }
                   setReports(
                     (prev) =>
                       prev?.map((x) => (x.id === r.id ? { ...x, status } : x)) ?? prev,

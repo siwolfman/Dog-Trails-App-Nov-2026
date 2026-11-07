@@ -3,9 +3,9 @@
 Know the dog rules before you drive. Pawprint shows a dated, source-linked dog rule and a
 Go/No-Go summary for Bay Area trails, parks and beaches.
 
-This first milestone is **front end only** (React + Vite + TypeScript). Data comes from a
-reviewable seed file and persists reports, Sunday Picks edits and events in the browser's
-`localStorage`. The Supabase backend plugs in later behind one interface (see below).
+React + Vite + TypeScript front end, backed by Supabase (Postgres, Row Level Security, Auth).
+Without Supabase env vars it falls back to the bundled seed file and `localStorage`, so it still
+runs with no backend.
 
 ## Run it
 
@@ -13,7 +13,7 @@ Requires Node 22+ and npm.
 
 ```bash
 npm install
-cp .env.example .env.local   # then set VITE_ADMIN_PASSWORD
+cp .env.example .env.local   # then fill in the Supabase URL and publishable key
 npm run dev                  # http://localhost:5173
 ```
 
@@ -33,7 +33,7 @@ npm run dev                  # http://localhost:5173
 - `/place/:slug` Go/No-Go card, source link, verified stamp, hazards, live weather and heat warning,
   "Report an issue"
 - `/sunday` hand-picked Sunday Picks (3 to 5 verified places)
-- `/admin` edit picks, triage reports, view and export events (see the caveat below)
+- `/admin` edit picks, triage reports, view and export events (Supabase Auth, admins only)
 
 ## Data integrity (the rules the app enforces)
 
@@ -48,33 +48,60 @@ npm run dev                  # http://localhost:5173
   such in the UI. They are not dog rules.
 - See `docs/seed-verification.md` for which seed entries are verified and which are not.
 
+## Backend (Supabase)
+
+Project: `oovptnuvewvhjnbylxzq` (Dog Trails App). Schema and security live in `supabase/migrations/`;
+`supabase/seed.sql` is generated from `data/places.seed.json` (`npm run seed:sql`).
+
+**What the public can do** (the publishable key, enforced by Row Level Security):
+
+|             | places, rule history, Sunday picks | reports              | events       |
+| ----------- | ---------------------------------- | -------------------- | ------------ |
+| Anyone      | read                               | file (always `open`) | log          |
+| Admins only | create, edit, delete               | read, triage, delete | read, delete |
+
+- Integrity is in the database too: a `CHECK` forbids a rule on a `needs_verification` place, and
+  `save_sunday_picks()` refuses unverified places and more than 5 picks.
+- Changing a place's `dog_status` writes a `place_rule_history` row automatically (trigger).
+- The browser only ever holds the **publishable** key. Never put the `service_role` key in a `VITE_` variable.
+
+### Setting up an admin
+
+Admins sign in at `/admin` with Supabase Auth (email and password). No signup screen exists in the app.
+
+1. Supabase dashboard, Authentication, Users, **Add user** (tick _Auto Confirm User_).
+2. In the SQL editor, make that user an admin:
+
+```sql
+insert into public.admins (user_id)
+select id from auth.users where email = 'you@example.com';
+```
+
+Anyone else who signs in is told they are not an admin, and the database refuses their writes anyway.
+
 ## Architecture
 
 ```
-data/places.seed.json     reviewable seed (places, rule history, default Sunday picks)
-src/data/client.ts        DataClient interface: the Supabase seam
-src/data/localClient.ts   bundled seed + localStorage implementation
-src/data/index.ts         the one line to change when Supabase arrives
-src/data/schemas.ts       Zod schemas (mirror the planned tables)
-src/lib/                  dog status logic, filters, weather, tracking, admin helpers
+data/places.seed.json         reviewable seed (source of truth for places and rules)
+supabase/migrations/          schema, RLS policies, functions
+supabase/seed.sql             generated from the seed JSON
+src/data/client.ts            DataClient interface
+src/data/supabaseClient.ts    Supabase implementation
+src/data/localClient.ts       seed + localStorage fallback (no env vars needed)
+src/data/index.ts             picks the implementation from env vars
+src/data/schemas.ts           Zod schemas (rows from the database are validated too)
+src/lib/                      dog status logic, filters, weather, tracking, admin helpers
 src/components/, src/pages/
-supabase/schema.sql       DRAFT Postgres/PostGIS schema, not executed
 ```
-
-### Moving to Supabase
-
-1. Run `supabase/schema.sql` in a new project and load the seed rows.
-2. Write `src/data/supabaseClient.ts` implementing `DataClient` and export it from `src/data/index.ts`.
-3. Replace the `/admin` placeholder gate with Supabase Auth and Row Level Security (draft policies are in
-   the schema file).
 
 ## Known limitations
 
-- **`/admin` is not secure.** Any `VITE_` variable ships in the JS bundle, so the password is only a
-  placeholder gate (it also fails closed if unset). Do not rely on it for anything that matters.
-- Reports, Sunday Picks edits and events live in one browser until the backend exists.
 - Map tiles default to the public OpenStreetMap server, fine for development but not for production traffic.
   Set `VITE_MAP_STYLE_URL` to another style (OpenFreeMap, Protomaps, MapTiler) before launch.
+- Public report and event inserts are not rate limited yet; add a limit (Edge Function or `pg` trigger)
+  before real traffic.
 - No drive times (needs a routing API); the list shows area instead.
 - Open-Meteo is called from the browser with the place's coordinates only.
 - PWA basics only: manifest and icon, no offline shell.
+- Without Supabase configured, `/admin` falls back to a placeholder password from `VITE_ADMIN_PASSWORD`.
+  That is **not secure** (it ships in the JS bundle); it exists only so local development works offline.

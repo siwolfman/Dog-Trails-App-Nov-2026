@@ -1,5 +1,6 @@
 import seedJson from '@data/places.seed.json'
 import type { DataClient, NewSundayPick } from './client.ts'
+import { sanitizeProperties } from './sanitize.ts'
 import { clearStorageKey, readJSON, writeJSON } from './storage.ts'
 import {
   AppEventSchema,
@@ -14,7 +15,6 @@ import {
 const seed = SeedFileSchema.parse(seedJson)
 
 const MAX_EVENTS = 2000
-const MAX_STRING = 100
 
 function newId(prefix: string): string {
   const rand =
@@ -22,18 +22,6 @@ function newId(prefix: string): string {
       ? crypto.randomUUID()
       : Math.random().toString(36).slice(2)
   return `${prefix}-${rand}`
-}
-
-/** Keep event properties small, flat and free of anything that could identify a person. */
-export function sanitizeProperties(
-  props: Record<string, string | number | boolean> = {},
-): Record<string, string | number | boolean> {
-  const out: Record<string, string | number | boolean> = {}
-  for (const [k, v] of Object.entries(props).slice(0, 12)) {
-    const key = k.slice(0, 40)
-    out[key] = typeof v === 'string' ? v.slice(0, MAX_STRING) : v
-  }
-  return out
 }
 
 export function createLocalClient(): DataClient {
@@ -130,3 +118,5 @@ export function createLocalClient(): DataClient {
     },
   }
 }
+
+export { sanitizeProperties }

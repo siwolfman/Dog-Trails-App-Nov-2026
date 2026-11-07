@@ -44,8 +44,12 @@ export default function PicksTab({ places, initialWeek, initialPicks }: Props) {
     const problems = validatePicks(picks, places, today)
     setErrors(problems)
     if (problems.length) return
-    await dataClient.saveSundayPicks(week, picks)
-    setSaved(true)
+    try {
+      await dataClient.saveSundayPicks(week, picks)
+      setSaved(true)
+    } catch (e) {
+      setErrors([e instanceof Error ? e.message : 'Could not save the picks.'])
+    }
   }
 
   const move = (i: number, dir: -1 | 1) => {
@@ -163,7 +167,7 @@ export default function PicksTab({ places, initialWeek, initialPicks }: Props) {
       )}
       {saved && (
         <p role="status" className="mt-4 font-bold text-teal-deep">
-          Saved. The Sunday picks page now shows this list in this browser.
+          Saved. The Sunday picks page now shows this list.
         </p>
       )}
 
