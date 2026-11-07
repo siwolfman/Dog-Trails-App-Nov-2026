@@ -3,17 +3,18 @@ const PREFIX = 'pawprint:v1:'
 const memory = new Map<string, string>()
 
 export function readJSON<T>(key: string, fallback: T): T {
+  let raw: string | null
   try {
-    const raw = window.localStorage.getItem(PREFIX + key) ?? memory.get(key) ?? null
-    return raw === null ? fallback : (JSON.parse(raw) as T)
+    raw = window.localStorage.getItem(PREFIX + key)
   } catch {
-    const raw = memory.get(key)
-    if (raw === undefined) return fallback
-    try {
-      return JSON.parse(raw) as T
-    } catch {
-      return fallback
-    }
+    // Storage is blocked: use the in-memory copy for this tab.
+    raw = memory.get(key) ?? null
+  }
+  if (raw === null) return fallback
+  try {
+    return JSON.parse(raw) as T
+  } catch {
+    return fallback
   }
 }
 

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 import GoNoGoCard from '@/components/GoNoGoCard.tsx'
 import Hero from '@/components/Hero.tsx'
+import ReportSheet from '@/components/ReportSheet.tsx'
 import { dataClient } from '@/data/index.ts'
 import type { Place, PlaceRuleHistory } from '@/data/schemas.ts'
 import { getDisplayRule, todayISO } from '@/lib/dogStatus.ts'
@@ -68,6 +69,7 @@ export default function PlaceRoute() {
 
 function PlaceView({ slug }: { slug: string }) {
   const navigate = useNavigate()
+  const [reportOpen, setReportOpen] = useState(false)
   const [load, setLoad] = useState<Load>({ status: 'loading' })
   const today = useMemo(() => todayISO(), [])
 
@@ -196,6 +198,36 @@ function PlaceView({ slug }: { slug: string }) {
           </>
         )}
 
+        <section
+          aria-labelledby="report-cta"
+          className="mt-8 rounded-card border-2 border-dashed border-ink p-5"
+        >
+          <h2 id="report-cta" className="text-xl">
+            Rule look wrong or out of date?
+          </h2>
+          <p className="mt-1 text-ink-soft">Tell us and we will recheck the source.</p>
+          <button
+            type="button"
+            onClick={() => setReportOpen(true)}
+            className="mt-4 flex min-h-14 w-full items-center justify-center gap-2 rounded-full border-2 border-ink bg-card text-lg font-bold"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M6 21V4M6 5h11l-2 4 2 4H6" />
+            </svg>
+            Report an issue
+          </button>
+        </section>
+
         <p className="mt-8 text-sm text-ink-soft">
           Rules come from {agencyShort(p.agency)}. Posted signs on site always win.{' '}
           <Link to="/" className="font-bold underline">
@@ -203,6 +235,8 @@ function PlaceView({ slug }: { slug: string }) {
           </Link>
         </p>
       </main>
+
+      <ReportSheet place={p} open={reportOpen} onClose={() => setReportOpen(false)} />
 
       <div className="fixed inset-x-0 bottom-0 z-10 border-t border-line bg-paper/95 px-5 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur">
         <div className="mx-auto flex max-w-xl gap-3">

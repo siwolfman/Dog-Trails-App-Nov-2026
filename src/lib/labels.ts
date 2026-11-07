@@ -51,6 +51,8 @@ export const SHADE_LABELS = {
 export function durationLabel(minutes: number | null): string | null {
   if (minutes === null) return null
   if (minutes < 60) return `${minutes} min`
-  const h = minutes / 60
-  return Number.isInteger(h) ? `${h} hr${h === 1 ? '' : 's'}` : `${h.toFixed(1)} hrs`
+  const h = Math.floor(minutes / 60)
+  const m = minutes % 60
+  const hours = `${h} hr${h === 1 ? '' : 's'}`
+  return m === 0 ? hours : `${hours} ${m} min`
 }
