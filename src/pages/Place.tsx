@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Link, useNavigate, useParams } from 'react-router'
+import { Link, useLocation, useNavigate, useParams } from 'react-router'
 import GoNoGoCard from '@/components/GoNoGoCard.tsx'
 import Hero from '@/components/Hero.tsx'
 import ReportSheet from '@/components/ReportSheet.tsx'
@@ -14,6 +14,7 @@ import {
   agencyShort,
   durationLabel,
 } from '@/lib/labels.ts'
+import { track } from '@/lib/track.ts'
 import { HEAT_COPY, fetchWeather, type Weather } from '@/lib/weather.ts'
 import NotFound from './NotFound.tsx'
 
@@ -69,6 +70,8 @@ export default function PlaceRoute() {
 
 function PlaceView({ slug }: { slug: string }) {
   const navigate = useNavigate()
+  const location = useLocation()
+  const from = (location.state as { from?: string } | null)?.from ?? 'direct'
   const [reportOpen, setReportOpen] = useState(false)
   const [load, setLoad] = useState<Load>({ status: 'loading' })
   const today = useMemo(() => todayISO(), [])
@@ -87,6 +90,16 @@ function PlaceView({ slug }: { slug: string }) {
   }, [slug])
 
   const place = load.status === 'ready' ? load.place : null
+
+  useEffect(() => {
+    if (place) {
+      track('place_viewed', place.id, {
+        slug: place.slug,
+        state: getDisplayRule(place, today).state,
+        from,
+      })
+    }
+  }, [place, today, from])
   const weather = useWeather(place)
 
   useEffect(() => {
@@ -145,7 +158,15 @@ function PlaceView({ slug }: { slug: string }) {
         </p>
 
         <div className="mt-5">
-          <GoNoGoCard place={p} rule={rule} history={history} onSourceClick={() => {}} />
+          <GoNoGoCard
+            place={p}
+            rule={rule}
+            history={history}
+            onSeen={() => track('gonogo_opened', p.id, { state: rule.state })}
+            onSourceClick={() =>
+              track('source_link_clicked', p.id, { state: rule.state, agency: p.agency })
+            }
+          />
         </div>
 
         <h2 className="mt-8 mb-3 text-2xl">Before you drive</h2>
@@ -236,7 +257,12 @@ function PlaceView({ slug }: { slug: string }) {
         </p>
       </main>
 
-      <ReportSheet place={p} open={reportOpen} onClose={() => setReportOpen(false)} />
+      <ReportSheet
+        place={p}
+        open={reportOpen}
+        onClose={() => setReportOpen(false)}
+        onSubmitted={(type) => track('report_submitted', p.id, { type })}
+      />
 
       <div className="fixed inset-x-0 bottom-0 z-10 border-t border-line bg-paper/95 px-5 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur">
         <div className="mx-auto flex max-w-xl gap-3">

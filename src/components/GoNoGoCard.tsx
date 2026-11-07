@@ -1,6 +1,7 @@
 import type { Place, PlaceRuleHistory } from '@/data/schemas.ts'
 import { STATUS_META, formatDate, type DisplayRule } from '@/lib/dogStatus.ts'
 import { agencyShort } from '@/lib/labels.ts'
+import { useOnVisible } from '@/lib/useOnVisible.ts'
 import FreshnessStamp from './FreshnessStamp.tsx'
 import StatusIcon from './StatusIcon.tsx'
 
@@ -31,13 +32,22 @@ interface Props {
   rule: DisplayRule
   history: PlaceRuleHistory[]
   onSourceClick: () => void
+  /** Fired once when at least half of the card has been on screen. */
+  onSeen?: () => void
 }
 
 /**
  * Glanceable in two seconds: verdict first, then source and date, then (below the card) hazards.
  * Unverified places render a banner and NEVER a confident rule.
  */
-export default function GoNoGoCard({ place, rule, history, onSourceClick }: Props) {
+export default function GoNoGoCard({
+  place,
+  rule,
+  history,
+  onSourceClick,
+  onSeen,
+}: Props) {
+  const ref = useOnVisible<HTMLElement>(() => onSeen?.(), Boolean(onSeen))
   const meta = STATUS_META[rule.state]
   const unverified = rule.state === 'unverified'
   const latest = history[0]
@@ -45,6 +55,7 @@ export default function GoNoGoCard({ place, rule, history, onSourceClick }: Prop
 
   return (
     <section
+      ref={ref}
       aria-labelledby="gonogo-heading"
       className={`rounded-card p-5 ${SURFACE[rule.state]}`}
     >

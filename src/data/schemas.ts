@@ -160,6 +160,8 @@ export const EVENT_NAMES = [
   'source_link_clicked',
   'report_submitted',
   'filter_used',
+  // Addition beyond the brief's five: needed to measure weekly return to Sunday Picks.
+  'sunday_viewed',
 ] as const
 export const EventNameSchema = z.enum(EVENT_NAMES)
 export type EventName = z.infer<typeof EventNameSchema>

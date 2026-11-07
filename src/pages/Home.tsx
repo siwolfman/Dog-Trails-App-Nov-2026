@@ -5,6 +5,7 @@ import FilterBar from '@/components/FilterBar.tsx'
 import FilterSheet from '@/components/FilterSheet.tsx'
 import PlaceRow from '@/components/PlaceRow.tsx'
 import { usePlaces } from '@/data/usePlaces.ts'
+import { track } from '@/lib/track.ts'
 import { todayISO } from '@/lib/dogStatus.ts'
 import {
   EMPTY_FILTERS,
@@ -17,6 +18,24 @@ import {
 
 // Loaded on demand so the list renders before the map library arrives (matters on cellular).
 const PlaceMap = lazy(() => import('@/components/PlaceMap.tsx'))
+
+function describeFilter(f: Filters, which: string): string {
+  switch (which) {
+    case 'rule':
+    case 'off_leash':
+      return f.rules.join('+') || 'none'
+    case 'duration':
+      return f.duration.join('+') || 'none'
+    case 'area':
+      return f.areas.join('+') || 'none'
+    case 'water':
+      return String(f.water)
+    case 'shade':
+      return String(f.shade)
+    default:
+      return 'cleared'
+  }
+}
 
 export default function Home() {
   const [params, setParams] = useSearchParams()
@@ -33,10 +52,24 @@ export default function Home() {
   )
 
   const onFilters = useCallback(
-    (next: Filters) => setParams(serializeFilters(next), { replace: true }),
-    [setParams],
+    (next: Filters, which: string = 'clear') => {
+      // Free-text search is never logged. Log it once, when a search starts.
+      if (which !== 'search') {
+        track('filter_used', null, {
+          filter: which,
+          value: describeFilter(next, which),
+        })
+      } else if (!filters.q && next.q) {
+        track('filter_used', null, { filter: 'search' })
+      }
+      setParams(serializeFilters(next), { replace: true })
+    },
+    [setParams, filters.q],
   )
-  const openPlace = useCallback((slug: string) => navigate(`/place/${slug}`), [navigate])
+  const openPlace = useCallback(
+    (slug: string) => navigate(`/place/${slug}`, { state: { from: 'map' } }),
+    [navigate],
+  )
 
   return (
     <main className="relative h-dvh overflow-hidden md:flex">
@@ -94,7 +127,7 @@ export default function Home() {
             <p className="mt-1 text-ink-soft">Try removing a filter.</p>
             <button
               type="button"
-              onClick={() => onFilters(EMPTY_FILTERS)}
+              onClick={() => onFilters(EMPTY_FILTERS, 'clear')}
               className="mt-4 min-h-12 rounded-full bg-ink px-6 font-bold text-card"
             >
               Clear filters

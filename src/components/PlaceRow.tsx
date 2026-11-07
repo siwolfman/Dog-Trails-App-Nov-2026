@@ -21,6 +21,7 @@ export default function PlaceRow({ place, today, selected, onHover }: Props) {
     <li id={`row-${place.id}`}>
       <Link
         to={`/place/${place.slug}`}
+        state={{ from: 'list' }}
         onMouseEnter={() => onHover?.(place.id)}
         onMouseLeave={() => onHover?.(null)}
         className={`flex min-h-[72px] items-center gap-4 border-b border-line px-5 py-4 no-underline text-ink active:bg-sand/50 ${selected ? 'bg-teal-tint/60' : ''}`}

@@ -6,6 +6,7 @@ import { dataClient } from '@/data/index.ts'
 import type { Place, SundayPick } from '@/data/schemas.ts'
 import { STATUS_META, formatDate, getDisplayRule, todayISO } from '@/lib/dogStatus.ts'
 import { agencyShort } from '@/lib/labels.ts'
+import { track } from '@/lib/track.ts'
 import { sundayOf } from '@/lib/weeks.ts'
 
 interface Data {
@@ -20,6 +21,7 @@ export default function Sunday() {
 
   useEffect(() => {
     document.title = 'Sunday Picks · Pawprint'
+    track('sunday_viewed')
     let live = true
     Promise.all([dataClient.getSundayPicks(), dataClient.listPlaces()]).then(
       ([{ weekStart, picks }, places]) => live && setData({ weekStart, picks, places }),
@@ -64,6 +66,7 @@ export default function Sunday() {
               <li key={pick.id}>
                 <Link
                   to={`/place/${place.slug}`}
+                  state={{ from: 'sunday' }}
                   className="block rounded-card border border-line bg-card p-5 text-ink no-underline active:bg-sand/50"
                 >
                   <div className="flex items-center gap-4">
