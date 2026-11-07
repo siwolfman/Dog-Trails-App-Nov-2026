@@ -1,5 +1,6 @@
 import { lazy, Suspense, useCallback, useMemo, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router'
+import AccountBar from '@/components/AccountBar.tsx'
 import BottomSheet from '@/components/BottomSheet.tsx'
 import FilterBar from '@/components/FilterBar.tsx'
 import FilterSheet from '@/components/FilterSheet.tsx'
@@ -146,6 +147,7 @@ export default function Home() {
             ))}
           </ul>
         )}
+        <AccountBar className="border-t border-line px-5 py-4" />
       </BottomSheet>
 
       <FilterSheet

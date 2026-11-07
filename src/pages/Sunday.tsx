@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
+import AccountBar from '@/components/AccountBar.tsx'
 import { StatusTile } from '@/components/StatusBadge.tsx'
 import FreshnessStamp from '@/components/FreshnessStamp.tsx'
 import { dataClient } from '@/data/index.ts'
@@ -49,6 +50,8 @@ export default function Sunday() {
           </p>
         )}
       </header>
+
+      <AccountBar className="mt-4" />
 
       {!data ? (
         <p className="mt-8 font-mono text-ink-soft">Loading…</p>

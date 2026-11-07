@@ -4,6 +4,7 @@ Know the dog rules before you drive. Pawprint shows a dated, source-linked dog r
 Go/No-Go summary for Bay Area trails, parks and beaches.
 
 React + Vite + TypeScript front end, backed by Supabase (Postgres, Row Level Security, Auth).
+The app requires an account: people sign up and log in with an email and password.
 Without Supabase env vars it falls back to the bundled seed file and `localStorage`, so it still
 runs with no backend.
 
@@ -29,6 +30,7 @@ npm run dev                  # http://localhost:5173
 
 ## What is in it
 
+- `/signup` and `/login` email and password accounts (Supabase Auth). Every other page needs a login
 - `/` map and list, with filters (rule, outing length, area, water, shade) kept in the URL
 - `/place/:slug` Go/No-Go card, source link, verified stamp, hazards, live weather and heat warning,
   "Report an issue"
@@ -53,13 +55,15 @@ npm run dev                  # http://localhost:5173
 Project: `oovptnuvewvhjnbylxzq` (Dog Trails App). Schema and security live in `supabase/migrations/`;
 `supabase/seed.sql` is generated from `data/places.seed.json` (`npm run seed:sql`).
 
-**What the public can do** (the publishable key, enforced by Row Level Security):
+**Who can do what** (the publishable key plus the user's login, enforced by Row Level Security):
 
-|             | places, rule history, Sunday picks | reports              | events       |
-| ----------- | ---------------------------------- | -------------------- | ------------ |
-| Anyone      | read                               | file (always `open`) | log          |
-| Admins only | create, edit, delete               | read, triage, delete | read, delete |
+|                    | places, rule history, Sunday picks | reports              | events       |
+| ------------------ | ---------------------------------- | -------------------- | ------------ |
+| Not signed in      | nothing                            | nothing              | nothing      |
+| Any signed-in user | read                               | file (always `open`) | log          |
+| Admins only        | create, edit, delete               | read, triage, delete | read, delete |
 
+- Reports and events do **not** store who sent them (no user id column), though a login is needed to send one.
 - Integrity is in the database too: a `CHECK` forbids a rule on a `needs_verification` place, and
   `save_sunday_picks()` refuses unverified places and more than 5 picks.
 - Changing a place's `dog_status` writes a `place_rule_history` row automatically (trigger).
@@ -77,7 +81,11 @@ insert into public.admins (user_id)
 select id from auth.users where email = 'you@example.com';
 ```
 
-Anyone else who signs in is told they are not an admin, and the database refuses their writes anyway.
+Other accounts that open `/admin` are told they are not an admin, and the database refuses their writes anyway.
+
+**Dashboard settings that matter** (not controllable from this repo): Authentication, Sign In / Providers, Email.
+If _Confirm email_ is on, new users are told to check their inbox before logging in; if off, they are logged in
+immediately. Set a minimum password length of 8 or more to match the app's own check.
 
 ## Architecture
 
@@ -98,8 +106,9 @@ src/components/, src/pages/
 
 - Map tiles default to the public OpenStreetMap server, fine for development but not for production traffic.
   Set `VITE_MAP_STYLE_URL` to another style (OpenFreeMap, Protomaps, MapTiler) before launch.
-- Public report and event inserts are not rate limited yet; add a limit (Edge Function or `pg` trigger)
-  before real traffic.
+- Report and event inserts are not rate limited yet, and anyone can create an account: add limits and consider
+  CAPTCHA or email confirmation before real traffic.
+- No password reset, email change or account deletion yet.
 - No drive times (needs a routing API); the list shows area instead.
 - Open-Meteo is called from the browser with the place's coordinates only.
 - PWA basics only: manifest and icon, no offline shell.

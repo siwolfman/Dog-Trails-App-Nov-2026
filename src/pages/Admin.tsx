@@ -4,7 +4,7 @@ import { dataClient } from '@/data/index.ts'
 import type { Place, SundayPick } from '@/data/schemas.ts'
 import { checkAdminPassword } from '@/lib/admin.ts'
 import { backend } from '@/data/index.ts'
-import { useSupabaseAdmin } from '@/data/useSupabaseAdmin.ts'
+import { useAuth } from '@/auth/useAuth.ts'
 import EventsTab from './admin/EventsTab.tsx'
 import PicksTab from './admin/PicksTab.tsx'
 import ReportsTab from './admin/ReportsTab.tsx'
@@ -173,113 +173,42 @@ function Panel({
   )
 }
 
-function SupabaseGate({
-  onSignIn,
-  notAdminEmail,
-  onSignOut,
-}: {
-  onSignIn: (email: string, password: string) => Promise<string | null>
-  notAdminEmail?: string
-  onSignOut: () => void
-}) {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState<string | null>(null)
-  const [busy, setBusy] = useState(false)
-
-  if (notAdminEmail) {
-    return (
-      <main className="mx-auto max-w-sm px-5 py-16">
-        <h1 className="text-3xl">Admin</h1>
-        <p
-          role="alert"
-          className="mt-4 rounded-2xl border-2 border-dashed border-ink p-4"
-        >
-          Signed in as <b>{notAdminEmail}</b>, which is not an admin. Ask the project
-          owner to add this account to the <code>admins</code> table.
-        </p>
-        <button
-          type="button"
-          onClick={onSignOut}
-          className="mt-4 min-h-12 rounded-full border-2 border-ink px-6 font-bold"
-        >
-          Sign out
-        </button>
-      </main>
-    )
-  }
-
-  async function submit(e: FormEvent) {
-    e.preventDefault()
-    setBusy(true)
-    setError(await onSignIn(email.trim(), password))
-    setBusy(false)
-  }
-
-  return (
-    <main className="mx-auto max-w-sm px-5 py-16">
-      <h1 className="text-3xl">Admin</h1>
-      <form onSubmit={submit} className="mt-4 space-y-4">
-        <label className="block">
-          <span className="mb-1 block font-bold">Email</span>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            autoComplete="username"
-            required
-            className="min-h-12 w-full rounded-xl border-2 border-line bg-card px-3 text-lg"
-          />
-        </label>
-        <label className="block">
-          <span className="mb-1 block font-bold">Password</span>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            autoComplete="current-password"
-            required
-            className="min-h-12 w-full rounded-xl border-2 border-line bg-card px-3 text-lg"
-          />
-        </label>
-        {error && (
-          <p role="alert" className="font-bold text-oxblood">
-            {error}
-          </p>
-        )}
-        <button
-          type="submit"
-          disabled={busy}
-          className="min-h-14 w-full rounded-full bg-ink px-6 text-lg font-bold text-card disabled:opacity-60"
-        >
-          {busy ? 'Signing in…' : 'Sign in'}
-        </button>
-      </form>
-      <p className="mt-6 text-sm text-ink-soft">
-        Admin accounts are created in the Supabase dashboard. Access is enforced by the
-        database.
-      </p>
-    </main>
-  )
-}
-
+/** Accounts come from the app-wide login; this only decides whether the account is an admin. */
 function SupabaseAdmin() {
-  const { state, signIn, signOut } = useSupabaseAdmin()
-  if (state.status === 'loading') {
+  const { adminChecked, isAdmin, email, signOut } = useAuth()
+
+  if (!adminChecked) {
     return (
       <main className="mx-auto max-w-sm px-5 py-16">
         <p className="font-mono text-ink-soft">Loading…</p>
       </main>
     )
   }
-  if (state.status === 'admin')
-    return <Panel onLock={() => void signOut()} lockLabel="Sign out" />
+  if (isAdmin) return <Panel onLock={() => void signOut()} lockLabel="Sign out" />
+
   return (
-    <SupabaseGate
-      onSignIn={signIn}
-      onSignOut={() => void signOut()}
-      {...(state.status === 'not_admin' ? { notAdminEmail: state.email } : {})}
-    />
+    <main className="mx-auto max-w-sm px-5 py-16">
+      <h1 className="text-3xl">Admin</h1>
+      <p role="alert" className="mt-4 rounded-2xl border-2 border-dashed border-ink p-4">
+        You are signed in as <b>{email}</b>, which is not an admin. Ask the project owner
+        to add this account to the <code>admins</code> table.
+      </p>
+      <div className="mt-4 flex gap-3">
+        <Link
+          to="/"
+          className="flex min-h-12 items-center rounded-full bg-ink px-6 font-bold text-card no-underline"
+        >
+          Back to the app
+        </Link>
+        <button
+          type="button"
+          onClick={() => void signOut()}
+          className="min-h-12 rounded-full border-2 border-ink px-6 font-bold"
+        >
+          Sign out
+        </button>
+      </div>
+    </main>
   )
 }
 

@@ -188,7 +188,7 @@ export default function ReportSheet({ place, open, onClose, onSubmitted }: Props
               </p>
             )}
             <p className="mt-3 text-sm text-ink-soft">
-              No account or email needed. We do not collect anything that identifies you.
+              We do not attach your account or email to this report.
             </p>
 
             <button

@@ -60,10 +60,16 @@ export function createSupabaseDataClient(sb: SupabaseClient): DataClient {
   return {
     listPlaces() {
       // Cached per page load; a failure is not cached so a retry can succeed.
-      places ??= loadPlaces().catch((e: unknown) => {
-        places = null
-        throw e
-      })
+      places ??= loadPlaces()
+        .then((list) => {
+          // An empty list can mean "not signed in" (RLS hides rows rather than erroring): retry later.
+          if (list.length === 0) places = null
+          return list
+        })
+        .catch((e: unknown) => {
+          places = null
+          throw e
+        })
       return places
     },
 
