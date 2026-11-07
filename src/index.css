@@ -1,0 +1,80 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/bricolage-grotesque';
+@import '@fontsource-variable/dm-sans';
+@import '@fontsource-variable/jetbrains-mono';
+
+/*
+ * Pawprint design tokens, sampled from the Go/No-Go visual concept.
+ * Status colors are never used alone: each pairs with an icon and a label.
+ * Pair contrast is asserted in src/lib/contrast.test.ts (WCAG AA).
+ */
+@theme {
+  --font-display: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'DM Sans Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, SFMono-Regular, monospace;
+
+  --color-paper: #f6f2e8;
+  --color-card: #fefcf5;
+  --color-ink: #1b2e27;
+  --color-ink-soft: #46564f;
+  --color-line: #ded8c6;
+  --color-sand: #e4ddcb;
+
+  --color-teal: #2f6670;
+  --color-teal-deep: #234f58;
+  --color-teal-tint: #dbebea;
+  --color-amber: #e8b95a;
+  --color-amber-tint: #f6e3b8;
+  --color-oxblood: #7b2c20;
+
+  --radius-card: 1.5rem;
+  --shadow-sheet: 0 -8px 32px rgb(27 46 39 / 0.14);
+  --shadow-pin: 0 2px 8px rgb(27 46 39 / 0.3);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    background: var(--color-paper);
+  }
+  body {
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+    font-weight: 800;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-ink);
+    outline-offset: 2px;
+  }
+}
+
+/* Hatched fill for the Unverified state: a state of its own, never a quiet default */
+.unverified-hatch {
+  background-color: #f0ebdd;
+  background-image: repeating-linear-gradient(
+    135deg,
+    transparent 0 6px,
+    rgb(27 46 39 / 0.09) 6px 12px
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

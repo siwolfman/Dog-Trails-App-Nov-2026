@@ -1,0 +1,12 @@
+{
+  "name": "Pawprint",
+  "short_name": "Pawprint",
+  "description": "Know the dog rules before you drive.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F6F2E8",
+  "theme_color": "#2F6670",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
