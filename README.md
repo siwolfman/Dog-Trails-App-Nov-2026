@@ -8,6 +8,23 @@ The app requires an account: people sign up and log in with an email and passwor
 Without Supabase env vars it falls back to the bundled seed file and `localStorage`, so it still
 runs with no backend.
 
+## Screenshots
+
+<table>
+  <tr>
+    <td align="center" width="33%"><img src="docs/screenshots/01-map-and-list.png" alt="Map of Bay Area places with status pins and a list of places below" width="260"><br><sub><b>Map and list</b><br>Every pin pairs a color, an icon and a label</sub></td>
+    <td align="center" width="33%"><img src="docs/screenshots/02-go-no-go.png" alt="Go/No-Go card for Point Isabel showing Go, off-leash OK, with a source link and verified date" width="260"><br><sub><b>Go / No-Go card</b><br>Status first, then source and date</sub></td>
+    <td align="center" width="33%"><img src="docs/screenshots/03-unverified.png" alt="Unverified place showing Check first and a banner telling people to check the agency page" width="260"><br><sub><b>Unverified</b><br>Never a confident rule without a check</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/screenshots/04-sunday-picks.png" alt="Sunday picks page listing hand-picked verified places" width="260"><br><sub><b>Sunday picks</b><br>A short, hand-picked weekly list</sub></td>
+    <td align="center"><img src="docs/screenshots/05-filters.png" alt="Filter sheet with dog rule, outing length, area and comfort options" width="260"><br><sub><b>Filters</b><br>Rule, length, area, water, shade</sub></td>
+    <td align="center"><img src="docs/screenshots/06-log-in.png" alt="Log in page with email and password fields" width="260"><br><sub><b>Log in</b><br>Email and password accounts</sub></td>
+  </tr>
+</table>
+
+<sub>Captured at phone size from the running app. The map, place and Sunday screens use the seeded data, with live weather.</sub>
+
 ## Run it
 
 Requires Node 22+ and npm.
