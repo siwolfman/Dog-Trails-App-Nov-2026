@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/og-image.png" alt="Pawprint: know the dog rules before you drive. Dated, source-linked Go/No-Go answers for Bay Area trails, parks and beaches." width="100%">
+</p>
+
 # Pawprint
 
 Know the dog rules before you drive. Pawprint shows a dated, source-linked dog rule and a
