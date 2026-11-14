@@ -52,14 +52,14 @@ export default function EventsTab() {
               'application/json',
             )
           }
-          className="min-h-12 rounded-full border-2 border-ink px-5 font-bold"
+          className="min-h-12 rounded-full border-2 border-ink bg-button px-5 font-bold"
         >
           Export JSON
         </button>
         <button
           type="button"
           onClick={() => download('pawprint-events.csv', eventsToCSV(events), 'text/csv')}
-          className="min-h-12 rounded-full border-2 border-ink px-5 font-bold"
+          className="min-h-12 rounded-full border-2 border-ink bg-button px-5 font-bold"
         >
           Export CSV
         </button>

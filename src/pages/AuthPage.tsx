@@ -91,7 +91,7 @@ export default function AuthPage({ mode }: { mode: Mode }) {
             <Link
               to="/login"
               replace
-              className="mt-6 flex min-h-14 items-center justify-center rounded-full bg-ink px-6 text-lg font-bold text-card no-underline"
+              className="mt-6 flex min-h-14 items-center justify-center rounded-full bg-button px-6 text-lg font-bold text-ink no-underline"
             >
               Go to log in
             </Link>
@@ -167,7 +167,7 @@ export default function AuthPage({ mode }: { mode: Mode }) {
               <button
                 type="submit"
                 disabled={busy}
-                className="min-h-14 w-full rounded-full bg-ink px-6 text-lg font-bold text-card disabled:opacity-60"
+                className="min-h-14 w-full rounded-full bg-button px-6 text-lg font-bold text-ink disabled:opacity-60"
               >
                 {busy ? copy.busy : copy.submit}
               </button>

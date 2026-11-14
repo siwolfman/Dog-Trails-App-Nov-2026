@@ -48,7 +48,7 @@ export default function ForgotPassword() {
           </p>
           <Link
             to="/login"
-            className="mt-6 flex min-h-14 items-center justify-center rounded-full bg-ink px-6 text-lg font-bold text-card no-underline"
+            className="mt-6 flex min-h-14 items-center justify-center rounded-full bg-button px-6 text-lg font-bold text-ink no-underline"
           >
             Back to log in
           </Link>
@@ -89,7 +89,7 @@ export default function ForgotPassword() {
             <button
               type="submit"
               disabled={busy || !enabled}
-              className="min-h-14 w-full rounded-full bg-ink px-6 text-lg font-bold text-card disabled:opacity-60"
+              className="min-h-14 w-full rounded-full bg-button px-6 text-lg font-bold text-ink disabled:opacity-60"
             >
               {busy ? 'Sending…' : 'Send reset link'}
             </button>

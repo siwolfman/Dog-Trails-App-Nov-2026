@@ -96,7 +96,7 @@ export default function ReportSheet({ place, open, onClose, onSubmitted }: Props
             <button
               type="button"
               onClick={onClose}
-              className="mt-6 min-h-14 w-full rounded-full bg-ink px-6 text-lg font-bold text-card"
+              className="mt-6 min-h-14 w-full rounded-full bg-button px-6 text-lg font-bold text-ink"
             >
               Done
             </button>
@@ -194,7 +194,7 @@ export default function ReportSheet({ place, open, onClose, onSubmitted }: Props
             <button
               type="submit"
               disabled={phase === 'sending'}
-              className="mt-5 min-h-14 w-full rounded-full bg-ink px-6 text-lg font-bold text-card disabled:opacity-60"
+              className="mt-5 min-h-14 w-full rounded-full bg-button px-6 text-lg font-bold text-ink disabled:opacity-60"
             >
               {phase === 'sending' ? 'Sending…' : 'Send report'}
             </button>

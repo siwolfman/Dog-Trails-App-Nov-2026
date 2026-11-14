@@ -180,14 +180,14 @@ export default function FilterSheet({
           <button
             type="button"
             onClick={() => onChange({ ...EMPTY_FILTERS, q: filters.q }, 'clear')}
-            className="min-h-14 rounded-full border-2 border-ink px-6 text-base font-bold"
+            className="min-h-14 rounded-full border-2 border-ink bg-button px-6 text-base font-bold"
           >
             Clear all
           </button>
           <button
             type="button"
             onClick={onClose}
-            className="min-h-14 flex-1 rounded-full bg-ink px-6 text-base font-bold text-card"
+            className="min-h-14 flex-1 rounded-full bg-button px-6 text-base font-bold text-ink"
           >
             Show {resultCount} {resultCount === 1 ? 'place' : 'places'}
           </button>

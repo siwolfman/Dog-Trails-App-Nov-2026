@@ -174,7 +174,7 @@ export default function PicksTab({ places, initialWeek, initialPicks }: Props) {
       <button
         type="button"
         onClick={() => void save()}
-        className="mt-5 min-h-14 w-full rounded-full bg-ink px-6 text-lg font-bold text-card"
+        className="mt-5 min-h-14 w-full rounded-full bg-button px-6 text-lg font-bold text-ink"
       >
         Save picks
       </button>

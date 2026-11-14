@@ -89,7 +89,7 @@ export default function ResetPassword() {
           type="button"
           onClick={() => void confirmLink()}
           disabled={busy}
-          className="mt-6 min-h-14 w-full rounded-full bg-ink px-6 text-lg font-bold text-card disabled:opacity-60"
+          className="mt-6 min-h-14 w-full rounded-full bg-button px-6 text-lg font-bold text-ink disabled:opacity-60"
         >
           {busy ? 'Checking…' : 'Continue'}
         </button>
@@ -107,7 +107,7 @@ export default function ResetPassword() {
         </p>
         <Link
           to="/forgot-password"
-          className="mt-6 flex min-h-14 items-center justify-center rounded-full bg-ink px-6 text-lg font-bold text-card no-underline"
+          className="mt-6 flex min-h-14 items-center justify-center rounded-full bg-button px-6 text-lg font-bold text-ink no-underline"
         >
           Request a new link
         </Link>
@@ -123,7 +123,7 @@ export default function ResetPassword() {
         <button
           type="button"
           onClick={() => navigate('/', { replace: true })}
-          className="mt-6 min-h-14 w-full rounded-full bg-ink px-6 text-lg font-bold text-card"
+          className="mt-6 min-h-14 w-full rounded-full bg-button px-6 text-lg font-bold text-ink"
         >
           Continue to the app
         </button>
@@ -176,7 +176,7 @@ export default function ResetPassword() {
         <button
           type="submit"
           disabled={busy}
-          className="min-h-14 w-full rounded-full bg-ink px-6 text-lg font-bold text-card disabled:opacity-60"
+          className="min-h-14 w-full rounded-full bg-button px-6 text-lg font-bold text-ink disabled:opacity-60"
         >
           {busy ? 'Saving…' : 'Save new password'}
         </button>

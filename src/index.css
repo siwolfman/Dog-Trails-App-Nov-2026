@@ -20,6 +20,9 @@
   --color-line: #ded8c6;
   --color-sand: #e4ddcb;
 
+  /* Button fill, from the Figma frames (color/button). Labels on it must be ink: cream fails AA. */
+  --color-button: #7f9f76;
+
   --color-teal: #2f6670;
   --color-teal-deep: #234f58;
   --color-teal-tint: #dbebea;

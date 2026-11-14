@@ -14,7 +14,7 @@ export default function AccountBar({ className = '' }: { className?: string }) {
       <button
         type="button"
         onClick={() => void signOut()}
-        className="min-h-11 shrink-0 rounded-full border-2 border-ink px-4 font-bold text-ink"
+        className="min-h-11 shrink-0 rounded-full border-2 border-ink bg-button px-4 font-bold text-ink"
       >
         Sign out
       </button>

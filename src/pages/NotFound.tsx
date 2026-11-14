@@ -7,7 +7,7 @@ export default function NotFound() {
       <p className="mt-2 text-ink-soft">That page does not exist yet.</p>
       <Link
         to="/"
-        className="mt-6 inline-flex min-h-12 items-center rounded-full bg-ink px-6 font-bold text-card no-underline"
+        className="mt-6 inline-flex min-h-12 items-center rounded-full bg-button px-6 font-bold text-ink no-underline"
       >
         Back to the map
       </Link>

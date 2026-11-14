@@ -74,7 +74,7 @@ function Gate({ onUnlock }: { onUnlock: () => void }) {
           )}
           <button
             type="submit"
-            className="mt-4 min-h-14 w-full rounded-full bg-ink px-6 text-lg font-bold text-card"
+            className="mt-4 min-h-14 w-full rounded-full bg-button px-6 text-lg font-bold text-ink"
           >
             Unlock
           </button>
@@ -123,7 +123,7 @@ function Panel({
           <button
             type="button"
             onClick={onLock}
-            className="min-h-12 rounded-full border-2 border-ink px-4 font-bold"
+            className="min-h-12 rounded-full border-2 border-ink bg-button px-4 font-bold"
           >
             {lockLabel}
           </button>
@@ -196,14 +196,14 @@ function SupabaseAdmin() {
       <div className="mt-4 flex gap-3">
         <Link
           to="/"
-          className="flex min-h-12 items-center rounded-full bg-ink px-6 font-bold text-card no-underline"
+          className="flex min-h-12 items-center rounded-full bg-button px-6 font-bold text-ink no-underline"
         >
           Back to the app
         </Link>
         <button
           type="button"
           onClick={() => void signOut()}
-          className="min-h-12 rounded-full border-2 border-ink px-6 font-bold"
+          className="min-h-12 rounded-full border-2 border-ink bg-button px-6 font-bold"
         >
           Sign out
         </button>

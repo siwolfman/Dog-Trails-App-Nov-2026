@@ -129,7 +129,7 @@ export default function Home() {
             <button
               type="button"
               onClick={() => onFilters(EMPTY_FILTERS, 'clear')}
-              className="mt-4 min-h-12 rounded-full bg-ink px-6 font-bold text-card"
+              className="mt-4 min-h-12 rounded-full bg-button px-6 font-bold text-ink"
             >
               Clear filters
             </button>

@@ -230,7 +230,7 @@ function PlaceView({ slug }: { slug: string }) {
           <button
             type="button"
             onClick={() => setReportOpen(true)}
-            className="mt-4 flex min-h-14 w-full items-center justify-center gap-2 rounded-full border-2 border-ink bg-card text-lg font-bold"
+            className="mt-4 flex min-h-14 w-full items-center justify-center gap-2 rounded-full border-2 border-ink bg-button text-lg font-bold"
           >
             <svg
               width="20"
@@ -270,7 +270,7 @@ function PlaceView({ slug }: { slug: string }) {
             href={`https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lng}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex min-h-14 flex-1 items-center justify-center rounded-full bg-ink px-6 text-lg font-bold text-card no-underline"
+            className="flex min-h-14 flex-1 items-center justify-center rounded-full bg-button px-6 text-lg font-bold text-ink no-underline"
           >
             Directions<span className="sr-only"> (opens in a new tab)</span>
           </a>

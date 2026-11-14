@@ -5,6 +5,7 @@ export const COLORS = {
   ink: '#1b2e27',
   inkSoft: '#46564f',
   sand: '#e4ddcb',
+  button: '#7f9f76',
   teal: '#2f6670',
   tealDeep: '#234f58',
   tealTint: '#dbebea',
