@@ -19,6 +19,8 @@ export interface AuthContextValue {
   signOut(): Promise<void>
   /** Emails a reset link. Resolves to an error message, or null when the request was accepted. */
   requestPasswordReset(email: string): Promise<string | null>
+  /** Turns the token from a reset email into a session. Error message or null. */
+  verifyRecovery(tokenHash: string): Promise<string | null>
   /** Sets a new password for the signed-in (or recovering) user. Error message or null. */
   updatePassword(password: string): Promise<string | null>
 }
@@ -34,6 +36,7 @@ export const LOCAL_AUTH: AuthContextValue = {
   signIn: async () => 'Accounts need the Supabase backend.',
   signOut: async () => {},
   requestPasswordReset: async () => 'Accounts need the Supabase backend.',
+  verifyRecovery: async () => 'Accounts need the Supabase backend.',
   updatePassword: async () => 'Accounts need the Supabase backend.',
 }
 

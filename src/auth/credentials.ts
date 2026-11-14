@@ -24,6 +24,9 @@ export function friendlyAuthError(message: string): string {
   if (m.includes('rate limit') || m.includes('too many')) {
     return 'Too many attempts. Please wait a few minutes and try again.'
   }
+  if (m.includes('expired') || (m.includes('invalid') && m.includes('token'))) {
+    return 'This link has expired or was already used. Request a new one.'
+  }
   if (m.includes('same password') || m.includes('different from the old')) {
     return 'Choose a password you have not used for this account before.'
   }

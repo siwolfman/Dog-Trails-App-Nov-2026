@@ -92,6 +92,17 @@ immediately. Set a minimum password length of 8 or more to match the app's own c
 Configuration, Redirect URLs, add `http://localhost:5173/reset-password` (and your production address when you
 deploy). Supabase's built-in email sender is rate limited to a few messages an hour and can land in spam.
 
+**Scanner-proof reset link (recommended, needed for iCloud and many Gmail accounts).** Mail providers fetch links
+in new emails to scan them, and Supabase's default reset link works only once, so it can be used up before the
+person clicks. Instead make the email link open the app and spend the token only when the person presses
+_Continue_. In Authentication, Email Templates, **Reset Password**, change the link to:
+
+```html
+<a href="{{ .RedirectTo }}?token_hash={{ .TokenHash }}&type=recovery">Reset password</a>
+```
+
+The app handles both link styles, so existing emails keep working where the scanner has not used them up.
+
 ## Architecture
 
 ```

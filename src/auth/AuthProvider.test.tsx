@@ -16,6 +16,8 @@ const h = vi.hoisted(() => ({
   signUpArgs: null as unknown,
   resetArgs: null as unknown,
   resetError: null as { message: string } | null,
+  verifyArgs: null as unknown,
+  verifyError: null as { message: string } | null,
   updateArgs: null as unknown,
   updateError: null as { message: string } | null,
   listeners: [] as ((e: string, s: Session) => void)[],
@@ -43,6 +45,10 @@ vi.mock('@/data/supabase.ts', () => ({
         h.resetArgs = { email, opts }
         return { error: h.resetError }
       },
+      verifyOtp: async (args: unknown) => {
+        h.verifyArgs = args
+        return { error: h.verifyError }
+      },
       updateUser: async (args: unknown) => {
         h.updateArgs = args
         return { error: h.updateError }
@@ -63,6 +69,8 @@ beforeEach(() => {
   h.signUpArgs = null
   h.resetArgs = null
   h.resetError = null
+  h.verifyArgs = null
+  h.verifyError = null
   h.updateArgs = null
   h.updateError = null
   h.listeners.length = 0
@@ -88,6 +96,9 @@ function Probe() {
       <button onClick={() => void a.signOut()}>signout</button>
       <button onClick={async () => alert(String(await a.requestPasswordReset('a@b.co')))}>
         reset
+      </button>
+      <button onClick={async () => alert(String(await a.verifyRecovery('tok123')))}>
+        verify
       </button>
       <button
         onClick={async () => alert(String(await a.updatePassword('new password 1')))}
@@ -224,6 +235,23 @@ test('updatePassword passes the new password to Supabase and reports errors', as
   await user.click(screen.getByText('update'))
   await waitFor(() =>
     expect(String(alertSpy.mock.lastCall?.[0])).toContain('not used for this account'),
+  )
+  alertSpy.mockRestore()
+})
+
+test('verifyRecovery exchanges the emailed token for a session and reports a used token', async () => {
+  const user = userEvent.setup()
+  const alertSpy = vi.spyOn(window, 'alert').mockImplementation(() => {})
+  setup()
+  await waitFor(() => expect(state()).toContain('signed_out'))
+  await user.click(screen.getByText('verify'))
+  await waitFor(() => expect(alertSpy).toHaveBeenLastCalledWith('null'))
+  expect(h.verifyArgs).toEqual({ token_hash: 'tok123', type: 'recovery' })
+
+  h.verifyError = { message: 'Email link is invalid or has expired' }
+  await user.click(screen.getByText('verify'))
+  await waitFor(() =>
+    expect(String(alertSpy.mock.lastCall?.[0])).toContain('expired or was already used'),
   )
   alertSpy.mockRestore()
 })

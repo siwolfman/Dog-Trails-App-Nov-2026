@@ -14,6 +14,7 @@ export function authValue(over: Partial<AuthContextValue> = {}): AuthContextValu
     signIn: vi.fn(async () => null),
     signOut: vi.fn(async () => {}),
     requestPasswordReset: vi.fn(async () => null),
+    verifyRecovery: vi.fn(async () => null),
     updatePassword: vi.fn(async () => null),
     ...over,
   }

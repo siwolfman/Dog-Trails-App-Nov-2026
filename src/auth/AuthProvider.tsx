@@ -110,6 +110,18 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
     [],
   )
 
+  const verifyRecovery = useCallback(
+    async (tokenHash: string): Promise<string | null> => {
+      if (!supabase) return LOCAL_AUTH.verifyRecovery(tokenHash)
+      const { error } = await supabase.auth.verifyOtp({
+        token_hash: tokenHash,
+        type: 'recovery',
+      })
+      return error ? friendlyAuthError(error.message) : null
+    },
+    [],
+  )
+
   const updatePassword = useCallback(async (password: string): Promise<string | null> => {
     if (!supabase) return LOCAL_AUTH.updatePassword(password)
     const { error } = await supabase.auth.updateUser({ password })
@@ -126,10 +138,19 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
             signIn,
             signOut,
             requestPasswordReset,
+            verifyRecovery,
             updatePassword,
           }
         : LOCAL_AUTH,
-    [session, signUp, signIn, signOut, requestPasswordReset, updatePassword],
+    [
+      session,
+      signUp,
+      signIn,
+      signOut,
+      requestPasswordReset,
+      verifyRecovery,
+      updatePassword,
+    ],
   )
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>

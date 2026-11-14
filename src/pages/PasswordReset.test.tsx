@@ -143,4 +143,45 @@ describe('reset password', () => {
       /not used for this account/,
     )
   })
+
+  describe('emailed link with a token (cannot be used up by mail scanners)', () => {
+    const link = '/reset-password?token_hash=abc123&type=recovery'
+
+    test('shows a confirm step first and does NOT spend the token on page load', () => {
+      const value = authValue({ status: 'signed_out' })
+      renderAt(link, value)
+      expect(screen.getByRole('button', { name: 'Continue' })).toBeInTheDocument()
+      expect(screen.queryByText('This link has expired.')).toBeNull()
+      expect(value.verifyRecovery).not.toHaveBeenCalled()
+    })
+
+    test('pressing Continue verifies the token, then shows the new password form', async () => {
+      const user = userEvent.setup()
+      // Even when another account is signed in here, the link's own account is the one recovered.
+      const value = authValue({ status: 'signed_in', email: 'someone@else.com' })
+      renderAt(link, value)
+      await user.click(screen.getByRole('button', { name: 'Continue' }))
+      expect(value.verifyRecovery).toHaveBeenCalledWith('abc123')
+      expect(await screen.findByLabelText('New password')).toBeInTheDocument()
+    })
+
+    test('an expired or used token shows an error and a way to request a new link', async () => {
+      const user = userEvent.setup()
+      const value = authValue({
+        status: 'signed_out',
+        verifyRecovery: vi.fn(
+          async () => 'This link has expired or was already used. Request a new one.',
+        ),
+      })
+      renderAt(link, value)
+      await user.click(screen.getByRole('button', { name: 'Continue' }))
+      expect(await screen.findByRole('alert')).toHaveTextContent(
+        /expired or was already used/,
+      )
+      expect(screen.getByRole('link', { name: 'Request a new link' })).toHaveAttribute(
+        'href',
+        '/forgot-password',
+      )
+    })
+  })
 })

@@ -1,5 +1,5 @@
 import { useEffect, useState, type FormEvent } from 'react'
-import { Link, useNavigate } from 'react-router'
+import { Link, useNavigate, useSearchParams } from 'react-router'
 import { NewPasswordSchema } from '@/auth/credentials.ts'
 import { useAuth } from '@/auth/useAuth.ts'
 import AuthShell from '@/components/AuthShell.tsx'
@@ -9,8 +9,13 @@ import AuthShell from '@/components/AuthShell.tsx'
  * signed-in user here is allowed to choose a new password. No session means the link is bad or old.
  */
 export default function ResetPassword() {
-  const { enabled, status, updatePassword } = useAuth()
+  const { enabled, status, updatePassword, verifyRecovery } = useAuth()
   const navigate = useNavigate()
+  const [params] = useSearchParams()
+  // Newer reset emails link here with a token that is only spent when the person presses the button,
+  // so mail scanners that merely fetch the page cannot use it up.
+  const tokenHash = params.get('token_hash')
+  const [verified, setVerified] = useState(false)
   const [password, setPassword] = useState('')
   const [confirm, setConfirm] = useState('')
   const [showPassword, setShowPassword] = useState(false)
@@ -21,6 +26,22 @@ export default function ResetPassword() {
   useEffect(() => {
     document.title = 'Choose a new password · Pawprint'
   }, [])
+
+  async function confirmLink() {
+    if (!tokenHash) return
+    setError(null)
+    setBusy(true)
+    try {
+      const problem = await verifyRecovery(tokenHash)
+      if (problem) setError(problem)
+      else {
+        setVerified(true)
+        navigate('/reset-password', { replace: true }) // drop the token from the address bar
+      }
+    } finally {
+      setBusy(false)
+    }
+  }
 
   async function submit(e: FormEvent) {
     e.preventDefault()
@@ -40,10 +61,38 @@ export default function ResetPassword() {
     }
   }
 
-  if (enabled && status === 'loading') {
+  // Also wait after confirming a link, while the new session arrives.
+  if (enabled && (status === 'loading' || (verified && status === 'signed_out'))) {
     return (
       <AuthShell>
         <p className="mt-4 font-mono text-ink-soft">Checking your link…</p>
+      </AuthShell>
+    )
+  }
+
+  if (enabled && tokenHash && !verified) {
+    return (
+      <AuthShell>
+        <h1 className="mt-2 text-4xl">Reset your password</h1>
+        <p className="mt-3 text-lg">
+          Press the button to confirm and choose a new password.
+        </p>
+        {error && (
+          <p role="alert" className="mt-4 font-bold text-oxblood">
+            {error}{' '}
+            <Link to="/forgot-password" className="underline">
+              Request a new link
+            </Link>
+          </p>
+        )}
+        <button
+          type="button"
+          onClick={() => void confirmLink()}
+          disabled={busy}
+          className="mt-6 min-h-14 w-full rounded-full bg-ink px-6 text-lg font-bold text-card disabled:opacity-60"
+        >
+          {busy ? 'Checking…' : 'Continue'}
+        </button>
       </AuthShell>
     )
   }
