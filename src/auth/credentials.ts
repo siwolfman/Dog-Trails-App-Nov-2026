@@ -24,8 +24,23 @@ export function friendlyAuthError(message: string): string {
   if (m.includes('rate limit') || m.includes('too many')) {
     return 'Too many attempts. Please wait a few minutes and try again.'
   }
+  if (m.includes('same password') || m.includes('different from the old')) {
+    return 'Choose a password you have not used for this account before.'
+  }
   if (m.includes('failed to fetch') || m.includes('network')) {
     return 'Could not reach the server. Check your connection and try again.'
   }
   return message
 }
+
+export const NewPasswordSchema = z
+  .object({
+    password: CredentialsSchema.shape.password,
+    confirm: z.string(),
+  })
+  .refine((v) => v.password === v.confirm, {
+    message: 'The two passwords do not match.',
+    path: ['confirm'],
+  })
+
+export const EmailSchema = CredentialsSchema.shape.email

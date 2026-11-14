@@ -2,8 +2,10 @@ import { Route, Routes } from 'react-router'
 import RequireAuth from './auth/RequireAuth.tsx'
 import Admin from './pages/Admin.tsx'
 import AuthPage from './pages/AuthPage.tsx'
+import ForgotPassword from './pages/ForgotPassword.tsx'
 import Home from './pages/Home.tsx'
 import NotFound from './pages/NotFound.tsx'
+import ResetPassword from './pages/ResetPassword.tsx'
 import PlacePage from './pages/Place.tsx'
 import Sunday from './pages/Sunday.tsx'
 
@@ -12,6 +14,8 @@ export default function App() {
     <Routes>
       <Route path="/login" element={<AuthPage mode="login" />} />
       <Route path="/signup" element={<AuthPage mode="signup" />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/reset-password" element={<ResetPassword />} />
       <Route element={<RequireAuth />}>
         <Route path="/" element={<Home />} />
         <Route path="/place/:slug" element={<PlacePage />} />

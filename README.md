@@ -30,7 +30,8 @@ npm run dev                  # http://localhost:5173
 
 ## What is in it
 
-- `/signup` and `/login` email and password accounts (Supabase Auth). Every other page needs a login
+- `/signup`, `/login`, `/forgot-password` and `/reset-password`: email and password accounts (Supabase Auth).
+  Every other page needs a login
 - `/` map and list, with filters (rule, outing length, area, water, shade) kept in the URL
 - `/place/:slug` Go/No-Go card, source link, verified stamp, hazards, live weather and heat warning,
   "Report an issue"
@@ -87,6 +88,10 @@ Other accounts that open `/admin` are told they are not an admin, and the databa
 If _Confirm email_ is on, new users are told to check their inbox before logging in; if off, they are logged in
 immediately. Set a minimum password length of 8 or more to match the app's own check.
 
+**Password reset setup.** The emailed link only works if its address is allowed: Authentication, URL
+Configuration, Redirect URLs, add `http://localhost:5173/reset-password` (and your production address when you
+deploy). Supabase's built-in email sender is rate limited to a few messages an hour and can land in spam.
+
 ## Architecture
 
 ```
@@ -108,7 +113,7 @@ src/components/, src/pages/
   Set `VITE_MAP_STYLE_URL` to another style (OpenFreeMap, Protomaps, MapTiler) before launch.
 - Report and event inserts are not rate limited yet, and anyone can create an account: add limits and consider
   CAPTCHA or email confirmation before real traffic.
-- No password reset, email change or account deletion yet.
+- No email change or account deletion yet.
 - No drive times (needs a routing API); the list shows area instead.
 - Open-Meteo is called from the browser with the place's coordinates only.
 - PWA basics only: manifest and icon, no offline shell.

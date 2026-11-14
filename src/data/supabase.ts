@@ -11,6 +11,6 @@ const key = (import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined)?.trim
 export const supabase: SupabaseClient | null =
   url && key
     ? createClient(url, key, {
-        auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: false },
+        auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true },
       })
     : null

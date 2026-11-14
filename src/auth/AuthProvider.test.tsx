@@ -14,6 +14,10 @@ const h = vi.hoisted(() => ({
     error: null as { message: string } | null,
   },
   signUpArgs: null as unknown,
+  resetArgs: null as unknown,
+  resetError: null as { message: string } | null,
+  updateArgs: null as unknown,
+  updateError: null as { message: string } | null,
   listeners: [] as ((e: string, s: Session) => void)[],
 }))
 
@@ -35,6 +39,14 @@ vi.mock('@/data/supabase.ts', () => ({
         h.signUpArgs = args
         return h.signUpResult
       },
+      resetPasswordForEmail: async (email: string, opts: unknown) => {
+        h.resetArgs = { email, opts }
+        return { error: h.resetError }
+      },
+      updateUser: async (args: unknown) => {
+        h.updateArgs = args
+        return { error: h.updateError }
+      },
       signOut: async () => {
         h.session = null
       },
@@ -49,6 +61,10 @@ beforeEach(() => {
   h.signInError = null
   h.signUpResult = { data: { session: null }, error: null }
   h.signUpArgs = null
+  h.resetArgs = null
+  h.resetError = null
+  h.updateArgs = null
+  h.updateError = null
   h.listeners.length = 0
 })
 
@@ -70,6 +86,14 @@ function Probe() {
         signup
       </button>
       <button onClick={() => void a.signOut()}>signout</button>
+      <button onClick={async () => alert(String(await a.requestPasswordReset('a@b.co')))}>
+        reset
+      </button>
+      <button
+        onClick={async () => alert(String(await a.updatePassword('new password 1')))}
+      >
+        update
+      </button>
     </div>
   )
 }
@@ -165,4 +189,41 @@ test('signOut returns to signed out', async () => {
   await waitFor(() => expect(state()).toContain('signed_in'))
   await user.click(screen.getByText('signout'))
   await waitFor(() => expect(state()).toContain('signed_out'))
+})
+
+test('requestPasswordReset sends the user back to the reset page', async () => {
+  const user = userEvent.setup()
+  const alertSpy = vi.spyOn(window, 'alert').mockImplementation(() => {})
+  setup()
+  await waitFor(() => expect(state()).toContain('signed_out'))
+  await user.click(screen.getByText('reset'))
+  await waitFor(() => expect(alertSpy).toHaveBeenLastCalledWith('null'))
+  expect(h.resetArgs).toEqual({
+    email: 'a@b.co',
+    opts: { redirectTo: `${window.location.origin}/reset-password` },
+  })
+
+  h.resetError = { message: 'email rate limit exceeded' }
+  await user.click(screen.getByText('reset'))
+  await waitFor(() =>
+    expect(String(alertSpy.mock.lastCall?.[0])).toContain('Too many attempts'),
+  )
+  alertSpy.mockRestore()
+})
+
+test('updatePassword passes the new password to Supabase and reports errors', async () => {
+  const user = userEvent.setup()
+  const alertSpy = vi.spyOn(window, 'alert').mockImplementation(() => {})
+  setup()
+  await waitFor(() => expect(state()).toContain('signed_out'))
+  await user.click(screen.getByText('update'))
+  await waitFor(() => expect(alertSpy).toHaveBeenLastCalledWith('null'))
+  expect(h.updateArgs).toEqual({ password: 'new password 1' })
+
+  h.updateError = { message: 'New password should be different from the old password.' }
+  await user.click(screen.getByText('update'))
+  await waitFor(() =>
+    expect(String(alertSpy.mock.lastCall?.[0])).toContain('not used for this account'),
+  )
+  alertSpy.mockRestore()
 })

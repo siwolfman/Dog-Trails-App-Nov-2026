@@ -153,6 +153,17 @@ export default function AuthPage({ mode }: { mode: Mode }) {
                 </p>
               )}
 
+              {mode === 'login' && (
+                <p className="text-right">
+                  <Link
+                    to="/forgot-password"
+                    className="font-bold underline underline-offset-4"
+                  >
+                    Forgot your password?
+                  </Link>
+                </p>
+              )}
+
               <button
                 type="submit"
                 disabled={busy}

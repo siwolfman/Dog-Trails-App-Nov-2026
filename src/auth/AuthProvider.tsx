@@ -99,10 +99,37 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
     setSession({ status: 'signed_out', email: null, isAdmin: false, adminChecked: true })
   }, [])
 
+  const requestPasswordReset = useCallback(
+    async (email: string): Promise<string | null> => {
+      if (!supabase) return LOCAL_AUTH.requestPasswordReset(email)
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: `${window.location.origin}/reset-password`,
+      })
+      return error ? friendlyAuthError(error.message) : null
+    },
+    [],
+  )
+
+  const updatePassword = useCallback(async (password: string): Promise<string | null> => {
+    if (!supabase) return LOCAL_AUTH.updatePassword(password)
+    const { error } = await supabase.auth.updateUser({ password })
+    return error ? friendlyAuthError(error.message) : null
+  }, [])
+
   const value = useMemo<AuthContextValue>(
     () =>
-      supabase ? { enabled: true, ...session, signUp, signIn, signOut } : LOCAL_AUTH,
-    [session, signUp, signIn, signOut],
+      supabase
+        ? {
+            enabled: true,
+            ...session,
+            signUp,
+            signIn,
+            signOut,
+            requestPasswordReset,
+            updatePassword,
+          }
+        : LOCAL_AUTH,
+    [session, signUp, signIn, signOut, requestPasswordReset, updatePassword],
   )
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
