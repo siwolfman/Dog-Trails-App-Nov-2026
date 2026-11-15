@@ -10,13 +10,14 @@ const h = vi.hoisted(() => ({
   impl: null as null | (() => Promise<unknown>),
 }))
 vi.mock('@/lib/giphy.ts', () => ({
+  gifStillUrl: (g: { url: string }) => g.url.replace('/200w_d.gif', '/200w_s.gif'),
   searchGifs: (...args: unknown[]) => (h.impl ?? h.search)(...(args as [])),
 }))
 
 const gif = (id: string, title: string) => ({
   id,
   title,
-  url: `https://media.giphy.com/media/${id}/200w.gif`,
+  url: `https://media.giphy.com/media/${id}/200w_d.gif`,
 })
 
 beforeEach(() => {
@@ -81,4 +82,21 @@ test('pressing Enter searches and does not submit a surrounding form', async () 
   ).toBeInTheDocument()
   await user.click(screen.getByRole('button', { name: 'Search' }))
   expect(onSubmit).not.toHaveBeenCalled()
+})
+
+test('the search grid shows light still frames, and picking keeps the animated URL', async () => {
+  const user = userEvent.setup()
+  const onPick = vi.fn()
+  h.search.mockResolvedValue([gif('aaa111', 'happy dog')])
+  const { container } = render(<GifPicker onPick={onPick} onCancel={() => {}} />)
+  await user.type(screen.getByLabelText('Search GIPHY'), 'dog')
+  await user.click(screen.getByRole('button', { name: 'Search' }))
+  await user.click(await screen.findByRole('button', { name: 'Use GIF: happy dog' }))
+  expect(container.querySelector('img')).toHaveAttribute(
+    'src',
+    'https://media.giphy.com/media/aaa111/200w_s.gif',
+  )
+  expect(onPick).toHaveBeenCalledWith(
+    expect.objectContaining({ url: 'https://media.giphy.com/media/aaa111/200w_d.gif' }),
+  )
 })

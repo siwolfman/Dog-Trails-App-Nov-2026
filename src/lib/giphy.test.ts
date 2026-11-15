@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, test, vi } from 'vitest'
 import { ReviewGifSchema } from '@/data/schemas.ts'
-import { gifFromId, searchGifs } from './giphy.ts'
+import { gifFromId, gifStillUrl, searchGifs } from './giphy.ts'
 
 afterEach(() => vi.unstubAllGlobals())
 
@@ -37,7 +37,7 @@ describe('searchGifs', () => {
     expect(gifs).toEqual([
       {
         id: 'abc123XYZ',
-        url: 'https://media.giphy.com/media/abc123XYZ/200w.gif',
+        url: 'https://media.giphy.com/media/abc123XYZ/200w_d.gif',
         title: 'Happy dog GIF',
       },
     ])
@@ -57,6 +57,13 @@ describe('searchGifs', () => {
     await expect(searchGifs('dog', undefined, 'K')).rejects.toThrow(/429/)
     vi.stubGlobal('fetch', reply({ data: [{ id: '../../evil', title: '' }] }))
     await expect(searchGifs('dog', undefined, 'K')).rejects.toThrow()
+  })
+
+  test('stored URLs pass the schema, and the grid uses the small still', () => {
+    const gif = gifFromId('abc123XYZ', 'dog')
+    expect(ReviewGifSchema.safeParse(gif).success).toBe(true)
+    expect(gif.url).toMatch(/200w_d\.gif$/)
+    expect(gifStillUrl(gif)).toBe('https://media.giphy.com/media/abc123XYZ/200w_s.gif')
   })
 
   test('gifFromId trims and caps the title', () => {

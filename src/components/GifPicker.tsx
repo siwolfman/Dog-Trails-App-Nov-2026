@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type KeyboardEvent } from 'react'
 import type { ReviewGif } from '@/data/schemas.ts'
-import { searchGifs } from '@/lib/giphy.ts'
+import { gifStillUrl, searchGifs } from '@/lib/giphy.ts'
 
 type State =
   | { status: 'idle' }
@@ -96,7 +96,7 @@ export default function GifPicker({
                 className="block aspect-square w-full overflow-hidden rounded-xl border-2 border-line bg-sand p-0 has-[:focus-visible]:outline-3"
               >
                 <img
-                  src={g.url}
+                  src={gifStillUrl(g)}
                   alt=""
                   loading="lazy"
                   referrerPolicy="no-referrer"

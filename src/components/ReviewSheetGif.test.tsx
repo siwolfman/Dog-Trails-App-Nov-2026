@@ -8,6 +8,7 @@ import ReviewSheet from './ReviewSheet.tsx'
 
 const h = vi.hoisted(() => ({ search: vi.fn(), enabled: true }))
 vi.mock('@/lib/giphy.ts', () => ({
+  gifStillUrl: (g: { url: string }) => g.url,
   searchGifs: h.search,
   get giphyEnabled() {
     return h.enabled

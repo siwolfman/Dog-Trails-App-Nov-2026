@@ -25,13 +25,21 @@ const ResponseSchema = z.object({
 /**
  * The GIF is stored as a plain URL built from its id, never copied from the response, so the stored
  * value is always a GIPHY-hosted image and nothing else.
+ *
+ * `200w_d.gif` is GIPHY's 200px-wide "downsampled" animation: about 170 KB on average, against about
+ * 1.2 MB for the full `200w.gif`. Reviews are read on phones, so the light one is used.
  */
 export function gifFromId(id: string, title: string): ReviewGif {
   return {
     id,
-    url: `https://media.giphy.com/media/${id}/200w.gif`,
+    url: `https://media.giphy.com/media/${id}/200w_d.gif`,
     title: title.trim().slice(0, 200),
   }
+}
+
+/** A still frame (about 28 KB) used for the search grid, so 12 results cost about 0.3 MB, not 14. */
+export function gifStillUrl(gif: ReviewGif): string {
+  return gif.url.replace('/200w_d.gif', '/200w_s.gif')
 }
 
 export async function searchGifs(
