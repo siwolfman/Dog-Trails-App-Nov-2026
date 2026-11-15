@@ -80,9 +80,13 @@ npm run dev                  # http://localhost:5173
 - **Dog-friendly trails** show only what an official agency page states: a named trail (with its length if
   the page gives one) or a clearly labeled park-wide fact. Where the agency publishes nothing, the section says
   so. No-dogs and unverified places never show trail details. Sources and gaps: `docs/seed-verification.md`.
-- **Reviews**: 1 to 5 paw prints (no zero), an optional comment up to 500 characters, and an optional GIPHY GIF
-  (stored and displayed; the picker is not built yet, it needs your GIPHY API details). One review per person
-  per place, editable and deletable by its author, and admins can hide any review.
+- **Reviews**: 1 to 5 paw prints (no zero), an optional comment up to 500 characters, and an optional GIPHY
+  GIF. One review per person per place, editable and deletable by its author, and admins can hide any review.
+- **GIFs** (GIPHY): set `VITE_GIPHY_API_KEY` in `.env.local` and in your Vercel project, then redeploy. With no key
+  the "Add a GIF" button is hidden. Results are limited to the **G** rating. A GIF is stored as a URL built from its
+  GIPHY id, and the database only accepts GIPHY-hosted image URLs. The picker says "Powered by GIPHY" and tells people
+  their search is sent to GIPHY. Check GIPHY's current terms for the exact logo/attribution they require, and note a
+  new key starts as a rate-limited beta key until you apply for production access.
 - **Privacy**: reviews show a **display name** that people choose the first time they review (2 to 30
   characters, unique, no `@`). Their email is never shown and is never readable by the app: reviews join to a
   `profiles` table that holds only the name. The name step says so in plain words.

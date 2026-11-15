@@ -703,14 +703,14 @@
       "lng": -122.097,
       "region": "south_bay",
       "city": "Cupertino",
-      "dog_status": null,
-      "rule_summary": null,
+      "dog_status": "no_dogs",
+      "rule_summary": "Midpen's page for this preserve says dogs are not allowed in the preserve.",
       "off_leash_notes": null,
-      "source_url": "https://www.openspace.org/what-to-do/activities/dogs",
-      "verification_status": "needs_verification",
-      "verified_on": null,
-      "verified_by": null,
-      "verification_note": "Midpen's dog page lists 11 dog-friendly preserves and does not mention Rancho San Antonio, so its dog rule was not confirmed.",
+      "source_url": "https://www.openspace.org/preserves/rancho-san-antonio",
+      "verification_status": "verified",
+      "verified_on": "2026-11-15",
+      "verified_by": "claude (official page fetch), pending human review; owner chose to show No dogs on 2026-11-15",
+      "verification_note": "This is the rule on Midpen's preserve page. The preserve adjoins a 293-acre Santa Clara County park that may have its own rules, so follow posted signs.",
       "recheck_days": 90,
       "details_basis": "editorial",
       "hazards": [],
@@ -719,7 +719,7 @@
       "parking_notes": null,
       "typical_duration_minutes": 120,
       "created_at": "2026-11-07T00:00:00.000Z",
-      "updated_at": "2026-11-07T00:00:00.000Z",
+      "updated_at": "2026-11-15T00:00:00.000Z",
       "photo": {
         "src": "/photos/rancho-san-antonio.jpg",
         "alt": "A side canyon seen from Rhus Ridge Trail in Rancho San Antonio Open Space Preserve",
@@ -1080,6 +1080,15 @@
       "changed_on": "2026-11-07",
       "source_url": "https://www.smcgov.org/parks/dogs-san-mateo-county-parks",
       "note": "Initial entry, read from the official source on 2026-11-07"
+    },
+    {
+      "id": "hist-rancho-san-antonio-1",
+      "place_id": "pl-rancho-san-antonio",
+      "previous_status": null,
+      "new_status": "no_dogs",
+      "changed_on": "2026-11-15",
+      "source_url": "https://www.openspace.org/preserves/rancho-san-antonio",
+      "note": "Initial entry. Midpen's preserve page says dogs are not allowed; shown as No dogs by the owner's decision on 2026-11-15."
     }
   ],
   "sunday_picks": [

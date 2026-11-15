@@ -7,7 +7,10 @@ import {
   type Place,
   type Profile,
   type Review,
+  type ReviewGif,
 } from '@/data/schemas.ts'
+import { giphyEnabled } from '@/lib/giphy.ts'
+import GifPicker from './GifPicker.tsx'
 import { PawRatingInput } from './PawRating.tsx'
 
 interface Props {
@@ -45,6 +48,8 @@ export default function ReviewSheet({
   const [name, setName] = useState('')
   const [rating, setRating] = useState<number | null>(existing?.rating ?? null)
   const [comment, setComment] = useState(existing?.comment ?? '')
+  const [gif, setGif] = useState<ReviewGif | null>(existing?.gif ?? null)
+  const [pickingGif, setPickingGif] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [busy, setBusy] = useState(false)
   const headingRef = useRef<HTMLHeadingElement>(null)
@@ -91,8 +96,7 @@ export default function ReviewSheet({
       place_id: place.id,
       rating: rating ?? 0,
       comment: comment.trim() || null,
-      // The GIF picker arrives with the GIPHY details; an existing GIF is kept as it is.
-      gif: existing?.gif ?? null,
+      gif,
     })
     if (!parsed.success) {
       setError(parsed.error.issues[0]?.message ?? 'Please check your review.')
@@ -237,6 +241,46 @@ export default function ReviewSheet({
             <p className="mt-1 text-right font-mono text-xs text-ink-soft">
               {comment.length} / {COMMENT_MAX}
             </p>
+
+            {giphyEnabled && (
+              <div className="mt-4">
+                {gif && (
+                  <div className="mb-2 flex items-start gap-3">
+                    <img
+                      src={gif.url}
+                      alt={gif.title || 'Your chosen GIF'}
+                      referrerPolicy="no-referrer"
+                      className="max-h-32 rounded-xl"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setGif(null)}
+                      className="min-h-11 rounded-full px-3 font-bold underline"
+                    >
+                      Remove GIF
+                    </button>
+                  </div>
+                )}
+                {!pickingGif && (
+                  <button
+                    type="button"
+                    onClick={() => setPickingGif(true)}
+                    className="min-h-12 w-full rounded-full border-2 border-ink px-6 font-bold"
+                  >
+                    {gif ? 'Choose a different GIF' : 'Add a GIF (optional)'}
+                  </button>
+                )}
+                {pickingGif && (
+                  <GifPicker
+                    onPick={(g) => {
+                      setGif(g)
+                      setPickingGif(false)
+                    }}
+                    onCancel={() => setPickingGif(false)}
+                  />
+                )}
+              </div>
+            )}
 
             {error && (
               <p id="review-error" role="alert" className="mt-3 font-bold text-oxblood">

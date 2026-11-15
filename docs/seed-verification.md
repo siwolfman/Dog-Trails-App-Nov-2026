@@ -4,7 +4,7 @@ Checked **2026-11-07** by fetching the official pages (`verified_by` in the seed
 "claude (official page fetch), pending human review"). **Please review before relying on any rule.**
 Water, shade, hazards and outing length are editor estimates, not agency data.
 
-## Verified from an official page (16)
+## Verified from an official page (17)
 
 | Place                                                                       | Rule stored     | Source read                                                                                                                |
 | --------------------------------------------------------------------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------- |
@@ -12,6 +12,7 @@ Water, shade, hazards and outing length are editor estimates, not agency data.
 | Tilden, Briones, Redwood Regional, Sibley                                   | Off-leash zones | ebparks.org/dogs, **district-wide rule** (no park-specific rule on that page); Tilden and Redwood also list named closures |
 | Fort Funston, Crissy Field, Ocean Beach, Baker Beach, Lands End, Muir Beach | Off-leash zones | NPS GGNRA Superintendent's Compendium (2025): "leashed or under Voice Control", with listed closures                       |
 | Muir Woods                                                                  | No dogs         | nps.gov/muwo pets page                                                                                                     |
+| Rancho San Antonio                                                          | No dogs         | openspace.org preserve page: "Dogs are not allowed in this Preserve" (owner's decision)                                    |
 | Pulgas Ridge                                                                | Off-leash zones | openspace.org dogs page (marked off-leash area)                                                                            |
 | Windy Hill                                                                  | Leash required  | openspace.org dogs page (designated trails only)                                                                           |
 | Devil's Slide Trail, Junipero Serra Park                                    | Leash required  | smcgov.org/parks/dogs-san-mateo-county-parks                                                                               |
@@ -27,11 +28,10 @@ Notes that matter:
   voice control, so the app does not follow the concept's example.
 - Ocean Beach and Crissy Field: the dates "July 1 to May 15" are copied as written in the compendium.
 
-## Could not verify (4), shown as Unverified
+## Could not verify (3), shown as Unverified
 
 | Place                      | Why                                                                            |
 | -------------------------- | ------------------------------------------------------------------------------ |
-| Rancho San Antonio         | Midpen's dog page lists 11 dog-friendly preserves and does not mention it      |
 | Pillar Point Bluff         | County page lists it as dog-friendly but is unclear on off-leash status        |
 | Ring Mountain              | Marin County Parks pages returned 403 to automated access                      |
 | Mount Tamalpais State Park | The official page contradicts itself on which trails and dirt roads allow dogs |
@@ -53,10 +53,10 @@ per-trail lengths, so most places show park-wide facts or "not published".
 | Pulgas Ridge                                                                  | 4 named trails, all marked dogs on leash; lengths for 3 (0.8, 2, 1 mi); six miles of trails total                                     | openspace.org preserve page                  |
 | Devil's Slide                                                                 | Devil's Slide Trail, 1.3 mi, listed dog-friendly                                                                                      | smcgov.org trail page and dogs page          |
 | Tilden, Sibley, Redwood Regional, Briones, Point Isabel, Fort Funston         | park-wide facts only (no per-trail dog list or lengths)                                                                               | ebparks.org pages, nps.gov Fort Funston page |
-| Muir Woods                                                                    | none: dogs not allowed                                                                                                                | rule                                         |
+| Muir Woods, Rancho San Antonio                                                | none: dogs not allowed                                                                                                                | rule                                         |
 | Baker Beach, Crissy Field, Ocean Beach, Muir Beach, Lands End, Junipero Serra | "not published": the official pages fetched did not state it, or could not be fetched (NPS Baker/Crissy/Muir Beach URLs returned 404) |                                              |
-| Rancho San Antonio, Pillar Point Bluff, Ring Mountain, Mount Tamalpais        | "not verified": the dog rule itself is unverified                                                                                     |                                              |
+| Pillar Point Bluff, Ring Mountain, Mount Tamalpais                            | "not verified": the dog rule itself is unverified                                                                                     |                                              |
 
-**Open question for you:** Midpen's Rancho San Antonio preserve page says "Dogs are not allowed in this
-Preserve", but the app still shows that place as Unverified (you chose to leave it until you confirm; the
-preserve adjoins a Santa Clara County park, so check which rule applies where).
+**Rancho San Antonio (decided 2026-11-15):** Midpen's preserve page says "Dogs are not allowed in this
+Preserve", and the owner chose to show **No dogs**. Earlier it was Unverified because Midpen's dog page does not
+list it. The place's note says the adjoining Santa Clara County park may have its own rules.
