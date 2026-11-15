@@ -3,13 +3,18 @@ import type { DataClient } from './client.ts'
 import { sanitizeProperties } from './sanitize.ts'
 import {
   AppEventSchema,
+  DisplayNameSchema,
   NewReportSchema,
+  NewReviewSchema,
+  ProfileSchema,
   PlaceRuleHistorySchema,
   PlaceSchema,
   ReportSchema,
+  ReviewSchema,
   SundayPickSchema,
   type Place,
   type Report,
+  type Review,
 } from './schemas.ts'
 
 /** Everything except the PostGIS `geog` column, which the UI does not use. */
@@ -17,7 +22,11 @@ const PLACE_COLUMNS =
   'id,name,slug,place_type,agency,lat,lng,region,city,dog_status,rule_summary,off_leash_notes,' +
   'source_url,verification_status,verified_on,verified_by,verification_note,recheck_days,' +
   'details_basis,hazards,water_access,shade_level,parking_notes,typical_duration_minutes,' +
-  'created_at,updated_at'
+  'photo,dog_trails,created_at,updated_at'
+
+/** A review plus the author's display name (never their email: profiles holds only the name). */
+const REVIEW_COLUMNS =
+  'id,place_id,user_id,rating,comment,gif,hidden,created_at,updated_at,profiles(display_name)'
 
 const MAX_EVENTS = 2000
 
@@ -50,6 +59,32 @@ function parseRows<T>(
  */
 export function createSupabaseDataClient(sb: SupabaseClient): DataClient {
   let places: Promise<Place[]> | null = null
+
+  async function currentUserId(): Promise<string | null> {
+    const { data } = await sb.auth.getSession()
+    return data.session?.user.id ?? null
+  }
+
+  /** Flattens the joined profile row into `display_name`. */
+  function toReview(row: unknown): Review | null {
+    const { profiles, ...rest } = (row ?? {}) as {
+      profiles?: { display_name?: string } | { display_name?: string }[] | null
+    } & Record<string, unknown>
+    const profile = Array.isArray(profiles) ? profiles[0] : profiles
+    const parsed = ReviewSchema.safeParse({
+      ...rest,
+      display_name: profile?.display_name,
+    })
+    if (!parsed.success) {
+      console.error('Skipping invalid review row from the database', parsed.error)
+      return null
+    }
+    return parsed.data
+  }
+
+  function toReviews(rows: unknown[] | null): Review[] {
+    return (rows ?? []).map(toReview).filter((r): r is Review => r !== null)
+  }
 
   async function loadPlaces(): Promise<Place[]> {
     const { data, error } = await sb.from('places').select(PLACE_COLUMNS).order('name')
@@ -130,6 +165,105 @@ export function createSupabaseDataClient(sb: SupabaseClient): DataClient {
     async updateReportStatus(id, status) {
       const { error } = await sb.from('reports').update({ status }).eq('id', id)
       if (error) fail('Could not update report', error)
+    },
+
+    async getMyProfile() {
+      const userId = await currentUserId()
+      if (!userId) return null
+      const { data, error } = await sb
+        .from('profiles')
+        .select('user_id,display_name')
+        .eq('user_id', userId)
+        .maybeSingle()
+      if (error) fail('Could not load your profile', error)
+      const parsed = ProfileSchema.safeParse(data)
+      return parsed.success ? parsed.data : null
+    },
+
+    async createProfile(displayName) {
+      const name = DisplayNameSchema.safeParse(displayName)
+      if (!name.success) {
+        return {
+          kind: 'invalid',
+          message: name.error.issues[0]?.message ?? 'Check the name.',
+        }
+      }
+      const userId = await currentUserId()
+      if (!userId) return { kind: 'invalid', message: 'Please sign in first.' }
+      const { error } = await sb
+        .from('profiles')
+        .insert({ user_id: userId, display_name: name.data })
+      if (error) {
+        // 23505 = unique violation: either this name is taken or you already have a profile.
+        if (error.code === '23505') return { kind: 'taken' }
+        fail('Could not save your name', error)
+      }
+      return { kind: 'ok', profile: { user_id: userId, display_name: name.data } }
+    },
+
+    async listReviews(placeId) {
+      const { data, error } = await sb
+        .from('reviews')
+        .select(REVIEW_COLUMNS)
+        .eq('place_id', placeId)
+        .order('created_at', { ascending: false })
+      if (error) fail('Could not load reviews', error)
+      return toReviews(data)
+    },
+
+    async saveReview(input) {
+      const review = NewReviewSchema.parse(input)
+      const userId = await currentUserId()
+      if (!userId) throw new Error('Please sign in to review.')
+      const content = {
+        rating: review.rating,
+        comment: review.comment || null,
+        gif: review.gif,
+      }
+      const { data: existing, error: findError } = await sb
+        .from('reviews')
+        .select('id')
+        .eq('place_id', review.place_id)
+        .eq('user_id', userId)
+        .maybeSingle()
+      if (findError) fail('Could not save review', findError)
+      // Insert or update (never upsert): authors may only change rating, comment and gif.
+      const write = existing
+        ? sb
+            .from('reviews')
+            .update(content)
+            .eq('id', existing.id as string)
+        : sb.from('reviews').insert({ place_id: review.place_id, ...content })
+      const { data, error } = await write.select(REVIEW_COLUMNS).single()
+      if (error) fail('Could not save review', error)
+      const saved = toReview(data)
+      if (!saved) throw new Error('Could not save review: unexpected response')
+      return saved
+    },
+
+    async deleteMyReview(placeId) {
+      const userId = await currentUserId()
+      if (!userId) return
+      const { error } = await sb
+        .from('reviews')
+        .delete()
+        .eq('place_id', placeId)
+        .eq('user_id', userId)
+      if (error) fail('Could not delete review', error)
+    },
+
+    async listAllReviews() {
+      const { data, error } = await sb
+        .from('reviews')
+        .select(REVIEW_COLUMNS)
+        .order('created_at', { ascending: false })
+      if (error) fail('Could not load reviews', error)
+      return toReviews(data)
+    },
+
+    async setReviewHidden(id, hidden) {
+      const { error } = await sb.rpc('set_review_hidden', { p_id: id, p_hidden: hidden })
+      if (error) fail('Could not update review', error)
     },
 
     async getSundayPicks(weekStart) {

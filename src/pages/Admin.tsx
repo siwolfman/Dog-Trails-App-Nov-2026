@@ -8,9 +8,10 @@ import { useAuth } from '@/auth/useAuth.ts'
 import EventsTab from './admin/EventsTab.tsx'
 import PicksTab from './admin/PicksTab.tsx'
 import ReportsTab from './admin/ReportsTab.tsx'
+import ReviewsTab from './admin/ReviewsTab.tsx'
 
 const SESSION_KEY = 'pawprint:admin'
-const TABS = ['Sunday picks', 'Reports', 'Events'] as const
+const TABS = ['Sunday picks', 'Reports', 'Reviews', 'Events'] as const
 type Tab = (typeof TABS)[number]
 
 function useNoIndex() {
@@ -165,6 +166,8 @@ function Panel({
           />
         ) : tab === 'Reports' ? (
           <ReportsTab places={data.places} />
+        ) : tab === 'Reviews' ? (
+          <ReviewsTab places={data.places} />
         ) : (
           <EventsTab />
         )}

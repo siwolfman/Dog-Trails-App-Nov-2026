@@ -51,3 +51,27 @@ test('unknown slugs show a not-found page', async () => {
   renderAt('/place/nope')
   expect(await screen.findByText('Nothing here.')).toBeInTheDocument()
 })
+
+test('shows the place photo with its credit and license', async () => {
+  renderAt('/place/baker-beach')
+  const img = await screen.findByRole('img', { name: /Baker Beach at dusk/ })
+  expect(img).toHaveAttribute('src', '/photos/baker-beach.jpg')
+  expect(screen.getByText(/Photo by BradleyPelton/)).toBeInTheDocument()
+  expect(screen.getByRole('link', { name: /CC BY-SA 4\.0/ })).toHaveAttribute(
+    'href',
+    expect.stringContaining('creativecommons.org'),
+  )
+  expect(screen.getByRole('link', { name: /Wikimedia Commons/ })).toHaveAttribute(
+    'href',
+    expect.stringContaining('commons.wikimedia.org'),
+  )
+})
+
+test('has dog-friendly trails and reviews sections', async () => {
+  renderAt('/place/windy-hill')
+  expect(
+    await screen.findByRole('heading', { name: 'Dog-friendly trails' }),
+  ).toBeInTheDocument()
+  expect(await screen.findByRole('heading', { name: 'Reviews' })).toBeInTheDocument()
+  expect(await screen.findByText('No ratings yet')).toBeInTheDocument()
+})

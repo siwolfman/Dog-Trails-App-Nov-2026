@@ -54,10 +54,10 @@ npm run dev                  # http://localhost:5173
 - `/signup`, `/login`, `/forgot-password` and `/reset-password`: email and password accounts (Supabase Auth).
   Every other page needs a login
 - `/` map and list, with filters (rule, outing length, area, water, shade) kept in the URL
-- `/place/:slug` Go/No-Go card, source link, verified stamp, hazards, live weather and heat warning,
-  "Report an issue"
+- `/place/:slug` a real photo of the place (with credit), Go/No-Go card, source link, verified stamp,
+  dog-friendly trails, hazards, live weather and heat warning, paw-print reviews, "Report an issue"
 - `/sunday` hand-picked Sunday Picks (3 to 5 verified places)
-- `/admin` edit picks, triage reports, view and export events (Supabase Auth, admins only)
+- `/admin` edit picks, triage reports, hide or show reviews, view and export events (Supabase Auth, admins only)
 
 ## Data integrity (the rules the app enforces)
 
@@ -71,6 +71,21 @@ npm run dev                  # http://localhost:5173
 - Water, shade, hazards and outing length are **editor estimates** (`details_basis: "editorial"`), labelled as
   such in the UI. They are not dog rules.
 - See `docs/seed-verification.md` for which seed entries are verified and which are not.
+
+## Photos, trails and reviews
+
+- **Photos** are free-licensed images from Wikimedia Commons, resized and self-hosted in `public/photos/`.
+  The author, license and Commons link show under every photo. Credits are listed in `docs/photo-credits.md`.
+  A place with no suitable photo keeps the generic header.
+- **Dog-friendly trails** show only what an official agency page states: a named trail (with its length if
+  the page gives one) or a clearly labeled park-wide fact. Where the agency publishes nothing, the section says
+  so. No-dogs and unverified places never show trail details. Sources and gaps: `docs/seed-verification.md`.
+- **Reviews**: 1 to 5 paw prints (no zero), an optional comment up to 500 characters, and an optional GIPHY GIF
+  (stored and displayed; the picker is not built yet, it needs your GIPHY API details). One review per person
+  per place, editable and deletable by its author, and admins can hide any review.
+- **Privacy**: reviews show a **display name** that people choose the first time they review (2 to 30
+  characters, unique, no `@`). Their email is never shown and is never readable by the app: reviews join to a
+  `profiles` table that holds only the name. The name step says so in plain words.
 
 ## Backend (Supabase)
 

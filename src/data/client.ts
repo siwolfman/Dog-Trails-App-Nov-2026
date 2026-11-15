@@ -2,11 +2,19 @@ import type {
   AppEvent,
   EventName,
   NewReport,
+  NewReview,
   Place,
   PlaceRuleHistory,
+  Profile,
   Report,
+  Review,
   SundayPick,
 } from './schemas.ts'
+
+export type CreateProfileResult =
+  | { kind: 'ok'; profile: Profile }
+  | { kind: 'taken' }
+  | { kind: 'invalid'; message: string }
 
 export interface NewSundayPick {
   place_id: string
@@ -26,6 +34,21 @@ export interface DataClient {
   submitReport(report: NewReport): Promise<Report>
   listReports(): Promise<Report[]>
   updateReportStatus(id: string, status: Report['status']): Promise<void>
+
+  /** The signed-in person's profile (display name), or null until they have chosen one. */
+  getMyProfile(): Promise<Profile | null>
+  /** Choose a display name. Names are unique ignoring case and can never contain '@'. */
+  createProfile(displayName: string): Promise<CreateProfileResult>
+
+  /** Visible reviews for a place, newest first. The caller's own review is included even if hidden. */
+  listReviews(placeId: string): Promise<Review[]>
+  /** Creates the caller's review for this place, or replaces it: one review per person per place. */
+  saveReview(review: NewReview): Promise<Review>
+  deleteMyReview(placeId: string): Promise<void>
+  /** Admin only: every review including hidden ones. Everyone else just gets their own. */
+  listAllReviews(): Promise<Review[]>
+  /** Admin only. */
+  setReviewHidden(id: string, hidden: boolean): Promise<void>
 
   /** Picks for a week (Monday ISO date). Defaults to the newest week that has picks. */
   getSundayPicks(

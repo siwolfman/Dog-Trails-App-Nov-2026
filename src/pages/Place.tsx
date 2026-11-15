@@ -1,8 +1,11 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useLocation, useNavigate, useParams } from 'react-router'
+import DogTrailsSection from '@/components/DogTrailsSection.tsx'
 import GoNoGoCard from '@/components/GoNoGoCard.tsx'
 import Hero from '@/components/Hero.tsx'
+import { PhotoCredit, PlacePhotoImage } from '@/components/PlacePhoto.tsx'
 import ReportSheet from '@/components/ReportSheet.tsx'
+import ReviewsSection from '@/components/ReviewsSection.tsx'
 import { dataClient } from '@/data/index.ts'
 import type { Place, PlaceRuleHistory } from '@/data/schemas.ts'
 import { getDisplayRule, todayISO } from '@/lib/dogStatus.ts'
@@ -127,8 +130,8 @@ function PlaceView({ slug }: { slug: string }) {
 
   return (
     <div className="mx-auto max-w-xl pb-32">
-      <div className="relative h-36">
-        <Hero />
+      <div className={`relative ${p.photo ? 'h-56' : 'h-36'}`}>
+        {p.photo ? <PlacePhotoImage photo={p.photo} /> : <Hero />}
         <button
           type="button"
           onClick={() => (window.history.length > 1 ? navigate(-1) : navigate('/'))}
@@ -150,6 +153,8 @@ function PlaceView({ slug }: { slug: string }) {
           </svg>
         </button>
       </div>
+
+      {p.photo && <PhotoCredit photo={p.photo} />}
 
       <main className="px-5 pt-5">
         <h1 className="text-[2.1rem]">{p.name}</h1>
@@ -206,6 +211,8 @@ function PlaceView({ slug }: { slug: string }) {
           </p>
         )}
 
+        <DogTrailsSection place={p} rule={rule} />
+
         {p.hazards.length > 0 && (
           <>
             <h2 className="mt-8 mb-3 text-2xl">Watch for</h2>
@@ -218,6 +225,8 @@ function PlaceView({ slug }: { slug: string }) {
             </ul>
           </>
         )}
+
+        <ReviewsSection place={p} />
 
         <section
           aria-labelledby="report-cta"

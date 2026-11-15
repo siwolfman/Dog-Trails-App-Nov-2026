@@ -26,7 +26,29 @@
       "parking_notes": null,
       "typical_duration_minutes": 60,
       "created_at": "2026-11-07T00:00:00.000Z",
-      "updated_at": "2026-11-07T00:00:00.000Z"
+      "updated_at": "2026-11-07T00:00:00.000Z",
+      "photo": {
+        "src": "/photos/point-isabel.jpg",
+        "alt": "Dirt path and cypress trees near the entrance of Point Isabel Regional Shoreline",
+        "credit": "Ndołkah",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Pointislabelregionalshoreline2019.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
+      "dog_trails": {
+        "trails": [],
+        "park_wide": [
+          "The park page mentions more than 2.5 miles of San Francisco Bay Trail in the vicinity of the park.",
+          "Dogs must be on a leash in parking lots and streets."
+        ],
+        "sources": [
+          {
+            "label": "East Bay Regional Park District: Point Isabel",
+            "url": "https://www.ebparks.org/parks/point-isabel"
+          }
+        ],
+        "verified_on": "2026-11-15"
+      }
     },
     {
       "id": "pl-tilden",
@@ -48,17 +70,36 @@
       "verification_note": null,
       "recheck_days": 90,
       "details_basis": "editorial",
-      "hazards": [
-        "ticks",
-        "poison_oak",
-        "cyclists"
-      ],
+      "hazards": ["ticks", "poison_oak", "cyclists"],
       "water_access": null,
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": 120,
       "created_at": "2026-11-07T00:00:00.000Z",
-      "updated_at": "2026-11-07T00:00:00.000Z"
+      "updated_at": "2026-11-07T00:00:00.000Z",
+      "photo": {
+        "src": "/photos/tilden.jpg",
+        "alt": "Hazy hills and trees seen from Selby Trail in Tilden Regional Park",
+        "credit": "Mliu92",
+        "license": "CC BY-SA 3.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Tilden_Regional_Park_5.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
+      "dog_trails": {
+        "trails": [],
+        "park_wide": [
+          "The park page says there are 39.41 miles of trails in Tilden Park. That is all trails, not only ones open to dogs.",
+          "Dogs must be on a leash on Nimitz Way.",
+          "Dogs are not allowed in the swim facility at Lake Anza."
+        ],
+        "sources": [
+          {
+            "label": "East Bay Regional Park District: Tilden",
+            "url": "https://www.ebparks.org/parks/tilden"
+          }
+        ],
+        "verified_on": "2026-11-15"
+      }
     },
     {
       "id": "pl-briones",
@@ -80,17 +121,34 @@
       "verification_note": null,
       "recheck_days": 90,
       "details_basis": "editorial",
-      "hazards": [
-        "cattle_grazing",
-        "foxtails",
-        "ticks"
-      ],
+      "hazards": ["cattle_grazing", "foxtails", "ticks"],
       "water_access": null,
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": 150,
       "created_at": "2026-11-07T00:00:00.000Z",
-      "updated_at": "2026-11-07T00:00:00.000Z"
+      "updated_at": "2026-11-07T00:00:00.000Z",
+      "photo": {
+        "src": "/photos/briones.jpg",
+        "alt": "Green rolling hills along Lafayette Ridge in Briones Regional Park",
+        "credit": "Mrbilal1987 (assumed author)",
+        "license": "Public domain",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Lafayette_Ridge_-_Briones_Regional_Park_-_San_San_Francisco.jpg",
+        "license_url": null
+      },
+      "dog_trails": {
+        "trails": [],
+        "park_wide": [
+          "Dogs must be on a leash (6 feet maximum) at all times on Tavan Trail, and on parts of Diablo View, Alhambra Creek and Orchard trails."
+        ],
+        "sources": [
+          {
+            "label": "East Bay Regional Park District: Briones",
+            "url": "https://www.ebparks.org/parks/briones"
+          }
+        ],
+        "verified_on": "2026-11-15"
+      }
     },
     {
       "id": "pl-redwood-regional",
@@ -112,17 +170,35 @@
       "verification_note": null,
       "recheck_days": 90,
       "details_basis": "editorial",
-      "hazards": [
-        "poison_oak",
-        "mud",
-        "cyclists"
-      ],
+      "hazards": ["poison_oak", "mud", "cyclists"],
       "water_access": null,
       "shade_level": "lots",
       "parking_notes": null,
       "typical_duration_minutes": 120,
       "created_at": "2026-11-07T00:00:00.000Z",
-      "updated_at": "2026-11-07T00:00:00.000Z"
+      "updated_at": "2026-11-07T00:00:00.000Z",
+      "photo": {
+        "src": "/photos/redwood-regional.jpg",
+        "alt": "Tall redwood trunks in Redwood Regional Park",
+        "credit": "Binksternet",
+        "license": "Public domain",
+        "source_url": "https://commons.wikimedia.org/wiki/File:RedwoodRegional.jpg",
+        "license_url": null
+      },
+      "dog_trails": {
+        "trails": [],
+        "park_wide": [
+          "The park page says there are nearly 40 miles of trails. That is all trails, not only ones open to dogs.",
+          "The park page shows a \"Dogs Allowed\" icon but does not say which trails."
+        ],
+        "sources": [
+          {
+            "label": "East Bay Regional Park District: Redwood Regional",
+            "url": "https://www.ebparks.org/parks/redwood"
+          }
+        ],
+        "verified_on": "2026-11-15"
+      }
     },
     {
       "id": "pl-sibley",
@@ -144,16 +220,34 @@
       "verification_note": null,
       "recheck_days": 90,
       "details_basis": "editorial",
-      "hazards": [
-        "ticks",
-        "poison_oak"
-      ],
+      "hazards": ["ticks", "poison_oak"],
       "water_access": null,
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": 90,
       "created_at": "2026-11-07T00:00:00.000Z",
-      "updated_at": "2026-11-07T00:00:00.000Z"
+      "updated_at": "2026-11-07T00:00:00.000Z",
+      "photo": {
+        "src": "/photos/sibley.jpg",
+        "alt": "Golden hills and an extinct volcano summit at Sibley Volcanic Regional Preserve",
+        "credit": "Sarah Stierch",
+        "license": "CC0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Sibley_Volcanic_Regional_Preserve_-_Stierch_A.jpg",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+      },
+      "dog_trails": {
+        "trails": [],
+        "park_wide": [
+          "Dogs are permitted at Sibley, but are not allowed on the adjacent Huckleberry trails."
+        ],
+        "sources": [
+          {
+            "label": "East Bay Regional Park District: Sibley",
+            "url": "https://www.ebparks.org/parks/sibley"
+          }
+        ],
+        "verified_on": "2026-11-15"
+      }
     },
     {
       "id": "pl-fort-funston",
@@ -175,16 +269,35 @@
       "verification_note": null,
       "recheck_days": 90,
       "details_basis": "editorial",
-      "hazards": [
-        "cliffs",
-        "seasonal_closures"
-      ],
+      "hazards": ["cliffs", "seasonal_closures"],
       "water_access": "yes",
       "shade_level": "none",
       "parking_notes": null,
       "typical_duration_minutes": 75,
       "created_at": "2026-11-07T00:00:00.000Z",
-      "updated_at": "2026-11-07T00:00:00.000Z"
+      "updated_at": "2026-11-07T00:00:00.000Z",
+      "photo": {
+        "src": "/photos/fort-funston.jpg",
+        "alt": "Overlook at Fort Funston with a hang glider and the coastline",
+        "credit": "Viriditas",
+        "license": "CC BY-SA 3.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Funston_overlook_2.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
+      "dog_trails": {
+        "trails": [],
+        "park_wide": [
+          "The NPS page says its networked trails are ideal for accessible hiking, horseback riding and dog walking.",
+          "The loop trails are paved and wheelchair-accessible; the trails down to the beach are not."
+        ],
+        "sources": [
+          {
+            "label": "NPS: Fort Funston",
+            "url": "https://www.nps.gov/goga/planyourvisit/fortfunston.htm"
+          }
+        ],
+        "verified_on": "2026-11-15"
+      }
     },
     {
       "id": "pl-crissy-field",
@@ -206,15 +319,22 @@
       "verification_note": null,
       "recheck_days": 90,
       "details_basis": "editorial",
-      "hazards": [
-        "seasonal_closures"
-      ],
+      "hazards": ["seasonal_closures"],
       "water_access": "yes",
       "shade_level": "none",
       "parking_notes": null,
       "typical_duration_minutes": 60,
       "created_at": "2026-11-07T00:00:00.000Z",
-      "updated_at": "2026-11-07T00:00:00.000Z"
+      "updated_at": "2026-11-07T00:00:00.000Z",
+      "photo": {
+        "src": "/photos/crissy-field.jpg",
+        "alt": "Crissy Field beach with the Golden Gate Bridge in the distance",
+        "credit": "Brocken Inaglory",
+        "license": "Public domain",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Crissy_Field_beach_and_Golden_Gate_Bridge.jpg",
+        "license_url": null
+      },
+      "dog_trails": null
     },
     {
       "id": "pl-ocean-beach",
@@ -236,16 +356,22 @@
       "verification_note": null,
       "recheck_days": 90,
       "details_basis": "editorial",
-      "hazards": [
-        "strong_surf",
-        "seasonal_closures"
-      ],
+      "hazards": ["strong_surf", "seasonal_closures"],
       "water_access": "yes",
       "shade_level": "none",
       "parking_notes": null,
       "typical_duration_minutes": 60,
       "created_at": "2026-11-07T00:00:00.000Z",
-      "updated_at": "2026-11-07T00:00:00.000Z"
+      "updated_at": "2026-11-07T00:00:00.000Z",
+      "photo": {
+        "src": "/photos/ocean-beach.jpg",
+        "alt": "Cliff House above Ocean Beach at sunset",
+        "credit": "Brocken Inaglory",
+        "license": "CC BY-SA 3.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Cliff_House_from_Ocean_Beach.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
+      "dog_trails": null
     },
     {
       "id": "pl-baker-beach",
@@ -267,16 +393,22 @@
       "verification_note": null,
       "recheck_days": 90,
       "details_basis": "editorial",
-      "hazards": [
-        "strong_surf",
-        "cliffs"
-      ],
+      "hazards": ["strong_surf", "cliffs"],
       "water_access": "yes",
       "shade_level": "none",
       "parking_notes": null,
       "typical_duration_minutes": 60,
       "created_at": "2026-11-07T00:00:00.000Z",
-      "updated_at": "2026-11-07T00:00:00.000Z"
+      "updated_at": "2026-11-07T00:00:00.000Z",
+      "photo": {
+        "src": "/photos/baker-beach.jpg",
+        "alt": "Baker Beach at dusk with the Golden Gate Bridge in the distance",
+        "credit": "BradleyPelton",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:BakeBeachAtMidday.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
+      "dog_trails": null
     },
     {
       "id": "pl-lands-end",
@@ -298,15 +430,22 @@
       "verification_note": null,
       "recheck_days": 90,
       "details_basis": "editorial",
-      "hazards": [
-        "cliffs"
-      ],
+      "hazards": ["cliffs"],
       "water_access": null,
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": 90,
       "created_at": "2026-11-07T00:00:00.000Z",
-      "updated_at": "2026-11-07T00:00:00.000Z"
+      "updated_at": "2026-11-07T00:00:00.000Z",
+      "photo": {
+        "src": "/photos/lands-end.jpg",
+        "alt": "Coastal trail at Lands End with the Golden Gate Bridge beyond cypress trees",
+        "credit": "Pi.1415926535",
+        "license": "CC BY-SA 3.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Coastal_Trail_and_Golden_Gate_Bridge,_April_2019.JPG",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
+      "dog_trails": null
     },
     {
       "id": "pl-muir-beach",
@@ -328,15 +467,22 @@
       "verification_note": null,
       "recheck_days": 90,
       "details_basis": "editorial",
-      "hazards": [
-        "strong_surf"
-      ],
+      "hazards": ["strong_surf"],
       "water_access": "yes",
       "shade_level": "none",
       "parking_notes": null,
       "typical_duration_minutes": 60,
       "created_at": "2026-11-07T00:00:00.000Z",
-      "updated_at": "2026-11-07T00:00:00.000Z"
+      "updated_at": "2026-11-07T00:00:00.000Z",
+      "photo": {
+        "src": "/photos/muir-beach.jpg",
+        "alt": "Muir Beach with people on the sand and houses on the hillside",
+        "credit": "Frank Schulenburg",
+        "license": "CC0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Muir_Beach_as_seen_from_the_beach,_December_2013.jpg",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+      },
+      "dog_trails": null
     },
     {
       "id": "pl-muir-woods",
@@ -364,7 +510,16 @@
       "parking_notes": null,
       "typical_duration_minutes": 90,
       "created_at": "2026-11-07T00:00:00.000Z",
-      "updated_at": "2026-11-07T00:00:00.000Z"
+      "updated_at": "2026-11-07T00:00:00.000Z",
+      "photo": {
+        "src": "/photos/muir-woods.jpg",
+        "alt": "A dirt path through tall redwoods at Muir Woods",
+        "credit": "Matthew Dillon",
+        "license": "CC BY 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Muir_Woods_National_Monument_(47879029461).jpg",
+        "license_url": "https://creativecommons.org/licenses/by/2.0"
+      },
+      "dog_trails": null
     },
     {
       "id": "pl-pulgas-ridge",
@@ -386,16 +541,57 @@
       "verification_note": null,
       "recheck_days": 90,
       "details_basis": "editorial",
-      "hazards": [
-        "foxtails",
-        "ticks"
-      ],
+      "hazards": ["foxtails", "ticks"],
       "water_access": "none",
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": 60,
       "created_at": "2026-11-07T00:00:00.000Z",
-      "updated_at": "2026-11-07T00:00:00.000Z"
+      "updated_at": "2026-11-07T00:00:00.000Z",
+      "photo": {
+        "src": "/photos/pulgas-ridge.jpg",
+        "alt": "San Francisco Bay seen from Pulgas Ridge Open Space Preserve",
+        "credit": "Elf",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:SanFranciscoBayFromPulgasRidge.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
+      "dog_trails": {
+        "trails": [
+          {
+            "name": "Cordilleras Trail",
+            "miles": 0.8,
+            "dog_note": "Midpen marks all Pulgas Ridge trails \"Dogs on Leash\"."
+          },
+          {
+            "name": "Dick Bishop Trail",
+            "miles": null,
+            "dog_note": "Midpen marks all Pulgas Ridge trails \"Dogs on Leash\"."
+          },
+          {
+            "name": "Dusky-footed Woodrat Trail",
+            "miles": 2,
+            "dog_note": "Midpen marks all Pulgas Ridge trails \"Dogs on Leash\"."
+          },
+          {
+            "name": "Polly Geraci Trail",
+            "miles": 1,
+            "dog_note": "Midpen marks all Pulgas Ridge trails \"Dogs on Leash\"."
+          }
+        ],
+        "park_wide": [
+          "Dogs must be on a leash of 6 feet or less on all trails.",
+          "The preserve overview says there are six miles of trails in total.",
+          "A 17.5-acre off-leash area sits in the center of the preserve."
+        ],
+        "sources": [
+          {
+            "label": "Midpen: Pulgas Ridge preserve",
+            "url": "https://www.openspace.org/preserves/pulgas-ridge"
+          }
+        ],
+        "verified_on": "2026-11-15"
+      }
     },
     {
       "id": "pl-windy-hill",
@@ -417,16 +613,85 @@
       "verification_note": null,
       "recheck_days": 90,
       "details_basis": "editorial",
-      "hazards": [
-        "ticks",
-        "poison_oak"
-      ],
+      "hazards": ["ticks", "poison_oak"],
       "water_access": "none",
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": 120,
       "created_at": "2026-11-07T00:00:00.000Z",
-      "updated_at": "2026-11-07T00:00:00.000Z"
+      "updated_at": "2026-11-07T00:00:00.000Z",
+      "photo": {
+        "src": "/photos/windy-hill.jpg",
+        "alt": "View from Windy Hill across the bay toward Mount Diablo",
+        "credit": "David R. Ingham",
+        "license": "CC BY-SA 3.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Mount_Diablo_from_Windy_Hill.JPG",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      "dog_trails": {
+        "trails": [
+          {
+            "name": "Spring Ridge Trail",
+            "miles": null,
+            "dog_note": "Listed as a dog-designated trail on Midpen's dog page."
+          },
+          {
+            "name": "Betsy Crowder Trail",
+            "miles": null,
+            "dog_note": "Listed as a dog-designated trail on Midpen's dog page."
+          },
+          {
+            "name": "Sequoias Trail",
+            "miles": null,
+            "dog_note": "Listed as a dog-designated trail on Midpen's dog page."
+          },
+          {
+            "name": "Eagle Trail",
+            "miles": null,
+            "dog_note": "Listed as a dog-designated trail on Midpen's dog page."
+          },
+          {
+            "name": "Meadow Trail",
+            "miles": null,
+            "dog_note": "Listed as a dog-designated trail on Midpen's dog page."
+          },
+          {
+            "name": "Hamms Gulch Trail",
+            "miles": null,
+            "dog_note": "Listed as a dog-designated trail on Midpen's dog page."
+          },
+          {
+            "name": "Anniversary Trail",
+            "miles": 0.6,
+            "dog_note": "Listed as a dog-designated trail on Midpen's dog page; length from the preserve page."
+          },
+          {
+            "name": "Lost Trail (between Anniversary and Hamms Gulch)",
+            "miles": null,
+            "dog_note": "Listed as a dog-designated section on Midpen's dog page."
+          },
+          {
+            "name": "Sausal Pond Loop",
+            "miles": 1.6,
+            "dog_note": "Midpen's preserve page: \"Dogs are able to use this trail, but must be kept on-leash.\""
+          }
+        ],
+        "park_wide": [
+          "Dogs are allowed only on designated trails, marked on the preserve map, on a leash of 6 feet or less.",
+          "Dogs are not allowed in water areas, including streams and ponds."
+        ],
+        "sources": [
+          {
+            "label": "Midpen: Windy Hill preserve",
+            "url": "https://www.openspace.org/preserves/windy-hill"
+          },
+          {
+            "label": "Midpen: dogs",
+            "url": "https://www.openspace.org/what-to-do/activities/dogs"
+          }
+        ],
+        "verified_on": "2026-11-15"
+      }
     },
     {
       "id": "pl-rancho-san-antonio",
@@ -454,7 +719,16 @@
       "parking_notes": null,
       "typical_duration_minutes": 120,
       "created_at": "2026-11-07T00:00:00.000Z",
-      "updated_at": "2026-11-07T00:00:00.000Z"
+      "updated_at": "2026-11-07T00:00:00.000Z",
+      "photo": {
+        "src": "/photos/rancho-san-antonio.jpg",
+        "alt": "A side canyon seen from Rhus Ridge Trail in Rancho San Antonio Open Space Preserve",
+        "credit": "Dicklyon",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:View_from_Rhus_Ridge_Trail.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
+      "dog_trails": null
     },
     {
       "id": "pl-devils-slide",
@@ -476,16 +750,42 @@
       "verification_note": null,
       "recheck_days": 90,
       "details_basis": "editorial",
-      "hazards": [
-        "cliffs",
-        "cyclists"
-      ],
+      "hazards": ["cliffs", "cyclists"],
       "water_access": "none",
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": 45,
       "created_at": "2026-11-07T00:00:00.000Z",
-      "updated_at": "2026-11-07T00:00:00.000Z"
+      "updated_at": "2026-11-07T00:00:00.000Z",
+      "photo": {
+        "src": "/photos/devils-slide.jpg",
+        "alt": "Devil's Slide Trail curving along a steep coastal hillside",
+        "credit": "Jpesch95",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Devil%27s_Slide_Trail,_Pacifica,_California_(October_11,_2017).jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
+      "dog_trails": {
+        "trails": [
+          {
+            "name": "Devil's Slide Trail",
+            "miles": 1.3,
+            "dog_note": "San Mateo County Parks lists it as dog-friendly, with dogs on leash."
+          }
+        ],
+        "park_wide": [],
+        "sources": [
+          {
+            "label": "San Mateo County Parks: Devil's Slide Trail",
+            "url": "https://www.smcgov.org/parks/devils-slide-trail"
+          },
+          {
+            "label": "San Mateo County Parks: dogs",
+            "url": "https://www.smcgov.org/parks/dogs-san-mateo-county-parks"
+          }
+        ],
+        "verified_on": "2026-11-15"
+      }
     },
     {
       "id": "pl-junipero-serra",
@@ -513,7 +813,16 @@
       "parking_notes": null,
       "typical_duration_minutes": 90,
       "created_at": "2026-11-07T00:00:00.000Z",
-      "updated_at": "2026-11-07T00:00:00.000Z"
+      "updated_at": "2026-11-07T00:00:00.000Z",
+      "photo": {
+        "src": "/photos/junipero-serra.jpg",
+        "alt": "A trail through twisted oak woodland in Junipero Serra County Park",
+        "credit": "Michael Fraley",
+        "license": "CC BY 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Junipero_Serra_County_Park_23_(44634144730).jpg",
+        "license_url": "https://creativecommons.org/licenses/by/2.0"
+      },
+      "dog_trails": null
     },
     {
       "id": "pl-pillar-point-bluff",
@@ -535,15 +844,22 @@
       "verification_note": "The county page lists Pillar Point Bluff as dog-friendly but gives conflicting information about off-leash status (an off-leash pilot is referenced).",
       "recheck_days": 90,
       "details_basis": "editorial",
-      "hazards": [
-        "cliffs"
-      ],
+      "hazards": ["cliffs"],
       "water_access": null,
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": 90,
       "created_at": "2026-11-07T00:00:00.000Z",
-      "updated_at": "2026-11-07T00:00:00.000Z"
+      "updated_at": "2026-11-07T00:00:00.000Z",
+      "photo": {
+        "src": "/photos/pillar-point-bluff.jpg",
+        "alt": "A dirt trail across Pillar Point Bluff above the ocean",
+        "credit": "Viriditas",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Pillar_Point_Bluff_facing_southwest.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
+      "dog_trails": null
     },
     {
       "id": "pl-ring-mountain",
@@ -571,7 +887,16 @@
       "parking_notes": null,
       "typical_duration_minutes": 75,
       "created_at": "2026-11-07T00:00:00.000Z",
-      "updated_at": "2026-11-07T00:00:00.000Z"
+      "updated_at": "2026-11-07T00:00:00.000Z",
+      "photo": {
+        "src": "/photos/ring-mountain.jpg",
+        "alt": "A rocky grass trail on Ring Mountain with the bay beyond",
+        "credit": "Frank Schulenburg",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:View_of_the_Tiburon_Peninsula_and_the_Bay_from_Ring_Mountain.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
+      "dog_trails": null
     },
     {
       "id": "pl-mount-tamalpais",
@@ -599,7 +924,16 @@
       "parking_notes": null,
       "typical_duration_minutes": 90,
       "created_at": "2026-11-07T00:00:00.000Z",
-      "updated_at": "2026-11-07T00:00:00.000Z"
+      "updated_at": "2026-11-07T00:00:00.000Z",
+      "photo": {
+        "src": "/photos/mount-tamalpais.jpg",
+        "alt": "Wildflowers and grassy slopes at Mount Tamalpais State Park",
+        "credit": "Oscar Vasquez / California Department of Parks and Recreation",
+        "license": "Public domain",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Mount_Tamalpais_State_Park.jpg",
+        "license_url": null
+      },
+      "dog_trails": null
     }
   ],
   "place_rule_history": [

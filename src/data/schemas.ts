@@ -55,6 +55,42 @@ export type ShadeLevel = z.infer<typeof ShadeLevelSchema>
 const isoDate = z.iso.date()
 const httpsUrl = z.url({ protocol: /^https?$/ })
 
+/**
+ * A real photo of the place, self-hosted in public/photos. Only free-licensed images
+ * (Wikimedia Commons) are used, and the credit is always shown with the photo.
+ */
+export const PhotoSchema = z.object({
+  src: z.string().regex(/^\/photos\/[a-z0-9-]+\.jpg$/),
+  alt: z.string().min(5),
+  credit: z.string().min(1),
+  license: z.string().min(1),
+  /** The Commons page for the image: where the author, license and original live. */
+  source_url: httpsUrl,
+  license_url: httpsUrl.nullable(),
+})
+export type Photo = z.infer<typeof PhotoSchema>
+
+/**
+ * What the agency's own pages say about dog-friendly trails. Nothing here is estimated:
+ * a trail is listed only if an official page says dogs may use it, and `miles` is null when
+ * the page gives no length. `park_wide` holds facts about the whole place, shown as such.
+ */
+export const DogTrailSchema = z.object({
+  name: z.string().min(1),
+  miles: z.number().positive().nullable(),
+  /** Why we say dogs may use it: the agency's wording or a close paraphrase. */
+  dog_note: z.string().min(1),
+})
+export type DogTrail = z.infer<typeof DogTrailSchema>
+
+export const DogTrailsSchema = z.object({
+  trails: z.array(DogTrailSchema),
+  park_wide: z.array(z.string().min(1)),
+  sources: z.array(z.object({ label: z.string().min(1), url: httpsUrl })).min(1),
+  verified_on: isoDate,
+})
+export type DogTrails = z.infer<typeof DogTrailsSchema>
+
 export const PlaceSchema = z
   .object({
     id: z.string().min(1),
@@ -90,6 +126,10 @@ export const PlaceSchema = z
     shade_level: ShadeLevelSchema.nullable(),
     parking_notes: z.string().nullable(),
     typical_duration_minutes: z.number().int().min(10).max(600).nullable(),
+    /** Null when no free-licensed photo was found: the page keeps the generic header. */
+    photo: PhotoSchema.nullable().default(null),
+    /** Null when the agency does not publish dog-friendly trail details. */
+    dog_trails: DogTrailsSchema.nullable().default(null),
     created_at: z.iso.datetime({ offset: true }),
     updated_at: z.iso.datetime({ offset: true }),
   })
@@ -144,6 +184,66 @@ export const ReportSchema = NewReportSchema.extend({
   status: z.enum(['open', 'reviewed', 'resolved']),
 })
 export type Report = z.infer<typeof ReportSchema>
+
+/**
+ * Display name for reviews. It must never be an email address, so '@' is rejected: the account's
+ * email stays private and only this name is shown.
+ */
+export const DisplayNameSchema = z
+  .string()
+  .trim()
+  .min(2, 'Use at least 2 characters.')
+  .max(30, 'Use 30 characters or fewer.')
+  .refine(
+    (v) => !v.includes('@'),
+    'Do not use an email address. Pick a name or nickname.',
+  )
+export type DisplayName = z.infer<typeof DisplayNameSchema>
+
+export const ProfileSchema = z.object({
+  user_id: z.string().min(1),
+  display_name: DisplayNameSchema,
+})
+export type Profile = z.infer<typeof ProfileSchema>
+
+/** Only GIPHY-hosted images are accepted; the picker itself arrives with the GIPHY details. */
+export const ReviewGifSchema = z.object({
+  id: z.string().min(1).max(64),
+  url: z.string().regex(/^https:\/\/(media[0-9]*|i)\.giphy\.com\/[\w./%~+-]+$/),
+  title: z.string().max(200),
+})
+export type ReviewGif = z.infer<typeof ReviewGifSchema>
+
+export const RATING_MIN = 1
+export const RATING_MAX = 5
+export const COMMENT_MAX = 500
+
+/** What the review form submits. One review per person per place, so this is also the edit shape. */
+export const NewReviewSchema = z.object({
+  place_id: z.string().min(1),
+  rating: z
+    .number({ error: 'Choose 1 to 5 paw prints.' })
+    .int()
+    .min(RATING_MIN, 'Choose 1 to 5 paw prints.')
+    .max(RATING_MAX, 'Choose 1 to 5 paw prints.'),
+  comment: z
+    .string()
+    .trim()
+    .max(COMMENT_MAX, `Keep your comment to ${COMMENT_MAX} characters.`)
+    .nullable(),
+  gif: ReviewGifSchema.nullable(),
+})
+export type NewReview = z.infer<typeof NewReviewSchema>
+
+export const ReviewSchema = NewReviewSchema.extend({
+  id: z.string().min(1),
+  user_id: z.string().min(1),
+  display_name: DisplayNameSchema,
+  hidden: z.boolean(),
+  created_at: z.iso.datetime({ offset: true }),
+  updated_at: z.iso.datetime({ offset: true }),
+})
+export type Review = z.infer<typeof ReviewSchema>
 
 export const SundayPickSchema = z.object({
   id: z.string().min(1),

@@ -4,10 +4,14 @@ import { sanitizeProperties } from './sanitize.ts'
 import { clearStorageKey, readJSON, writeJSON } from './storage.ts'
 import {
   AppEventSchema,
+  DisplayNameSchema,
   NewReportSchema,
+  NewReviewSchema,
   SeedFileSchema,
   type AppEvent,
+  type Profile,
   type Report,
+  type Review,
   type SundayPick,
 } from './schemas.ts'
 
@@ -15,6 +19,9 @@ import {
 const seed = SeedFileSchema.parse(seedJson)
 
 const MAX_EVENTS = 2000
+
+/** With no backend there are no accounts: one local person owns every review in this browser. */
+const LOCAL_USER_ID = 'local-user'
 
 function newId(prefix: string): string {
   const rand =
@@ -61,6 +68,79 @@ export function createLocalClient(): DataClient {
         r.id === id ? { ...r, status } : r,
       )
       writeJSON('reports', reports)
+    },
+
+    async getMyProfile() {
+      return readJSON<Profile | null>('profile', null)
+    },
+
+    async createProfile(displayName) {
+      const name = DisplayNameSchema.safeParse(displayName)
+      if (!name.success) {
+        return {
+          kind: 'invalid',
+          message: name.error.issues[0]?.message ?? 'Check the name.',
+        }
+      }
+      const profile: Profile = { user_id: LOCAL_USER_ID, display_name: name.data }
+      writeJSON('profile', profile)
+      return { kind: 'ok', profile }
+    },
+
+    async listReviews(placeId) {
+      return readJSON<Review[]>('reviews', [])
+        .filter(
+          (r) => r.place_id === placeId && (!r.hidden || r.user_id === LOCAL_USER_ID),
+        )
+        .sort((a, b) => b.created_at.localeCompare(a.created_at))
+    },
+
+    async saveReview(input) {
+      const parsed = NewReviewSchema.parse(input)
+      const profile = readJSON<Profile | null>('profile', null)
+      if (!profile) throw new Error('Choose a display name first.')
+      const all = readJSON<Review[]>('reviews', [])
+      const now = new Date().toISOString()
+      const mine = all.find(
+        (r) => r.place_id === parsed.place_id && r.user_id === LOCAL_USER_ID,
+      )
+      const review: Review = {
+        id: mine?.id ?? newId('review'),
+        user_id: LOCAL_USER_ID,
+        display_name: profile.display_name,
+        hidden: mine?.hidden ?? false,
+        created_at: mine?.created_at ?? now,
+        updated_at: now,
+        place_id: parsed.place_id,
+        rating: parsed.rating,
+        comment: parsed.comment || null,
+        gif: parsed.gif,
+      }
+      writeJSON('reviews', [review, ...all.filter((r) => r.id !== review.id)])
+      return review
+    },
+
+    async deleteMyReview(placeId) {
+      const all = readJSON<Review[]>('reviews', [])
+      writeJSON(
+        'reviews',
+        all.filter((r) => !(r.place_id === placeId && r.user_id === LOCAL_USER_ID)),
+      )
+    },
+
+    async listAllReviews() {
+      return readJSON<Review[]>('reviews', []).sort((a, b) =>
+        b.created_at.localeCompare(a.created_at),
+      )
+    },
+
+    async setReviewHidden(id, hidden) {
+      writeJSON(
+        'reviews',
+        readJSON<Review[]>('reviews', []).map((r) =>
+          r.id === id ? { ...r, hidden } : r,
+        ),
+      )
     },
 
     async getSundayPicks(weekStart) {
