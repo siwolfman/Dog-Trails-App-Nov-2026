@@ -100,25 +100,40 @@ describe('reset password', () => {
     await user.type(screen.getByLabelText('New password'), 'short')
     await user.type(screen.getByLabelText('Confirm new password'), 'short')
     await user.click(screen.getByRole('button', { name: 'Save new password' }))
-    expect(await screen.findByRole('alert')).toHaveTextContent(/at least 8/)
+    expect(await screen.findByRole('alert')).toHaveTextContent(/at least 8 characters/)
+
+    // Long enough but missing character types: the message says which.
+    await user.clear(screen.getByLabelText('New password'))
+    await user.type(screen.getByLabelText('New password'), 'longenoughpassword')
+    await user.click(screen.getByRole('button', { name: 'Save new password' }))
+    expect(await screen.findByRole('alert')).toHaveTextContent(
+      /an uppercase letter, a number and a symbol/,
+    )
 
     await user.clear(screen.getByLabelText('New password'))
-    await user.type(screen.getByLabelText('New password'), 'long enough one')
+    await user.type(screen.getByLabelText('New password'), 'Long-enough-one1')
     await user.clear(screen.getByLabelText('Confirm new password'))
-    await user.type(screen.getByLabelText('Confirm new password'), 'long enough two')
+    await user.type(screen.getByLabelText('Confirm new password'), 'Long-enough-two2')
     await user.click(screen.getByRole('button', { name: 'Save new password' }))
     expect(await screen.findByRole('alert')).toHaveTextContent(/do not match/)
     expect(value.updatePassword).not.toHaveBeenCalled()
+  })
+
+  test('shows the password rules on the new-password field', () => {
+    renderAt('/reset-password', authValue({ status: 'signed_in', email: 'a@b.co' }))
+    expect(screen.getByLabelText('New password')).toHaveAccessibleDescription(
+      /uppercase letter/,
+    )
   })
 
   test('saves a valid new password and then continues to the app', async () => {
     const user = userEvent.setup()
     const value = authValue({ status: 'signed_in', email: 'a@b.co' })
     renderAt('/reset-password', value)
-    await user.type(screen.getByLabelText('New password'), 'a brand new password')
-    await user.type(screen.getByLabelText('Confirm new password'), 'a brand new password')
+    await user.type(screen.getByLabelText('New password'), 'A-brand-new-pass1')
+    await user.type(screen.getByLabelText('Confirm new password'), 'A-brand-new-pass1')
     await user.click(screen.getByRole('button', { name: 'Save new password' }))
-    expect(value.updatePassword).toHaveBeenCalledWith('a brand new password')
+    expect(value.updatePassword).toHaveBeenCalledWith('A-brand-new-pass1')
     expect(
       await screen.findByRole('heading', { name: 'Password updated.' }),
     ).toBeInTheDocument()
@@ -136,8 +151,8 @@ describe('reset password', () => {
       ),
     })
     renderAt('/reset-password', value)
-    await user.type(screen.getByLabelText('New password'), 'a brand new password')
-    await user.type(screen.getByLabelText('Confirm new password'), 'a brand new password')
+    await user.type(screen.getByLabelText('New password'), 'A-brand-new-pass1')
+    await user.type(screen.getByLabelText('Confirm new password'), 'A-brand-new-pass1')
     await user.click(screen.getByRole('button', { name: 'Save new password' }))
     expect(await screen.findByRole('alert')).toHaveTextContent(
       /not used for this account/,

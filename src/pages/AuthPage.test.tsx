@@ -23,12 +23,12 @@ function renderPage(mode: 'login' | 'signup', value: AuthContextValue, state?: o
 }
 
 describe('sign up', () => {
-  test('rejects a bad email and a short password without calling the backend', async () => {
+  test('rejects a bad email and a weak password without calling the backend', async () => {
     const user = userEvent.setup()
     const value = authValue()
     renderPage('signup', value)
     await user.type(screen.getByLabelText('Email'), 'not-an-email')
-    await user.type(screen.getByLabelText('Password'), 'longenough1')
+    await user.type(screen.getByLabelText('Password'), 'Longenough1!')
     await user.click(screen.getByRole('button', { name: 'Create account' }))
     expect(await screen.findByRole('alert')).toHaveTextContent(/valid email/)
 
@@ -37,8 +37,40 @@ describe('sign up', () => {
     await user.clear(screen.getByLabelText('Password'))
     await user.type(screen.getByLabelText('Password'), 'short')
     await user.click(screen.getByRole('button', { name: 'Create account' }))
-    expect(await screen.findByRole('alert')).toHaveTextContent(/at least 8/)
+    expect(await screen.findByRole('alert')).toHaveTextContent(/at least 8 characters/)
     expect(value.signUp).not.toHaveBeenCalled()
+  })
+
+  test.each([
+    ['password1', /an uppercase letter and a symbol/],
+    ['Password1', /a symbol/],
+    ['Password!', /a number/],
+  ])(
+    'says what is missing from %s and does not call the backend',
+    async (pw, message) => {
+      const user = userEvent.setup()
+      const value = authValue()
+      renderPage('signup', value)
+      await user.type(screen.getByLabelText('Email'), 'emily@example.com')
+      await user.type(screen.getByLabelText('Password'), pw)
+      await user.click(screen.getByRole('button', { name: 'Create account' }))
+      expect(await screen.findByRole('alert')).toHaveTextContent(message)
+      expect(value.signUp).not.toHaveBeenCalled()
+    },
+  )
+
+  test('shows the password rules and ticks them off as you type', async () => {
+    const user = userEvent.setup()
+    renderPage('signup', authValue())
+    const rules = screen.getByRole('list', { name: 'Password rules' })
+    expect(rules).toHaveTextContent(/At least 8 characters/)
+    expect(rules).toHaveTextContent(/A symbol/)
+    expect(screen.getByLabelText('Password')).toHaveAccessibleDescription(
+      /lowercase letter/,
+    )
+    expect(rules).not.toHaveTextContent(/\(done\)/)
+    await user.type(screen.getByLabelText('Password'), 'Ab1!Ab1!')
+    expect(rules.textContent?.match(/\(done\)/g)).toHaveLength(5)
   })
 
   test('submits a normalized email and password', async () => {
@@ -46,9 +78,9 @@ describe('sign up', () => {
     const value = authValue()
     renderPage('signup', value)
     await user.type(screen.getByLabelText('Email'), '  Emily@Example.com ')
-    await user.type(screen.getByLabelText('Password'), 'correct horse')
+    await user.type(screen.getByLabelText('Password'), 'Correct-Horse9')
     await user.click(screen.getByRole('button', { name: 'Create account' }))
-    expect(value.signUp).toHaveBeenCalledWith('emily@example.com', 'correct horse')
+    expect(value.signUp).toHaveBeenCalledWith('emily@example.com', 'Correct-Horse9')
   })
 
   test('asks the user to confirm their email when the backend requires it', async () => {
@@ -58,7 +90,7 @@ describe('sign up', () => {
     })
     renderPage('signup', value)
     await user.type(screen.getByLabelText('Email'), 'emily@example.com')
-    await user.type(screen.getByLabelText('Password'), 'correct horse')
+    await user.type(screen.getByLabelText('Password'), 'Correct-Horse9')
     await user.click(screen.getByRole('button', { name: 'Create account' }))
     expect(
       await screen.findByRole('heading', { name: 'Check your email.' }),
@@ -76,7 +108,7 @@ describe('sign up', () => {
     })
     renderPage('signup', value)
     await user.type(screen.getByLabelText('Email'), 'emily@example.com')
-    await user.type(screen.getByLabelText('Password'), 'correct horse')
+    await user.type(screen.getByLabelText('Password'), 'Correct-Horse9')
     await user.click(screen.getByRole('button', { name: 'Create account' }))
     expect(await screen.findByRole('alert')).toHaveTextContent(/already exists/)
   })

@@ -126,7 +126,10 @@ Other accounts that open `/admin` are told they are not an admin, and the databa
 
 **Dashboard settings that matter** (not controllable from this repo): Authentication, Sign In / Providers, Email.
 If _Confirm email_ is on, new users are told to check their inbox before logging in; if off, they are logged in
-immediately. Set a minimum password length of 8 or more to match the app's own check.
+immediately. Set the password rules to **minimum length 8** and **lowercase, uppercase, digits and symbols**: the sign-up and
+reset screens enforce the same rules (`src/auth/credentials.ts`, `PASSWORD_RULES`) and show a live checklist. If you
+change the rules in Supabase, change them there too. Log in deliberately does not apply them, so older accounts can
+still get in. (Leaked-password checking is a Supabase Pro feature and is not enabled.)
 
 **Password reset setup.** The emailed link only works if its address is allowed: Authentication, URL
 Configuration, Redirect URLs, add `http://localhost:5173/reset-password` (and your production address when you

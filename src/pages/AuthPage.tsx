@@ -1,8 +1,9 @@
 import { useEffect, useState, type FormEvent } from 'react'
 import { Link, Navigate, useLocation } from 'react-router'
-import { CredentialsSchema } from '@/auth/credentials.ts'
+import { LoginSchema, SignupSchema } from '@/auth/credentials.ts'
 import { useAuth } from '@/auth/useAuth.ts'
 import Hero from '@/components/Hero.tsx'
+import PasswordRules from '@/components/PasswordRules.tsx'
 
 type Mode = 'login' | 'signup'
 
@@ -49,7 +50,10 @@ export default function AuthPage({ mode }: { mode: Mode }) {
 
   async function submit(e: FormEvent) {
     e.preventDefault()
-    const parsed = CredentialsSchema.safeParse({ email, password })
+    const parsed = (mode === 'login' ? LoginSchema : SignupSchema).safeParse({
+      email,
+      password,
+    })
     if (!parsed.success) {
       setError(parsed.error.issues[0]?.message ?? 'Check your email and password.')
       return
@@ -126,14 +130,12 @@ export default function AuthPage({ mode }: { mode: Mode }) {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     aria-invalid={error ? true : undefined}
-                    aria-describedby={mode === 'signup' ? 'password-hint' : undefined}
+                    aria-describedby={mode === 'signup' ? 'password-rules' : undefined}
                     className="min-h-14 w-full rounded-2xl border-2 border-line bg-card px-4 text-lg"
                   />
                 </label>
                 {mode === 'signup' && (
-                  <span id="password-hint" className="mt-1 block text-sm text-ink-soft">
-                    At least 8 characters.
-                  </span>
+                  <PasswordRules id="password-rules" password={password} />
                 )}
               </div>
 
