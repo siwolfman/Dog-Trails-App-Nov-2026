@@ -44,7 +44,7 @@ test('shows picks edited through the data client', async () => {
 test('an unverified pick still shows as unverified, never a rule', async () => {
   const { weekStart } = await dataClient.getSundayPicks()
   await dataClient.saveSundayPicks(weekStart!, [
-    { place_id: 'pl-ring-mountain', note: '' },
+    { place_id: 'pl-mount-tamalpais', note: '' },
     { place_id: 'pl-lands-end', note: '' },
     { place_id: 'pl-muir-beach', note: '' },
   ])

@@ -24,7 +24,9 @@ test('lists places and labels every row with a status (not color alone)', async 
 
 test('unverified places say so and show no rule text', async () => {
   renderHome()
-  const row = (await screen.findByRole('link', { name: /Ring Mountain/ })) as HTMLElement
+  const row = (await screen.findByRole('link', {
+    name: /Mount Tamalpais State Park/,
+  })) as HTMLElement
   expect(within(row).getByText('Unverified')).toBeInTheDocument()
   expect(within(row).getByText(/check agency page/)).toBeInTheDocument()
   expect(within(row).getByText('Not yet verified')).toBeInTheDocument()
@@ -34,9 +36,9 @@ test('unverified places say so and show no rule text', async () => {
 test('the Off-leash chip filters the list', async () => {
   const user = userEvent.setup()
   renderHome()
-  await screen.findByRole('link', { name: /Ring Mountain/ })
+  await screen.findByRole('link', { name: /Mount Tamalpais State Park/ })
   await user.click(screen.getByRole('button', { name: 'Off-leash' }))
-  expect(screen.queryByRole('link', { name: /Ring Mountain/ })).toBeNull()
+  expect(screen.queryByRole('link', { name: /Mount Tamalpais State Park/ })).toBeNull()
   expect(screen.getByRole('link', { name: /Fort Funston/ })).toBeInTheDocument()
   expect(screen.getByRole('link', { name: /Point Isabel/ })).toBeInTheDocument()
 })

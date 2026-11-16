@@ -69,7 +69,7 @@ test('unverified places cannot be added to picks', async () => {
   renderAdmin()
   await unlock(user)
   await user.click(await screen.findByRole('button', { name: /Remove Point Isabel/ }))
-  expect(screen.queryByRole('option', { name: /Ring Mountain/ })).toBeNull()
+  expect(screen.queryByRole('option', { name: /Mount Tamalpais State Park/ })).toBeNull()
 })
 
 test('reports show up and can change status', async () => {

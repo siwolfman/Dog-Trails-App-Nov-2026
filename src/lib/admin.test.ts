@@ -23,7 +23,7 @@ describe('validatePicks', () => {
     expect(validatePicks([...ok, pick('lands-end')], places, TODAY).join()).toMatch(
       /only once/,
     )
-    expect(validatePicks([...ok, pick('ring-mountain')], places, TODAY).join()).toMatch(
+    expect(validatePicks([...ok, pick('mount-tamalpais')], places, TODAY).join()).toMatch(
       /unverified/,
     )
   })

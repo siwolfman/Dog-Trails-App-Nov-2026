@@ -52,6 +52,6 @@ test('no-dogs places have no dog-friendly trails', () => {
 })
 
 test('unverified places do not show trail details', () => {
-  show(by('ring-mountain'))
+  show(by('mount-tamalpais'))
   expect(screen.getByText(/Trail details are not verified/)).toBeInTheDocument()
 })

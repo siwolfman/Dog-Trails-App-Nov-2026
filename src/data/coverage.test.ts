@@ -27,6 +27,21 @@ describe('coverage area', () => {
     }
   })
 
+  test('Marin and Napa are covered (batch 2)', () => {
+    for (const slug of [
+      'mount-burdell',
+      'point-reyes-national-seashore',
+      'mount-tamalpais-watershed',
+      'rodeo-beach',
+      'oat-hill-mine-trail',
+      'skyline-wilderness-park',
+    ]) {
+      expect(bySlug.has(slug), slug).toBe(true)
+    }
+    // Ring Mountain was Unverified until the county's own preserve page could be read.
+    expect(bySlug.get('ring-mountain')?.dog_status).toBe('leash_required')
+  })
+
   test('places are assigned to the region of their county and area', () => {
     const region = (slug: string) => bySlug.get(slug)?.region
     expect(region('riverfront-regional-park')).toBe('north_bay') // Sonoma
