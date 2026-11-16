@@ -50,12 +50,25 @@ Three batch 1 entries were corrected from the parks' own pages: **Brushy Peak** 
 
 Parks whose page does not list dogs as an activity (for example Contra Loma, Castle Rock, Deer Valley, Little Hills, Las Trampas, Temescal, Vargas Plateau, Don Castro and McLaughlin Eastshore) were not added, because the district-wide rule alone is not enough to show them confidently. The Ohlone Wilderness Trail is covered by the Sunol-Ohlone and Mission Peak entries.
 
+## Added in batch 4 (San Mateo County and the Peninsula)
+
+| Area                    | Agency                                             | Source read                                                                                                                                     | Places                                                               |
+| ----------------------- | -------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| San Mateo County        | San Mateo County Parks                             | The county's "Dogs at SMC Parks" page, which lists the only parks and trails where dogs are allowed. San Bruno Mountain's own regulations page. | 11 (5 dog-friendly, 6 not)                                           |
+| Peninsula and South Bay | Midpeninsula Regional Open Space District (Midpen) | Each preserve's own page and Midpen's dog access page                                                                                           | 20 preserves (9 with dogs on leash on designated trails, 11 no dogs) |
+| Pacifica, Woodside      | Golden Gate National Recreation Area               | Mori Point trailhead page, Superintendent's Compendium                                                                                          | 2                                                                    |
+| San Mateo coast         | California State Parks                             | Statewide dog table                                                                                                                             | 5                                                                    |
+
+Pillar Point Bluff moved from Unverified to **Leash required**: the county's current page lists it as dog-friendly with dogs on leash and does not confirm an off-leash pilot that a news item mentioned.
+
+Five county parks (Huddart, Wunderlich, Sam McDonald, Memorial and Edgewood) are shown as **No dogs** because the county says dogs are allowed only at the parks and trails on its list. Their own park pages do not mention dogs, so each carries a note saying so. Memorial Park also has dog camping at Huckleberry Flat, noted in its summary.
+
 ## Shown as Unverified (official page could not be read automatically)
 
 - **Lagoon Valley Regional Park** (Vacaville) and **Rockville Hills Regional Park** (Fairfield): the city pages returned an error to automated access.
 - **Lake Sonoma Recreation Area** (Geyserville): the Army Corps of Engineers page returned an error.
 - **Berryessa Peak Trail** (Napa): the district's page does not say whether dogs are allowed.
-- Still Unverified from before: Pillar Point Bluff, Mount Tamalpais State Park (the state's own pages disagree about trails).
+- Still Unverified from before: Mount Tamalpais State Park (the state's own pages disagree about trails).
 
 ## How to read the rules
 
@@ -67,9 +80,8 @@ Parks whose page does not list dogs as an activity (for example Contra Loma, Cas
 
 ## Still to do
 
-EBRPD parks that do not list dogs (see batch 3), EBMUD trails (permit required), San Mateo County Parks and the rest of
-Midpen, Santa Clara County Parks, San Jose, the remaining Santa Cruz County and city of Santa Cruz parks, Solano County parks
+EBRPD parks that do not list dogs (see batch 3), EBMUD trails (permit required), Sweeney Ridge, Milagra Ridge and the SFPUC watershed trails (no readable official page), Santa Clara County Parks, San Jose, the remaining Santa Cruz County and city of Santa Cruz parks, Solano County parks
 (Lake Solano), Sonoma land trust preserves, and the Marin Headlands trails (the park's own pages were unavailable).
 Places that could not be pinned reliably yet: Quail Hollow Ranch, Pinnacle Gulch trail, Cedar Mountain Ridge (batch 1), Upton Beach,
-the Napa River and Bay Trail and Berryessa Vista Wilderness Park (batch 2). Photos and trail facts have not been added for the new
+the Napa River and Bay Trail and Berryessa Vista Wilderness Park (batch 2), and Stevens Creek Shoreline Nature Area (batch 4). Photos and trail facts have not been added for the new
 places yet; they keep the generic header.

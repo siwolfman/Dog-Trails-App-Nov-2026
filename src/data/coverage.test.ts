@@ -52,6 +52,16 @@ describe('coverage area', () => {
     expect(bySlug.get('tilden-nature-area')?.dog_status).toBe('no_dogs')
   })
 
+  test('the Peninsula is covered (batch 4)', () => {
+    const region = (slug: string) => bySlug.get(slug)?.region
+    expect(region('coyote-point-recreation-area')).toBe('south_bay')
+    expect(region('thornewood')).toBe('south_bay')
+    // Midpen's own preserve pages decide these.
+    expect(bySlug.get('purisima-creek-redwoods')?.dog_status).toBe('no_dogs')
+    expect(bySlug.get('el-sereno')?.dog_status).toBe('leash_required')
+    expect(bySlug.get('pillar-point-bluff')?.verification_status).toBe('verified')
+  })
+
   test('places are assigned to the region of their county and area', () => {
     const region = (slug: string) => bySlug.get(slug)?.region
     expect(region('riverfront-regional-park')).toBe('north_bay') // Sonoma
