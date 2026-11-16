@@ -1,6 +1,6 @@
 # Coverage
 
-Checked **2026-11-15** (batch 1) and **2026-11-16** (batch 2). Every rule below was read from an official page and is marked
+Checked **2026-11-15** (batch 1) and **2026-11-16** (batches 2 to 6). Every rule below was read from an official page and is marked
 "pending human review" like the original 20 places. Where an official page could not be read,
 the place is shown as **Unverified** rather than guessed. Coordinates are approximate map pins
 (looked up from park addresses with OpenStreetMap's geocoder, or from Wikipedia), not surveyed trailheads.
@@ -74,13 +74,27 @@ Five county parks (Huddart, Wunderlich, Sam McDonald, Memorial and Edgewood) are
 Hellyer, Los Gatos Creek and Ed R. Levin are shown as **Off-leash zones**: each has a fenced off-leash dog area and requires a leash everywhere else.
 Anderson Lake, Rancho San Antonio County Park and Sunnyvale Baylands are **Unverified**, because their county pages do not mention dogs.
 
-## Shown as Unverified (official page could not be read automatically)
+## Added in batch 6 (closing gaps)
 
-- **Lagoon Valley Regional Park** (Vacaville) and **Rockville Hills Regional Park** (Fairfield): the city pages returned an error to automated access.
-- **Lake Sonoma Recreation Area** (Geyserville): the Army Corps of Engineers page returned an error.
+| Area              | Agency                                                        | Source read                                                                                                                                                                                                              | Places                                                                                      |
+| ----------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------- |
+| Santa Cruz County | Santa Cruz County Parks                                       | The county's "Dogs at County Parks" page. Its county-wide rule (leashed dogs in all county parks and beaches, except Scott Creek Beach and the trails at Quail Hollow Ranch) is applied to each place, and each says so. | 9                                                                                           |
+| Solano County     | Solano County Parks                                           | Each park's own page                                                                                                                                                                                                     | 3 (Lake Solano, Sandy Beach, Patwino Worrtla Kodoi Dihi, all no dogs except in campgrounds) |
+| Sonoma, Alameda   | Sonoma County Regional Parks, East Bay Regional Park District | The pages read in batch 1                                                                                                                                                                                                | 2 places that could not be pinned until now (Pinnacle Gulch, Cedar Mountain Ridge)          |
+
+Four Unverified places were resolved by reading their official pages in a browser:
+**Lagoon Valley** (leash at all times, except the fenced dog park; shown as Off-leash zones), **Rockville Hills** (leash at all times, stay on trails, separate entrance fee),
+**Mount Tamalpais State Park** (dogs only on paved roads, Old Stage Fire Road, the Verna Dunshee Trail and in developed areas; shown as No dogs) and
+**Lake Sonoma** (still Unverified: the Army Corps' page only says dogs are not allowed on the swim beach).
+
+Left out on purpose: Sonoma Land Trust and Wildlands Conservancy preserves (their own pages disagree about dogs), the City of Santa Cruz's open spaces
+(city parks), and the BLM's Cotoni-Coast Dairies (no readable official page).
+
+## Shown as Unverified
+
+- **Lake Sonoma Recreation Area** (Geyserville): the Army Corps' page does not say what applies on the trails.
 - **Berryessa Peak Trail** (Napa): the district's page does not say whether dogs are allowed.
 - **Anderson Lake County Park**, **Rancho San Antonio County Park** and **Sunnyvale Baylands Park** (Santa Clara): the county's pages do not mention dogs.
-- Still Unverified from before: Mount Tamalpais State Park (the state's own pages disagree about trails).
 
 ## How to read the rules
 
@@ -92,8 +106,8 @@ Anderson Lake, Rancho San Antonio County Park and Sunnyvale Baylands are **Unver
 
 ## Still to do
 
-EBRPD parks that do not list dogs (see batch 3), EBMUD trails (permit required), Sweeney Ridge, Milagra Ridge and the SFPUC watershed trails (no readable official page), San Jose city trails, Santa Clara Valley Water trails, the remaining Santa Cruz County and city of Santa Cruz parks, Solano County parks
-(Lake Solano), Sonoma land trust preserves, and the Marin Headlands trails (the park's own pages were unavailable).
-Places that could not be pinned reliably yet: Quail Hollow Ranch, Pinnacle Gulch trail, Cedar Mountain Ridge (batch 1), Upton Beach,
-the Napa River and Bay Trail and Berryessa Vista Wilderness Park (batch 2), and Stevens Creek Shoreline Nature Area (batch 4). Photos and trail facts have not been added for the new
-places yet; they keep the generic header.
+The original coverage circle is now in. What remains: EBRPD parks that do not list dogs (see batch 3), EBMUD trails (permit required),
+Sweeney Ridge, Milagra Ridge, the Marin Headlands trails and the SFPUC watershed trails (no readable official page), San Jose city trails and
+Santa Clara Valley Water trails, and city open spaces such as Pogonip. Places that could not be pinned reliably: Upton Beach,
+the Napa River and Bay Trail, Berryessa Vista Wilderness Park, Stevens Creek Shoreline Nature Area and Seascape County Park.
+Photos and trail facts have not been added for the new places yet; they keep the generic header.

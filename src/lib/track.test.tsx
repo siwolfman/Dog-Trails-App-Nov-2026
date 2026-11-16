@@ -98,7 +98,7 @@ test('using filters logs filter_used, but never the search text', async () => {
       <Home />
     </MemoryRouter>,
   )
-  await screen.findByRole('link', { name: /Mount Tamalpais State Park/ })
+  await screen.findByRole('link', { name: /Lake Sonoma Recreation Area/ })
   await user.click(screen.getByRole('button', { name: 'Off-leash' }))
   await user.type(screen.getByRole('searchbox'), 'funston secret words')
   await waitFor(async () =>

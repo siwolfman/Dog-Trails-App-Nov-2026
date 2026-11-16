@@ -75,6 +75,22 @@ describe('coverage area', () => {
     expect(bySlug.get('ed-r-levin-county-park')?.dog_status).toBe('off_leash_zones')
   })
 
+  test('the last batch closes earlier gaps (batch 6)', () => {
+    for (const slug of [
+      'quail-hollow-ranch-county-park',
+      'lake-solano-county-park',
+      'cedar-mountain-ridge',
+    ]) {
+      expect(bySlug.has(slug), slug).toBe(true)
+    }
+    // These were Unverified until their official pages could be read in a browser.
+    expect(bySlug.get('mount-tamalpais')?.dog_status).toBe('no_dogs')
+    expect(bySlug.get('rockville-hills-regional-park')?.verification_status).toBe(
+      'verified',
+    )
+    expect(bySlug.get('lagoon-valley-regional-park')?.dog_status).toBe('off_leash_zones')
+  })
+
   test('places are assigned to the region of their county and area', () => {
     const region = (slug: string) => bySlug.get(slug)?.region
     expect(region('riverfront-regional-park')).toBe('north_bay') // Sonoma
