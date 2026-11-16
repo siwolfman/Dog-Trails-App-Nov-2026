@@ -1,6 +1,7 @@
 import * as maplibregl from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url'
+import Supercluster from 'supercluster'
 import { useEffect, useRef } from 'react'
 import type { Place } from '@/data/schemas.ts'
 import { STATUS_META, getDisplayRule } from '@/lib/dogStatus.ts'
@@ -102,18 +103,45 @@ function buildPin(
   return wrap
 }
 
+type PointProps = { id: string }
+
+/** A round count badge for several nearby places. Pressing it zooms in until they separate. */
+function buildCluster(count: number, onPress: () => void): HTMLElement {
+  const wrap = document.createElement('div')
+  wrap.className = 'cluster-wrap'
+  const button = document.createElement('button')
+  button.type = 'button'
+  button.className = 'cluster'
+  const size = count >= 50 ? 60 : count >= 15 ? 52 : 44
+  button.style.setProperty('--cluster-size', `${size}px`)
+  button.textContent = String(count)
+  button.setAttribute('aria-label', `${count} places here. Zoom in to see them.`)
+  button.addEventListener('click', (e) => {
+    e.stopPropagation()
+    onPress()
+  })
+  wrap.append(button)
+  return wrap
+}
+
 export default function PlaceMap({ places, today, selectedId, onSelect, onOpen }: Props) {
   const container = useRef<HTMLDivElement>(null)
   const mapRef = useRef<maplibregl.Map | null>(null)
   const markers = useRef<Map<string, { marker: maplibregl.Marker; el: HTMLElement }>>(
     new Map(),
   )
+  const clusterMarkers = useRef<maplibregl.Marker[]>([])
+  const index = useRef<Supercluster<PointProps> | null>(null)
+  const placesRef = useRef<Map<string, Place>>(new Map())
+  const todayRef = useRef(today)
+  const render = useRef<() => void>(() => {})
   const selectedRef = useRef(selectedId)
   const cb = useRef({ onSelect, onOpen })
 
   useEffect(() => {
     selectedRef.current = selectedId
     cb.current = { onSelect, onOpen }
+    todayRef.current = today
   })
 
   // Create the map once.
@@ -130,28 +158,40 @@ export default function PlaceMap({ places, today, selectedId, onSelect, onOpen }
     })
     map.touchZoomRotate.disableRotation()
     map.on('click', () => cb.current.onSelect(null))
+    // Pins are redrawn after every pan or zoom: places that are close together become one badge.
+    map.on('moveend', () => render.current())
     mapRef.current = map
     // The container can change size after mount (side panel layout, rotation).
     const observer = new ResizeObserver(() => map.resize())
     observer.observe(container.current)
     const current = markers.current
+    const currentClusters = clusterMarkers.current
     return () => {
       observer.disconnect()
       current.clear()
+      currentClusters.length = 0
       map.remove()
       mapRef.current = null
     }
   }, [])
 
-  // Rebuild markers when the visible places change, then fit the map to them.
+  // Rebuild the cluster index when the visible places change, then fit the map to them.
   useEffect(() => {
     const map = mapRef.current
     if (!map) return
-    for (const { marker } of markers.current.values()) marker.remove()
-    markers.current.clear()
+    placesRef.current = new Map(places.map((p) => [p.id, p]))
+    const idx = new Supercluster<PointProps>({ radius: 60, maxZoom: 13, minPoints: 2 })
+    idx.load(
+      places.map((p) => ({
+        type: 'Feature' as const,
+        properties: { id: p.id },
+        geometry: { type: 'Point' as const, coordinates: [p.lng, p.lat] },
+      })),
+    )
+    index.current = idx
 
-    for (const place of places) {
-      const el = buildPin(place, today, {
+    const addPin = (place: Place) => {
+      const el = buildPin(place, todayRef.current, {
         onPin: () =>
           selectedRef.current === place.id
             ? cb.current.onOpen(place.slug)
@@ -164,6 +204,44 @@ export default function PlaceMap({ places, today, selectedId, onSelect, onOpen }
         .addTo(map)
       markers.current.set(place.id, { marker, el })
     }
+
+    render.current = () => {
+      const tree = index.current
+      if (!tree) return
+      for (const { marker } of markers.current.values()) marker.remove()
+      markers.current.clear()
+      for (const marker of clusterMarkers.current) marker.remove()
+      clusterMarkers.current.length = 0
+
+      const b = map.getBounds()
+      const features = tree.getClusters(
+        [b.getWest(), b.getSouth(), b.getEast(), b.getNorth()],
+        Math.round(map.getZoom()),
+      )
+      for (const f of features) {
+        const [lng, lat] = f.geometry.coordinates as [number, number]
+        if ('cluster' in f.properties && f.properties.cluster) {
+          const clusterId = f.properties.cluster_id
+          const el = buildCluster(f.properties.point_count, () => {
+            const zoom = Math.min(tree.getClusterExpansionZoom(clusterId), 16)
+            map.easeTo({ center: [lng, lat], zoom, duration: 400 })
+          })
+          clusterMarkers.current.push(
+            new maplibregl.Marker({ element: el, anchor: 'center' })
+              .setLngLat([lng, lat])
+              .addTo(map),
+          )
+        } else {
+          const place = placesRef.current.get((f.properties as PointProps).id)
+          if (place) addPin(place)
+        }
+      }
+      // The selected place is always shown as its own pin, even inside a crowd.
+      const selected = selectedRef.current
+      const sel = selected ? placesRef.current.get(selected) : undefined
+      if (sel && !markers.current.has(sel.id)) addPin(sel)
+    }
+    render.current()
 
     if (places.length === 0) return
     const bounds = new maplibregl.LngLatBounds()
@@ -185,6 +263,7 @@ export default function PlaceMap({ places, today, selectedId, onSelect, onOpen }
 
   // Reflect selection on existing pins and bring the selected place into view.
   useEffect(() => {
+    render.current() // makes sure the selected place is drawn even if it sits in a cluster
     applySelection(markers.current, selectedId)
     const map = mapRef.current
     const place = places.find((p) => p.id === selectedId)

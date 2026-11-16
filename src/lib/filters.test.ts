@@ -48,8 +48,12 @@ describe('filters', () => {
   })
 
   test('area, water, shade and duration', () => {
-    const marin = filterPlaces(places, { ...EMPTY_FILTERS, areas: ['marin'] }, TODAY)
-    expect(marin.every((p) => p.region === 'marin')).toBe(true)
+    const northBay = filterPlaces(
+      places,
+      { ...EMPTY_FILTERS, areas: ['north_bay'] },
+      TODAY,
+    )
+    expect(northBay.every((p) => p.region === 'north_bay')).toBe(true)
     const water = filterPlaces(places, { ...EMPTY_FILTERS, water: true }, TODAY)
     expect(
       water.every((p) => p.water_access === 'yes' || p.water_access === 'seasonal'),
@@ -79,12 +83,14 @@ describe('filters', () => {
 
   test('URL round trip ignores junk', () => {
     const f = parseFilters(
-      new URLSearchParams('rule=off_leash_ok,bogus&area=marin&water=1&dur=nope'),
+      new URLSearchParams('rule=off_leash_ok,bogus&area=north_bay&water=1&dur=nope'),
     )
     expect(f.rules).toEqual(['off_leash_ok'])
-    expect(f.areas).toEqual(['marin'])
+    expect(f.areas).toEqual(['north_bay'])
     expect(f.duration).toEqual([])
-    expect(serializeFilters(f).toString()).toBe('rule=off_leash_ok&area=marin&water=1')
+    expect(serializeFilters(f).toString()).toBe(
+      'rule=off_leash_ok&area=north_bay&water=1',
+    )
     expect(activeFilterCount(f)).toBe(3)
   })
 

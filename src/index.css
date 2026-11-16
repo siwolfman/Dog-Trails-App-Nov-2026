@@ -117,6 +117,26 @@
 .pin[data-state='off_leash_zones'] {
   border-color: var(--color-teal);
 }
+.cluster-wrap {
+  position: relative;
+  width: var(--cluster-size, 44px);
+  height: var(--cluster-size, 44px);
+}
+.cluster {
+  display: grid;
+  place-items: center;
+  width: var(--cluster-size, 44px);
+  height: var(--cluster-size, 44px);
+  border-radius: 9999px;
+  border: 3px solid var(--color-card);
+  background: var(--color-teal-deep);
+  color: var(--color-card);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 800;
+  box-shadow: var(--shadow-pin);
+  cursor: pointer;
+}
 .pin-wrap[data-selected='true'] {
   z-index: 5;
 }

@@ -14,11 +14,19 @@ export const PLACE_TYPES = ['trail', 'park', 'beach'] as const
 export const PlaceTypeSchema = z.enum(PLACE_TYPES)
 export type PlaceType = z.infer<typeof PlaceTypeSchema>
 
+/**
+ * Coverage areas, north to south. North Bay = Marin, Napa, Sonoma and Solano. East Bay is split by
+ * county and area: North = Contra Costa County, Central = northern Alameda County (Berkeley to
+ * Hayward), South = Fremont, Union City, Newark and the Tri-Valley (Pleasanton, Dublin, Livermore).
+ * South Bay = San Mateo County and the Peninsula, Silicon Valley, Half Moon Bay, San Jose, Morgan
+ * Hill and Santa Cruz, with everything in between.
+ */
 export const REGIONS = [
-  'east_bay',
+  'north_bay',
+  'east_bay_north',
+  'east_bay_central',
+  'east_bay_south',
   'san_francisco',
-  'marin',
-  'peninsula',
   'south_bay',
 ] as const
 export const RegionSchema = z.enum(REGIONS)
@@ -98,8 +106,8 @@ export const PlaceSchema = z
     slug: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/),
     place_type: PlaceTypeSchema,
     agency: z.string().min(1),
-    lat: z.number().min(36.5).max(38.5),
-    lng: z.number().min(-123.5).max(-121.2),
+    lat: z.number().min(36.5).max(39.2),
+    lng: z.number().min(-123.8).max(-121.2),
     region: RegionSchema,
     city: z.string().min(1),
     /** Null whenever the rule could not be confirmed from an official source. */

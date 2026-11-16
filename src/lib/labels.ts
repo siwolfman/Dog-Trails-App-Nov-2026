@@ -1,10 +1,11 @@
 import type { Region } from '@/data/schemas.ts'
 
 export const REGION_LABELS: Record<Region, string> = {
-  east_bay: 'East Bay',
+  north_bay: 'North Bay',
+  east_bay_north: 'North East Bay',
+  east_bay_central: 'Central East Bay',
+  east_bay_south: 'South East Bay',
   san_francisco: 'San Francisco',
-  marin: 'Marin',
-  peninsula: 'Peninsula',
   south_bay: 'South Bay',
 }
 

@@ -59,6 +59,18 @@ npm run dev                  # http://localhost:5173
 - `/sunday` hand-picked Sunday Picks (3 to 5 verified places)
 - `/admin` edit picks, triage reports, hide or show reviews, view and export events (Supabase Auth, admins only)
 
+## Coverage
+
+The app covers a circle of roughly 60 to 70 miles around the Bay: from Geyserville and Gualala in the north to
+Santa Cruz and the Santa Cruz Mountains in the south, east to Vacaville and Livermore. It lists regional, county,
+state and federal parks, preserves, trails and beaches (not neighborhood city parks or fenced dog parks).
+
+Regions (north to south): **North Bay** (Marin, Napa, Sonoma, Solano), **North East Bay** (Contra Costa County),
+**Central East Bay** (northern Alameda County), **South East Bay** (Fremont, Union City, Newark and the Tri-Valley),
+**San Francisco**, and **South Bay** (San Mateo County and the Peninsula, Silicon Valley, Half Moon Bay, San Jose,
+Morgan Hill and Santa Cruz). Coverage is being added in batches by agency; see `docs/coverage.md` for what is in,
+what is Unverified, and what is still to do. Pins close together are grouped into a count badge that zooms in when pressed.
+
 ## Data integrity (the rules the app enforces)
 
 - Dog rules are never guessed. Every place has an official `source_url`.
