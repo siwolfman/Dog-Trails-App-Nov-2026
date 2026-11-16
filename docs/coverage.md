@@ -37,6 +37,19 @@ Ring Mountain (Marin) moved from Unverified to **Leash required** now that the c
 - Tennessee Valley and Stinson Beach are shown as **No dogs** because the park limits dogs to a short on-leash stretch or the parking and picnic areas.
 - Point Reyes allows dogs on three beaches and one trail only; it is shown as **Leash required** with that list and the plover and elephant-seal closures in the summary.
 
+## Added in batch 3 (rest of the East Bay)
+
+| Area                                                  | Agency                              | Source read                                                                                      | Places                                                 |
+| ----------------------------------------------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------ |
+| Contra Costa and Alameda Counties (Oakley to Fremont) | East Bay Regional Park District     | The district-wide dogs page (ebparks.org/dogs) and each park's own page for park-specific limits | 31 parks, preserves, shoreline parks and no-dog places |
+| Martinez, Richmond                                    | National Park Service               | John Muir National Historic Site and Rosie the Riveter pets pages                                | 2                                                      |
+| Fremont                                               | U.S. Fish and Wildlife Service      | Don Edwards San Francisco Bay National Wildlife Refuge visit page                                | 1                                                      |
+| Lafayette                                             | East Bay Municipal Utility District | Lafayette Reservoir page                                                                         | 1                                                      |
+
+Three batch 1 entries were corrected from the parks' own pages: **Brushy Peak** moved from Off-leash zones to **Leash required** (its page says dogs must be on leash at all times), and **Coyote Hills** and **Shadow Cliffs** gained their park-specific limits.
+
+Parks whose page does not list dogs as an activity (for example Contra Loma, Castle Rock, Deer Valley, Little Hills, Las Trampas, Temescal, Vargas Plateau, Don Castro and McLaughlin Eastshore) were not added, because the district-wide rule alone is not enough to show them confidently. The Ohlone Wilderness Trail is covered by the Sunol-Ohlone and Mission Peak entries.
+
 ## Shown as Unverified (official page could not be read automatically)
 
 - **Lagoon Valley Regional Park** (Vacaville) and **Rockville Hills Regional Park** (Fairfield): the city pages returned an error to automated access.
@@ -54,7 +67,7 @@ Ring Mountain (Marin) moved from Unverified to **Leash required** now that the c
 
 ## Still to do
 
-The rest of EBRPD (about 50 more parks), Contra Costa and Alameda County and city systems, San Mateo County Parks and the rest of
+EBRPD parks that do not list dogs (see batch 3), EBMUD trails (permit required), San Mateo County Parks and the rest of
 Midpen, Santa Clara County Parks, San Jose, the remaining Santa Cruz County and city of Santa Cruz parks, Solano County parks
 (Lake Solano), Sonoma land trust preserves, and the Marin Headlands trails (the park's own pages were unavailable).
 Places that could not be pinned reliably yet: Quail Hollow Ranch, Pinnacle Gulch trail, Cedar Mountain Ridge (batch 1), Upton Beach,

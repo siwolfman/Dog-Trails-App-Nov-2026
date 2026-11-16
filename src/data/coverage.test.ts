@@ -42,6 +42,16 @@ describe('coverage area', () => {
     expect(bySlug.get('ring-mountain')?.dog_status).toBe('leash_required')
   })
 
+  test('the rest of the East Bay is covered (batch 3)', () => {
+    const region = (slug: string) => bySlug.get(slug)?.region
+    expect(region('wildcat-canyon-regional-park')).toBe('east_bay_north')
+    expect(region('anthony-chabot-regional-park')).toBe('east_bay_central')
+    expect(region('don-edwards-san-francisco-bay-nwr')).toBe('east_bay_south')
+    // Brushy Peak's own page is stricter than the district-wide rule.
+    expect(bySlug.get('brushy-peak')?.dog_status).toBe('leash_required')
+    expect(bySlug.get('tilden-nature-area')?.dog_status).toBe('no_dogs')
+  })
+
   test('places are assigned to the region of their county and area', () => {
     const region = (slug: string) => bySlug.get(slug)?.region
     expect(region('riverfront-regional-park')).toBe('north_bay') // Sonoma
