@@ -110,4 +110,12 @@ The original coverage circle is now in. What remains: EBRPD parks that do not li
 Sweeney Ridge, Milagra Ridge, the Marin Headlands trails and the SFPUC watershed trails (no readable official page), San Jose city trails and
 Santa Clara Valley Water trails, and city open spaces such as Pogonip. Places that could not be pinned reliably: Upton Beach,
 the Napa River and Bay Trail, Berryessa Vista Wilderness Park, Stevens Creek Shoreline Nature Area and Seascape County Park.
-Photos and trail facts have not been added for the new places yet; they keep the generic header.
+Photos and trail facts were added for part of the new places (see below); the rest keep the generic header.
+
+## Photos and dog-friendly trails for the new places
+
+- **Photos (93):** free-licensed images from Wikimedia Commons, taken from the Commons category named after each place and checked by eye.
+  Credits are in `docs/photo-credits.md`. About 180 new places have no suitable free photo yet (many small parks have no Commons category).
+- **Dog-friendly trails (9):** only where an official page ties dogs to named trails or says all trails are open to dogs:
+  Ring Mountain, Pacheco Valle, La Honda Creek, Long Ridge, Sierra Azul, Almaden Quicksilver, Joseph D. Grant, Martial Cottle Park and Calero.
+  Lengths are given only where the page states them.

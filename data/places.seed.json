@@ -896,7 +896,25 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:View_of_the_Tiburon_Peninsula_and_the_Bay_from_Ring_Mountain.jpg",
         "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
       },
-      "dog_trails": null
+      "dog_trails": {
+        "trails": [
+          {
+            "name": "Phyllis Ellman Loop Trail",
+            "miles": 1.76,
+            "dog_note": "The county's preserve page gives the length. Dogs are allowed on signed fire roads and trails, and must be leashed at all times."
+          }
+        ],
+        "park_wide": [
+          "Dogs must be leashed at all times and are allowed on signed fire roads and trails only."
+        ],
+        "sources": [
+          {
+            "label": "Marin County Parks: Ring Mountain",
+            "url": "https://www.parks.marincounty.gov/parkspreserves/preserves/ring-mountain"
+          }
+        ],
+        "verified_on": "2026-11-16"
+      }
     },
     {
       "id": "pl-mount-tamalpais",
@@ -1200,7 +1218,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/helen-putnam-regional-park.jpg",
+        "alt": "HelenPutnamRPEdit3022 (Helen Putnam Regional Park)",
+        "credit": "Stepheng3",
+        "license": "Public domain",
+        "source_url": "https://commons.wikimedia.org/wiki/File:HelenPutnamRPEdit3022.jpg",
+        "license_url": null
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -1260,7 +1285,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/ragle-ranch-regional-park.jpg",
+        "alt": "PeaceGardenEdit2718 (Ragle Ranch Regional Park)",
+        "credit": "Stephen Gold on December 7, 2007",
+        "license": "Public domain",
+        "source_url": "https://commons.wikimedia.org/wiki/File:PeaceGardenEdit2718.jpg",
+        "license_url": null
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -1290,7 +1322,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/sonoma-valley-regional-park.jpg",
+        "alt": "Sonoma Valley Regional Park - December 2022 - Sarah Stierch 01 (Sonoma Valley Regional Park)",
+        "credit": "Missvain",
+        "license": "CC BY 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Sonoma_Valley_Regional_Park_-_December_2022_-_Sarah_Stierch_01.jpg",
+        "license_url": "https://creativecommons.org/licenses/by/4.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -1350,7 +1389,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/north-sonoma-mountain-regional-park.jpg",
+        "alt": "Matanzas Creek headwater at North Sonoma Mountain Regional Park (North Sonoma Mountain Regional Park and Open Space Preserve)",
+        "credit": "Frank Schulenburg",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Matanzas_Creek_headwater_at_North_Sonoma_Mountain_Regional_Park.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -1380,7 +1426,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/tolay-lake-regional-park.jpg",
+        "alt": "Cygnus olor in Tolay Lake Regional Park - April 2023 - Sarah Stierch 22 (Tolay Lake Regional Park)",
+        "credit": "Missvain",
+        "license": "CC BY 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Cygnus_olor_in_Tolay_Lake_Regional_Park_-_April_2023_-_Sarah_Stierch_22.jpg",
+        "license_url": "https://creativecommons.org/licenses/by/4.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -1410,7 +1463,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/doran-regional-park.jpg",
+        "alt": "DoranBeach3189 (Doran Regional Park)",
+        "credit": "Stepheng3",
+        "license": "Public domain",
+        "source_url": "https://commons.wikimedia.org/wiki/File:DoranBeach3189.jpg",
+        "license_url": null
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -1440,7 +1500,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/gualala-point-regional-park.jpg",
+        "alt": "Gualala Point Regional Park - S and J 01 (Gualala Point Regional Park)",
+        "credit": "Sarah and Jason",
+        "license": "CC BY-SA 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Gualala_Point_Regional_Park_-_S_and_J_01.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -1470,7 +1537,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/stillwater-cove-regional-park.jpg",
+        "alt": "Stillwater Cove 1 (Stillwater Cove Regional Park)",
+        "credit": "David R. Ingham",
+        "license": "CC BY-SA 3.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Stillwater_Cove_1.jpg",
+        "license_url": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -1830,7 +1904,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/sugarloaf-ridge-state-park.jpg",
+        "alt": "Winter in Sugarloaf Ridge State Park - 6422714693 (Sugarloaf Ridge State Park)",
+        "credit": "David Berry",
+        "license": "CC BY 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Winter_in_Sugarloaf_Ridge_State_Park_-_6422714693.jpg",
+        "license_url": "https://creativecommons.org/licenses/by/2.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -1860,7 +1941,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/jack-london-state-historic-park.jpg",
+        "alt": "Cactus patch with Sherry Barn, Manure Pi, and Stallion Barn - Jack London State Historic Park - DSC03822 (Jack London State Historic Park)",
+        "credit": "Daderot",
+        "license": "CC0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Cactus_patch_with_Sherry_Barn,_Manure_Pi,_and_Stallion_Barn_-_Jack_London_State_Historic_Park_-_DSC03822.JPG",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -1890,7 +1978,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/armstrong-redwoods-state-natural-reserve.jpg",
+        "alt": "Armstrong Redwoods State Natural Reserve 7-2022 (Armstrong Redwoods State Natural Reserve)",
+        "credit": "Christian Collins",
+        "license": "CC BY-SA 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Armstrong_Redwoods_State_Natural_Reserve_7-2022.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -1920,7 +2015,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/austin-creek-state-recreation-area.jpg",
+        "alt": "Austin Creek State Park (Austin Creek State Recreation Area)",
+        "credit": "ben klocek",
+        "license": "CC BY 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Austin_Creek_State_Park_(2714122297).jpg",
+        "license_url": "https://creativecommons.org/licenses/by/2.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -1950,7 +2052,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/sonoma-coast-state-park.jpg",
+        "alt": "Kortum Trail Wooden Walkway (Sonoma Coast State Park)",
+        "credit": "Thewellman",
+        "license": "CC0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Kortum_Trail_Wooden_Walkway.jpg",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -1980,7 +2089,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/fort-ross-state-historic-park.jpg",
+        "alt": "Fort Rose Historic (Fort Ross State Historic Park)",
+        "credit": "Happy Country Girl",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Rose_Historic.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -2010,7 +2126,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/salt-point-state-park.jpg",
+        "alt": "Sonoma Coast (Salt Point State Park)",
+        "credit": "Andrew Kearns",
+        "license": "CC BY 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Sonoma_Coast_(55031348491).jpg",
+        "license_url": "https://creativecommons.org/licenses/by/4.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -2040,7 +2163,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/china-camp-state-park.jpg",
+        "alt": "Bay view from China Camp Park (China Camp State Park)",
+        "credit": "Kevin Collins",
+        "license": "CC BY 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bay_view_from_China_Camp_Park.jpg",
+        "license_url": "https://creativecommons.org/licenses/by/2.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -2070,7 +2200,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/samuel-p-taylor-state-park.jpg",
+        "alt": "Looking north from Barnabe Fire Road in Samuel P Taylor Park (Samuel P. Taylor State Park)",
+        "credit": "Miguel.v",
+        "license": "Public domain",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Looking_north_from_Barnabe_Fire_Road_in_Samuel_P_Taylor_Park.jpg",
+        "license_url": null
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -2160,7 +2297,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/robert-louis-stevenson-state-park.jpg",
+        "alt": "Top of Mount Saint Helena (Robert Louis Stevenson State Park)",
+        "credit": "Ben Elo",
+        "license": "CC BY-SA 3.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Top_of_Mount_Saint_Helena.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -2190,7 +2334,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/angel-island-state-park.jpg",
+        "alt": "Angel Island - 20170826032114 (Angel Island State Park)",
+        "credit": "Slaporte",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Angel_Island_-_20170826032114.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -2250,7 +2401,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/mount-diablo-state-park.jpg",
+        "alt": "Aerial view of northwest foothills of Mount Diablo, October 2020 (Mount Diablo State Park)",
+        "credit": "Pi.1415926535",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_northwest_foothills_of_Mount_Diablo,_October_2020.JPG",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -2280,7 +2438,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/henry-w-coe-state-park.jpg",
+        "alt": "2011-12-04 Morgan Hill, Henry W. Coe State Wilderness Park 003 (Henry W. Coe State Park)",
+        "credit": "Allie_Caulfield",
+        "license": "CC BY 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:2011-12-04_Morgan_Hill,_Henry_W._Coe_State_Wilderness_Park_003_(6492982235).jpg",
+        "license_url": "https://creativecommons.org/licenses/by/2.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -2310,7 +2475,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/candlestick-point-state-recreation-area.jpg",
+        "alt": "Candlestick Point State Recreation Area (5873) (Candlestick Point State Recreation Area)",
+        "credit": "Gregory Varnum",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Candlestick_Point_State_Recreation_Area_(5873).jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -2340,7 +2512,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/wilder-ranch-state-park.jpg",
+        "alt": "Wilder Ranch pano (Wilder Ranch State Park)",
+        "credit": "RobtA",
+        "license": "CC BY-SA 3.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Wilder_Ranch_pano.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -2400,7 +2579,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/natural-bridges-state-beach.jpg",
+        "alt": "2025-08-11 15 04 12 The beach at Natural Bridges State Beach in Santa Cruz, Santa Cruz County, California (Natural Bridges State Beach)",
+        "credit": "Famartin",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:2025-08-11_15_04_12_The_beach_at_Natural_Bridges_State_Beach_in_Santa_Cruz,_Santa_Cruz_County,_California.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -2430,7 +2616,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/lighthouse-field-state-beach.jpg",
+        "alt": "Lighthouse Field State Beach (Lighthouse Field State Beach)",
+        "credit": "Don DeBold",
+        "license": "CC BY 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Lighthouse_Field_State_Beach_(8321935277).jpg",
+        "license_url": "https://creativecommons.org/licenses/by/2.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -2460,7 +2653,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/twin-lakes-state-beach.jpg",
+        "alt": "Lifeguard Towers by Santa Cruz Harbor (Twin Lakes State Beach)",
+        "credit": "Don DeBold",
+        "license": "CC BY 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Lifeguard_Towers_by_Santa_Cruz_Harbor_(6868334301).jpg",
+        "license_url": "https://creativecommons.org/licenses/by/2.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -2490,7 +2690,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/new-brighton-state-beach.jpg",
+        "alt": "New Brighton State Beach (New Brighton State Beach)",
+        "credit": "Richard Masoner",
+        "license": "CC BY-SA 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:New_Brighton_State_Beach.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -2520,7 +2727,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/seacliff-state-beach.jpg",
+        "alt": "Sitting on a log at Seacliff State Beach (Seacliff State Beach)",
+        "credit": "Don DeBold",
+        "license": "CC BY 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Sitting_on_a_log_at_Seacliff_State_Beach_(11812412896).jpg",
+        "license_url": "https://creativecommons.org/licenses/by/2.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -2550,7 +2764,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/manresa-state-beach.jpg",
+        "alt": "Manresa State Beach at sundown. (Manresa State Beach)",
+        "credit": "Dg251273",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Manresa_State_Beach_at_sundown..jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -2580,7 +2801,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/sunset-state-beach.jpg",
+        "alt": "Sunset State Beach (Sunset State Beach)",
+        "credit": "Davide D'Amico",
+        "license": "CC BY-SA 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Sunset_State_Beach_(19874705845).jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -2610,7 +2838,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/forest-of-nisene-marks-state-park.jpg",
+        "alt": "Aptos Creek Fire Road - 29310891142 (The Forest of Nisene Marks State Park)",
+        "credit": "Sandip Bhattacharya",
+        "license": "CC BY 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Aptos_Creek_Fire_Road_-_29310891142.jpg",
+        "license_url": "https://creativecommons.org/licenses/by/2.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -2640,7 +2875,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/big-basin-redwoods-state-park.jpg",
+        "alt": "Berry Creek Falls Long exposure (Big Basin Redwoods State Park)",
+        "credit": "Amatula11",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Berry_Creek_Falls_Long_exposure.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -2670,7 +2912,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/castle-rock-state-park.jpg",
+        "alt": "Castle Rock Regional Park - panoramio (Castle Rock State Park)",
+        "credit": "Doug Olson",
+        "license": "CC BY-SA 3.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Castle_Rock_Regional_Park_-_panoramio.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -2730,7 +2979,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/ano-nuevo-state-park.jpg",
+        "alt": "Año Nuevo State Park, Pacific Coast, California, USA - 52477539029 (Año Nuevo State Park)",
+        "credit": "dconvertini",
+        "license": "CC BY-SA 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:A%C3%B1o_Nuevo_State_Park,_Pacific_Coast,_California,_USA_-_52477539029.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -2760,7 +3016,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/portola-redwoods-state-park.jpg",
+        "alt": "Portola Redwoods State Park in March 2020 (Portola Redwoods State Park)",
+        "credit": "Silencetheshadows",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Portola_Redwoods_State_Park_in_March_2020.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -2790,7 +3053,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/half-moon-bay-state-beach.jpg",
+        "alt": "Half Moon Bay State Beach 1 2018-07-09 (Half Moon Bay State Beach)",
+        "credit": "FASTILY",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Half_Moon_Bay_State_Beach_1_2018-07-09.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -2820,7 +3090,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/san-gregorio-state-beach.jpg",
+        "alt": "San Gregorio State Beach 9-12-17 ^pacificcoast - Flickr - Sharon Mollerus (San Gregorio State Beach)",
+        "credit": "Sharon Mollerus",
+        "license": "CC BY 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:San_Gregorio_State_Beach_9-12-17_%5Epacificcoast_-_Flickr_-_Sharon_Mollerus.jpg",
+        "license_url": "https://creativecommons.org/licenses/by/2.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -2850,7 +3127,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/pomponio-state-beach.jpg",
+        "alt": "Pomponio State Beach 1 2020-03-15 (Pomponio State Beach)",
+        "credit": "FASTILY",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Pomponio_State_Beach_1_2020-03-15.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -2880,7 +3164,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/thornton-state-beach.jpg",
+        "alt": "Thornton State Beach and San Francisco aerial (Thornton State Beach)",
+        "credit": "Dicklyon",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Thornton_State_Beach_and_San_Francisco_aerial.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -3180,7 +3471,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/rockville-hills-regional-park.jpg",
+        "alt": "Rockville Hills Regional Park Bridge (Rockville Hills Regional Park)",
+        "credit": "Eugene Kim",
+        "license": "CC BY 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Rockville_Hills_Regional_Park_Bridge.jpg",
+        "license_url": "https://creativecommons.org/licenses/by/2.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -3210,7 +3508,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/lake-sonoma-recreation-area.jpg",
+        "alt": "View from Lake Sonoma Overlook 2019-09-22 (Lake Sonoma Recreation Area)",
+        "credit": "Alexey Komarov",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:View_from_Lake_Sonoma_Overlook_2019-09-22.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -3240,7 +3545,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/lake-del-valle.jpg",
+        "alt": "Del Valle Regional Park Panorama (Lake Del Valle Regional Recreation Area)",
+        "credit": "Images by John 'K'",
+        "license": "CC BY-SA 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Del_Valle_Regional_Park_Panorama.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -3270,7 +3582,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/brushy-peak.jpg",
+        "alt": "Brushy Peak Regional Preserve 01 (Brushy Peak Regional Preserve)",
+        "credit": "Mx. Granger",
+        "license": "CC0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Brushy_Peak_Regional_Preserve_01.jpg",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -3300,7 +3619,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/shadow-cliffs.jpg",
+        "alt": "Shadow Cliffs Regional Recreation Area 1 (Shadow Cliffs Regional Recreation Area)",
+        "credit": "Mx. Granger",
+        "license": "CC0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Shadow_Cliffs_Regional_Recreation_Area_1.jpg",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -3450,7 +3776,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/quarry-lakes-regional-recreation-area.jpg",
+        "alt": "A sun rising (Quarry Lakes Regional Recreation Area)",
+        "credit": "bluesbby",
+        "license": "CC BY 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:A_sun_rising_(24411335287).jpg",
+        "license_url": "https://creativecommons.org/licenses/by/2.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-15T00:00:00.000Z",
       "updated_at": "2026-11-15T00:00:00.000Z"
@@ -4081,7 +4414,25 @@
       "parking_notes": null,
       "typical_duration_minutes": null,
       "photo": null,
-      "dog_trails": null,
+      "dog_trails": {
+        "trails": [
+          {
+            "name": "Chicken Shack Fire Road",
+            "miles": 3.2,
+            "dog_note": "The county's preserve page gives the length. Dogs may be off leash on fire roads only if kept under voice control."
+          }
+        ],
+        "park_wide": [
+          "Dogs must be leashed on signed trails and may be off leash on fire roads only under voice control, with a leash readily available."
+        ],
+        "sources": [
+          {
+            "label": "Marin County Parks: Pacheco Valle",
+            "url": "https://www.parks.marincounty.gov/parkspreserves/preserves/pacheco-valle"
+          }
+        ],
+        "verified_on": "2026-11-16"
+      },
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
     },
@@ -4290,7 +4641,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/mount-burdell.jpg",
+        "alt": "Mount Burdell (Mount Burdell Open Space Preserve)",
+        "credit": "Mx. Granger",
+        "license": "CC0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Mount_Burdell.jpg",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -4440,7 +4798,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/rush-creek-preserve.jpg",
+        "alt": "Dead tree at Rush Creek Open Space Preserve, Novato (Rush Creek Open Space Preserve)",
+        "credit": "Frank Schulenburg",
+        "license": "CC BY-SA 3.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Dead_tree_at_Rush_Creek_Open_Space_Preserve,_Novato.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -4530,7 +4895,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/bolinas-lagoon.jpg",
+        "alt": "Coyote - Bolinas Lagoon (Bolinas Lagoon Open Space Preserve)",
+        "credit": "Nathan Forget",
+        "license": "CC BY 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Coyote_-_Bolinas_Lagoon_(10979527416).jpg",
+        "license_url": "https://creativecommons.org/licenses/by/2.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -4560,7 +4932,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/bothin-marsh.jpg",
+        "alt": "Bothin Marsh (Bothin Marsh Open Space Preserve)",
+        "credit": "Fabrice Florin",
+        "license": "CC BY-SA 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bothin_Marsh.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -4710,7 +5089,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/agate-beach-park.jpg",
+        "alt": "Agate Beach Marin County California (Agate Beach County Park)",
+        "credit": "Kognos",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Agate_Beach_Marin_County_California.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -4770,7 +5156,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/mcnears-beach-park.jpg",
+        "alt": "Beach and pier at McNears Beach Park (McNears Beach Park)",
+        "credit": "Mx. Granger",
+        "license": "CC0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Beach_and_pier_at_McNears_Beach_Park.jpg",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -4950,7 +5343,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/lake-lagunitas.jpg",
+        "alt": "Lake Lagunitas, on Mt. Tamalpais's northern slope. - panoramio (Lake Lagunitas)",
+        "credit": "Richard Wood",
+        "license": "CC BY-SA 3.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Lake_Lagunitas,_on_Mt._Tamalpais%27s_northern_slope._-_panoramio.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -4980,7 +5380,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/bon-tempe-lake.jpg",
+        "alt": "View of Bon Tempe Lake and surrounding landscape from Mount Tamalpais East Peak (Bon Tempe Lake)",
+        "credit": "Chris Koerner",
+        "license": "CC BY-SA 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:View_of_Bon_Tempe_Lake_and_surrounding_landscape_from_Mount_Tamalpais_East_Peak.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -5100,7 +5507,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/limantour-beach.jpg",
+        "alt": "Limantour Beach 03 (Limantour Beach)",
+        "credit": "Kognos",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Limantour_Beach_03.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -5130,7 +5544,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/point-reyes-great-beach.jpg",
+        "alt": "Point Reyes Lighthouse Trail December 2016 004 (Point Reyes (Great) Beach)",
+        "credit": "King of Hearts",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Point_Reyes_Lighthouse_Trail_December_2016_004.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -5190,7 +5611,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/rodeo-beach.jpg",
+        "alt": "Marin Headlands with Rodeo Beach (Rodeo Beach)",
+        "credit": "Brocken Inaglory",
+        "license": "Public domain",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Marin_Headlands_with_Rodeo_Beach.jpg",
+        "license_url": null
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -5220,7 +5648,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/stinson-beach.jpg",
+        "alt": "Stinson Beach Panorama - California (Stinson Beach)",
+        "credit": "JanLauserPhotography",
+        "license": "CC BY 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Stinson_Beach_Panorama_-_California.jpg",
+        "license_url": "https://creativecommons.org/licenses/by/2.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -5310,7 +5745,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/olompali-state-historic-park.jpg",
+        "alt": "Olompali State Historic Park, Novato, California (Olompali State Historic Park)",
+        "credit": "Sarah Stierch",
+        "license": "CC BY 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Olompali_State_Historic_Park,_Novato,_California_(26795738864).jpg",
+        "license_url": "https://creativecommons.org/licenses/by/2.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -5400,7 +5842,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/sonoma-state-historic-park.jpg",
+        "alt": "Sonoma State Historic Park - November 2024 - Sarah Stierch 02 (Sonoma State Historic Park)",
+        "credit": "Missvain",
+        "license": "CC0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Sonoma_State_Historic_Park_-_November_2024_-_Sarah_Stierch_02.jpg",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -5790,7 +6239,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/black-diamond-mines-regional-preserve.jpg",
+        "alt": "Black Diamond Mines Regional Preserve panorama (Black Diamond Mines Regional Preserve)",
+        "credit": "Bcrawf123",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Black_Diamond_Mines_Regional_Preserve_panorama.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -5880,7 +6336,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/diablo-foothills-regional-park.jpg",
+        "alt": "Diablo Foothills Regional Park (East Bay Regional Park District) - panoramio (2) (Diablo Foothills Regional Park)",
+        "credit": "MARELBU",
+        "license": "CC BY 3.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Diablo_Foothills_Regional_Park_(East_Bay_Regional_Park_District)_-_panoramio_(2).jpg",
+        "license_url": "https://creativecommons.org/licenses/by/3.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -5940,7 +6403,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/miller-knox-regional-shoreline.jpg",
+        "alt": "View from Miller-Knox Regional Shoreline 1 (Miller/Knox Regional Shoreline)",
+        "credit": "Mx. Granger",
+        "license": "CC0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:View_from_Miller-Knox_Regional_Shoreline_1.jpg",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -6090,7 +6560,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/wildcat-canyon-regional-park.jpg",
+        "alt": "WildCat Canyon View of Sunset (Wildcat Canyon Regional Park)",
+        "credit": "Shelly Prevost",
+        "license": "CC BY 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:WildCat_Canyon_View_of_Sunset.jpg",
+        "license_url": "https://creativecommons.org/licenses/by/2.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -6150,7 +6627,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/brooks-island-regional-preserve.jpg",
+        "alt": "The full-time caretaker's residence on Brooks Island (Brooks Island Regional Preserve)",
+        "credit": "Cziltang Brone",
+        "license": "CC0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:The_full-time_caretaker%27s_residence_on_Brooks_Island.jpg",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -6180,7 +6664,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/john-muir-national-historic-site.jpg",
+        "alt": "USA-Martinez-John Muir Estate-Agricultural Machine-1 (John Muir National Historic Site)",
+        "credit": "Eugene Zelenko",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:USA-Martinez-John_Muir_Estate-Agricultural_Machine-1.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -6240,7 +6731,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/lafayette-reservoir.jpg",
+        "alt": "Lafayette Reservoir (Lafayette Reservoir Recreation Area)",
+        "credit": "Unknown author (see Commons page)",
+        "license": "Public domain",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Lafayette_Reservoir.JPG",
+        "license_url": null
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -6300,7 +6798,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/lake-chabot-regional-park.jpg",
+        "alt": "Lake Chabot Regional Park 3 (Lake Chabot Regional Park)",
+        "credit": "Oleg Alexandrov",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Lake_Chabot_Regional_Park_3.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -6360,7 +6865,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/five-canyons-open-space.jpg",
+        "alt": "Diablo Range north from Five Canyons (Five Canyons Open Space)",
+        "credit": "Lights and freedom",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Diablo_Range_north_from_Five_Canyons.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -6600,7 +7112,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/huckleberry-botanic-regional-preserve.jpg",
+        "alt": "Mature Umbellularia californica Huckleberry Preserve 17 (Huckleberry Botanic Regional Preserve)",
+        "credit": "Awinch1001",
+        "license": "CC BY 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Mature_Umbellularia_californica_Huckleberry_Preserve_17.jpg",
+        "license_url": "https://creativecommons.org/licenses/by/4.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -6660,7 +7179,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/ardenwood-historic-farm.jpg",
+        "alt": "Ardenwood and Patterson House, Fremont (2015-07-25 12.39.36 by Emily Ramos) (Ardenwood Historic Farm)",
+        "credit": "Emily Ramos",
+        "license": "CC BY 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Ardenwood_and_Patterson_House,_Fremont_(2015-07-25_12.39.36_by_Emily_Ramos).jpg",
+        "license_url": "https://creativecommons.org/licenses/by/2.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -6750,7 +7276,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/coyote-point-recreation-area.jpg",
+        "alt": "Bay Trail - San Mateo (Coyote Point Recreation Area)",
+        "credit": "Sandip Bhattacharya",
+        "license": "CC BY 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bay_Trail_-_San_Mateo_(24471789353).jpg",
+        "license_url": "https://creativecommons.org/licenses/by/2.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -6900,7 +7433,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/huddart-park.jpg",
+        "alt": "Huddart park to Crystal Spring trail (1) (Huddart Park)",
+        "credit": "Suiren2022",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Huddart_park_to_Crystal_Spring_trail_(1).jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -6930,7 +7470,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/wunderlich-park.jpg",
+        "alt": "Meadow Trail Wunderlich Park (Wunderlich Park)",
+        "credit": "Brian Sterling",
+        "license": "CC BY-SA 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Meadow_Trail_Wunderlich_Park.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -7050,7 +7597,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/san-bruno-mountain-county-park.jpg",
+        "alt": "Aerial view of San Bruno Mountain (San Bruno Mountain County Park)",
+        "credit": "Derrick Coetzee (User:Dcoetzee)",
+        "license": "CC0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_San_Bruno_Mountain.jpg",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -7080,7 +7634,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/thornewood.jpg",
+        "alt": "Thornewood Open Space Preserve bridge (Thornewood Open Space Preserve)",
+        "credit": "Runner1928",
+        "license": "CC BY-SA 3.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Thornewood_Open_Space_Preserve_bridge.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -7170,7 +7731,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/fremont-older.jpg",
+        "alt": "Panorama from Hunter's Point, Cupertino (Fremont Older Open Space Preserve)",
+        "credit": "Minyoung Choi",
+        "license": "CC BY-SA 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Panorama_from_Hunter%27s_Point,_Cupertino_(9072411051).jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -7261,7 +7829,30 @@
       "parking_notes": null,
       "typical_duration_minutes": null,
       "photo": null,
-      "dog_trails": null,
+      "dog_trails": {
+        "trails": [
+          {
+            "name": "Grasshopper Loop Trail",
+            "miles": 1.3,
+            "dog_note": "Midpen's preserve page: dogs on leash allowed except during calving season, August 1 to December 15."
+          }
+        ],
+        "park_wide": [
+          "Dogs are allowed only on the Grasshopper Loop Trail, which is closed to dogs from August 1 to about December 15.",
+          "The Cielo and Coho Vista trails require a permit."
+        ],
+        "sources": [
+          {
+            "label": "Midpen: La Honda Creek",
+            "url": "https://www.openspace.org/preserves/la-honda-creek"
+          },
+          {
+            "label": "Midpen: dogs",
+            "url": "https://www.openspace.org/dogs"
+          }
+        ],
+        "verified_on": "2026-11-16"
+      },
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
     },
@@ -7290,8 +7881,35 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
-      "dog_trails": null,
+      "photo": {
+        "src": "/photos/long-ridge.jpg",
+        "alt": "Delightful Shade (Long Ridge Open Space Preserve)",
+        "credit": "J Doll",
+        "license": "CC BY 3.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Delightful_Shade_(140428109).jpeg",
+        "license_url": "https://creativecommons.org/licenses/by/3.0"
+      },
+      "dog_trails": {
+        "trails": [
+          {
+            "name": "Chestnut Trail",
+            "miles": null,
+            "dog_note": "Midpen's dog page lists it as the only trail in Long Ridge open to dogs on leash."
+          }
+        ],
+        "park_wide": ["Dogs are allowed only on the Chestnut Trail."],
+        "sources": [
+          {
+            "label": "Midpen: Long Ridge",
+            "url": "https://www.openspace.org/preserves/long-ridge"
+          },
+          {
+            "label": "Midpen: dogs",
+            "url": "https://www.openspace.org/dogs"
+          }
+        ],
+        "verified_on": "2026-11-16"
+      },
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
     },
@@ -7320,8 +7938,48 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
-      "dog_trails": null,
+      "photo": {
+        "src": "/photos/sierra-azul.jpg",
+        "alt": "Bald Mountain Trail, Sierra Azul Open Space Preserve April 2022 (Sierra Azul Open Space Preserve)",
+        "credit": "Thomson200",
+        "license": "CC0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bald_Mountain_Trail,_Sierra_Azul_Open_Space_Preserve_April_2022.jpg",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+      },
+      "dog_trails": {
+        "trails": [
+          {
+            "name": "Kennedy Trail",
+            "miles": null,
+            "dog_note": "Midpen's preserve page lists it among the trails where dogs are allowed on leash."
+          },
+          {
+            "name": "Priest Rock Trail",
+            "miles": null,
+            "dog_note": "Midpen's preserve page lists it among the trails where dogs are allowed on leash."
+          },
+          {
+            "name": "Limekiln Trail",
+            "miles": null,
+            "dog_note": "Midpen's preserve page lists it among the trails where dogs are allowed on leash."
+          }
+        ],
+        "park_wide": [
+          "The preserve page says dogs are allowed on leash on more than 12 miles of trail, including the Limekiln, Priest Rock and Kennedy trails.",
+          "Dogs are not allowed at Mount Umunhum (trail, summit, parking lots or road), including dogs in cars."
+        ],
+        "sources": [
+          {
+            "label": "Midpen: Sierra Azul",
+            "url": "https://www.openspace.org/preserves/sierra-azul"
+          },
+          {
+            "label": "Midpen: dogs",
+            "url": "https://www.openspace.org/dogs"
+          }
+        ],
+        "verified_on": "2026-11-16"
+      },
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
     },
@@ -7470,7 +8128,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/russian-ridge.jpg",
+        "alt": "Russian Ridge Sunset (Russian Ridge Open Space Preserve)",
+        "credit": "Romain Guy",
+        "license": "CC0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Russian_Ridge_Sunset_(4652283258).jpg",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -7500,7 +8165,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/los-trancos.jpg",
+        "alt": "Los Trancos Fence 2- San Andreas Fault (Los Trancos Open Space Preserve)",
+        "credit": "Toniher",
+        "license": "CC BY-SA 3.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Los_Trancos_Fence_2-_San_Andreas_Fault.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -7560,7 +8232,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/monte-bello.jpg",
+        "alt": "Monte Bello Open Space Preserve 2 (Monte Bello Open Space Preserve)",
+        "credit": "XanaG",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Monte_Bello_Open_Space_Preserve_2.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -7650,7 +8329,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/bear-creek-redwoods.jpg",
+        "alt": "Bear Creek Redwoods view (Bear Creek Redwoods Open Space Preserve)",
+        "credit": "Kimikel",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bear_Creek_Redwoods_view.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -7740,7 +8426,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/montara-state-beach.jpg",
+        "alt": "Point Montara Panorama (Montara State Beach)",
+        "credit": "AWBridges",
+        "license": "CC BY-SA 3.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Point_Montara_Panorama.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -7800,7 +8493,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/bean-hollow-state-beach.jpg",
+        "alt": "Bean Hollow State Beach fence (Bean Hollow State Beach)",
+        "credit": "Ray Bouknight",
+        "license": "CC BY 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bean_Hollow_State_Beach_fence.jpg",
+        "license_url": "https://creativecommons.org/licenses/by/2.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -7830,7 +8530,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/burleigh-h-murray-ranch.jpg",
+        "alt": "Mills Creek Barn (Burleigh H. Murray Ranch)",
+        "credit": "bgwashburn",
+        "license": "CC BY 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Mills_Creek_Barn.jpg",
+        "license_url": "https://creativecommons.org/licenses/by/2.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -7890,8 +8597,28 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
-      "dog_trails": null,
+      "photo": {
+        "src": "/photos/almaden-quicksilver-county-park.jpg",
+        "alt": "Almaden Quicksilver County Park 1 2021-05-29 (Almaden Quicksilver County Park)",
+        "credit": "FASTILY",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Almaden_Quicksilver_County_Park_1_2021-05-29.jpeg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
+      "dog_trails": {
+        "trails": [],
+        "park_wide": [
+          "The park page says all trails in the park are open to dogs on leash.",
+          "The park has over 37 miles of hiking trails, including 30 miles of equestrian trails and 16.6 miles of bike trails. That is all trails; the page does not give a separate dog total."
+        ],
+        "sources": [
+          {
+            "label": "Santa Clara County Parks: Almaden Quicksilver",
+            "url": "https://parks.santaclaracounty.gov/locations/almaden-quicksilver-county-park"
+          }
+        ],
+        "verified_on": "2026-11-16"
+      },
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
     },
@@ -7920,8 +8647,33 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
-      "dog_trails": null,
+      "photo": {
+        "src": "/photos/calero-county-park.jpg",
+        "alt": "Calero County Park 1 2017-11-02 (Calero County Park)",
+        "credit": "FASTILY",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Calero_County_Park_1_2017-11-02.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
+      "dog_trails": {
+        "trails": [
+          {
+            "name": "Bald Peaks Trail",
+            "miles": null,
+            "dog_note": "The park page says dogs on leash are allowed on Bald Peaks Trail and all trails north of it."
+          }
+        ],
+        "park_wide": [
+          "The back country has 18.9 miles of trails for hikers and equestrians. That is all trails, not only ones open to dogs."
+        ],
+        "sources": [
+          {
+            "label": "Santa Clara County Parks: Calero",
+            "url": "https://parks.santaclaracounty.gov/locations/calero-county-park"
+          }
+        ],
+        "verified_on": "2026-11-16"
+      },
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
     },
@@ -7950,7 +8702,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/chesbro-reservoir-county-park.jpg",
+        "alt": "Cañada Garcia Creek (Chesbro Reservoir County Park)",
+        "credit": "Wahn",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Ca%C3%B1ada_Garcia_Creek.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -8040,8 +8799,28 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
-      "dog_trails": null,
+      "photo": {
+        "src": "/photos/joseph-d-grant-county-park.jpg",
+        "alt": "Panoramic View of Hall's Valley from Mano Seca Cowpie bench (Joseph D. Grant County Park)",
+        "credit": "BenBench",
+        "license": "CC BY-SA 3.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Panoramic_View_of_Hall%27s_Valley_from_Mano_Seca_Cowpie_bench.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
+      "dog_trails": {
+        "trails": [],
+        "park_wide": [
+          "The park page says dogs on a 6 ft. leash are allowed on the trails, picnic areas and campgrounds.",
+          "The park has a 51-mile trail system for hikers and equestrians. That is all trails, not only ones open to dogs."
+        ],
+        "sources": [
+          {
+            "label": "Santa Clara County Parks: Joseph D. Grant",
+            "url": "https://parks.santaclaracounty.gov/locations/joseph-d-grant-county-park"
+          }
+        ],
+        "verified_on": "2026-11-16"
+      },
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
     },
@@ -8070,7 +8849,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/lexington-reservoir-county-park.jpg",
+        "alt": "Lexington Reservoice (Lexington Reservoir County Park)",
+        "credit": "Rammenon1999",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Lexington_Reservoice.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -8101,7 +8887,20 @@
       "parking_notes": null,
       "typical_duration_minutes": null,
       "photo": null,
-      "dog_trails": null,
+      "dog_trails": {
+        "trails": [],
+        "park_wide": [
+          "The park page says dogs on 6-foot leashes are welcome on the trails.",
+          "The paved trails extend over 3 miles."
+        ],
+        "sources": [
+          {
+            "label": "Santa Clara County Parks: Martial Cottle Park",
+            "url": "https://parks.santaclaracounty.gov/locations/martial-cottle-park"
+          }
+        ],
+        "verified_on": "2026-11-16"
+      },
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
     },
@@ -8310,7 +9109,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/uvas-reservoir-county-park.jpg",
+        "alt": "Uvas Reservoir (Uvas Reservoir County Park)",
+        "credit": "Michael",
+        "license": "CC BY 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Uvas_Reservoir.jpg",
+        "license_url": "https://creativecommons.org/licenses/by/2.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -8490,7 +9296,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/alviso-marina-county-park.jpg",
+        "alt": "Alviso Marina County Park View At Sunset (Alviso Marina County Park)",
+        "credit": "Wanderenvy",
+        "license": "CC BY-SA 3.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Alviso_Marina_County_Park_View_At_Sunset.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
@@ -8550,7 +9363,14 @@
       "shade_level": null,
       "parking_notes": null,
       "typical_duration_minutes": null,
-      "photo": null,
+      "photo": {
+        "src": "/photos/rancho-san-antonio-county-park.jpg",
+        "alt": "Meadow in Rancho San Antonio County Park (Rancho San Antonio County Park)",
+        "credit": "Ixfd64",
+        "license": "CC BY-SA 3.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Meadow_in_Rancho_San_Antonio_County_Park.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
       "dog_trails": null,
       "created_at": "2026-11-16T00:00:00.000Z",
       "updated_at": "2026-11-16T00:00:00.000Z"
