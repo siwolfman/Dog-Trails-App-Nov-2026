@@ -63,11 +63,23 @@ Pillar Point Bluff moved from Unverified to **Leash required**: the county's cur
 
 Five county parks (Huddart, Wunderlich, Sam McDonald, Memorial and Edgewood) are shown as **No dogs** because the county says dogs are allowed only at the parks and trails on its list. Their own park pages do not mention dogs, so each carries a note saying so. Memorial Park also has dog camping at Huckleberry Flat, noted in its summary.
 
+## Added in batch 5 (Santa Clara County and San Jose)
+
+| Area               | Agency                                  | Source read                                                                                         | Places                                                                             |
+| ------------------ | --------------------------------------- | --------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| Santa Clara County | Santa Clara County Parks                | The county's "Dogs in County parks" page and each park's own page (its activity list and dog notes) | 24 parks (17 on leash, 3 with fenced off-leash dog areas, 1 no dogs, 3 Unverified) |
+| San Jose area      | Santa Clara Valley Open Space Authority | Each preserve's page ("dogs and drones are not permitted")                                          | 4 preserves, all no dogs                                                           |
+| San Jose           | City of San José                        | Alum Rock Park page ("Dogs are not allowed")                                                        | 1                                                                                  |
+
+Hellyer, Los Gatos Creek and Ed R. Levin are shown as **Off-leash zones**: each has a fenced off-leash dog area and requires a leash everywhere else.
+Anderson Lake, Rancho San Antonio County Park and Sunnyvale Baylands are **Unverified**, because their county pages do not mention dogs.
+
 ## Shown as Unverified (official page could not be read automatically)
 
 - **Lagoon Valley Regional Park** (Vacaville) and **Rockville Hills Regional Park** (Fairfield): the city pages returned an error to automated access.
 - **Lake Sonoma Recreation Area** (Geyserville): the Army Corps of Engineers page returned an error.
 - **Berryessa Peak Trail** (Napa): the district's page does not say whether dogs are allowed.
+- **Anderson Lake County Park**, **Rancho San Antonio County Park** and **Sunnyvale Baylands Park** (Santa Clara): the county's pages do not mention dogs.
 - Still Unverified from before: Mount Tamalpais State Park (the state's own pages disagree about trails).
 
 ## How to read the rules
@@ -80,7 +92,7 @@ Five county parks (Huddart, Wunderlich, Sam McDonald, Memorial and Edgewood) are
 
 ## Still to do
 
-EBRPD parks that do not list dogs (see batch 3), EBMUD trails (permit required), Sweeney Ridge, Milagra Ridge and the SFPUC watershed trails (no readable official page), Santa Clara County Parks, San Jose, the remaining Santa Cruz County and city of Santa Cruz parks, Solano County parks
+EBRPD parks that do not list dogs (see batch 3), EBMUD trails (permit required), Sweeney Ridge, Milagra Ridge and the SFPUC watershed trails (no readable official page), San Jose city trails, Santa Clara Valley Water trails, the remaining Santa Cruz County and city of Santa Cruz parks, Solano County parks
 (Lake Solano), Sonoma land trust preserves, and the Marin Headlands trails (the park's own pages were unavailable).
 Places that could not be pinned reliably yet: Quail Hollow Ranch, Pinnacle Gulch trail, Cedar Mountain Ridge (batch 1), Upton Beach,
 the Napa River and Bay Trail and Berryessa Vista Wilderness Park (batch 2), and Stevens Creek Shoreline Nature Area (batch 4). Photos and trail facts have not been added for the new

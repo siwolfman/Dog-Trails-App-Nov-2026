@@ -62,6 +62,19 @@ describe('coverage area', () => {
     expect(bySlug.get('pillar-point-bluff')?.verification_status).toBe('verified')
   })
 
+  test('Santa Clara County and San Jose are covered (batch 5)', () => {
+    for (const slug of [
+      'almaden-quicksilver-county-park',
+      'alum-rock-park',
+      'hellyer-county-park',
+    ]) {
+      expect(bySlug.has(slug), slug).toBe(true)
+    }
+    // Open Space Authority preserves do not allow dogs.
+    expect(bySlug.get('coyote-valley-open-space-preserve')?.dog_status).toBe('no_dogs')
+    expect(bySlug.get('ed-r-levin-county-park')?.dog_status).toBe('off_leash_zones')
+  })
+
   test('places are assigned to the region of their county and area', () => {
     const region = (slug: string) => bySlug.get(slug)?.region
     expect(region('riverfront-regional-park')).toBe('north_bay') // Sonoma
